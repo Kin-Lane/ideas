@@ -21,7 +21,7 @@ function listIdeas()
     {
     $.getJSON('data/ideas.json', function(data) {
         toggle = 0;
-         $.each(data['company'], function(key, val) {
+         $.each(data['ideas'], function(key, val) {
             var template = $('#ideasListingTemplate').html();
             var html = Mustache.to_html(template, val);
             $('#ideasListing').append(html);                          
