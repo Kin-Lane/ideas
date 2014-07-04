@@ -1,0 +1,21 @@
+{
+    "sponsors": [
+       {
+            "title": "3Scale",
+            "tagline": "API Management",
+            "url": "http://bit.ly/13esk6Q",
+            "logo": "http://kinlane-productions.s3.amazonaws.com/api-service-providers/3scale-logo.jpg",
+            "width": "200",
+             "paddingbottom": "10"
+        },                                                           
+        {
+            "title": "Restlet",
+            "tagline": "Comprehensive solution for all your RESTful web API needs.",
+            "url": "http://bit.ly/1sgwGpq",
+            "logo": "https://s3.amazonaws.com/kinlane-productions/api-service-providers/api-spark/Logo-Restlet-Horizontal-800x225.png",
+            "width": "200",
+             "paddingbottom": "10"
+        }        
+               
+    ]
+}

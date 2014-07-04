@@ -1,0 +1,25 @@
+title : Screen Capture API
+
+markdown: kramdown
+
+safe: true
+lsi: false
+pygments: true
+auto: true
+
+source: screen-capture-api
+destination: screen-capture-api
+
+permalink: /:categories/:year/:month/:day/:title 
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+
+paginate: 1000
+paginate_path: "/blog/page:num"
+
+production_url : http://screen-capture.apievangelist.com
+
+BASE_PATH : http://screen-capture.apievangelist.com
+
+archive_path: /archive.html
+categories_path : /categories.html
+tags_path : /tags.html

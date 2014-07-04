@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Service Composition for My Screen Capture API"
+url: 'http://screen-capture.apievangelist.com//2014/04/14/service_composition_for_my_screen_capture_api/'
+image: 'https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-composer.png'
+---
+
+
+<p><img style="padding: 15px;" src="https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-composer.png" alt="" width="250" align="right" /></p>
+<p>I now have a pretty simple <a href="http://screen-capture.apievangelist.com/">screen capture API</a>. You can pass it a URL and it gives you back a PNG image file of that website. Meeting my definition of a simple utility API. I use this API in my own platform, capturing what websites and applications look like for reference in stories, and other content.</p>
+<p>I want to make this valuable utility API available to a wider audience now. I need to compose some tiers of access to my screen capture API, that makes sense to my business goals and how it will be consumed by a variety of users. So far I&rsquo;ve come up with five levels of access to my API:</p>
+<ul>
+<li><strong>Private / Internal </strong>- This is where my API is consumer currently, internally my own systems. I need this tier to be unlimited use, no charge, but still tracking on how I am consuming the screen capture API so I can evaluate along with all my other service levels.</li>
+<li><strong>Private / Partner - </strong>I have partners who can make use of my screen capture API, I want to offer them special access to my resource, but I still want to track on how they are using the resource.</li>
+<li><strong>Public / Free -</strong> To help attract new developers to my screen capture API I want to make open to the public, all you have to do is sign up for a key, and you can make a certain amount of calls in an hour or day, I haven't decided how much yet.</li>
+<li><strong>Public / Retail - </strong>Once a user hits a certain amount of screen capture API calls I want to be able to charge a certain rate per call, allowing consumers to use as much as they want, but cover my operational costs, while making a little money on top.</li>
+<li><strong>Public / Wholesale -</strong> I also want to be able to sell wholesale instances of the API either deployed within my infrastructure or someone else&rsquo;s. A company might want access to the screen capture API as part of their stack, but do not have the time to deploy internally.</li>
+</ul>
+<p>That represents the five separate ways I want to allow access to my screen capture API. Now I can <a href="http://apievangelist.com/2014/04/12/moving-beyond-my-basic-3scale-api-infrastructure-plan/">configure my 3Scale API infrastructure</a>, define this exact service composition, and the API will handle the rest. When new users sign-up I will route them into one of these service tiers, and manage their access accordingly.</p>
+<p>After I get my API management layer configured, I will have to craft a pricing page to educate new users about what type of access is available. In addition to being a post on <a href="http://apievangelist.com">API Evangelist</a>, you can find the story of my <a href="http://screen-capture.apievangelist.com/">screen capture API over at the research project</a> I&rsquo;ve setup over on Github.</p>
+
