@@ -1,14 +1,14 @@
 ---
 layout: page
-title: Screen Capture API
+title: Ideas API
 ---
 <script type="text/javascript">
 
-    var $Path = '/definitions/apis.json';
+    var $Path = '/definitions/ideas/apis.json';
 
     $(function () {
         window.swaggerUi = new SwaggerUi({
-            url: "http://screen-capture.api.apievangelist.com" + $Path,
+            url: "http://ideas.api.apievangelist.com" + $Path,
             dom_id: "swagger-ui-container",
             supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
             onComplete: function(swaggerApi, swaggerUi){
@@ -34,7 +34,7 @@ title: Screen Capture API
 </script>  
 
 <h1>Ideas API</h1>
-<p>This is a working project for my API Ideas API that is hosted as a Github repository, and openly licensed for re-use.</p>
+<p>This is a working project for my API Ideas API, allowing the adding and listing of ideas for new APIs from existing sources (aka. Shadow API) that is hosted as a Github repository, and openly licensed for re-use.</p>
 <br />
 <div class="swagger-shell" style="width: 600px;"> 
     <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
