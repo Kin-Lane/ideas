@@ -1,4 +1,4 @@
-title : Screen Capture API
+title : Ideas API
 
 markdown: kramdown
 
@@ -7,8 +7,8 @@ lsi: false
 pygments: true
 auto: true
 
-source: screen-capture-api
-destination: screen-capture-api
+source: api-ideas
+destination: api-ideas
 
 permalink: /:categories/:year/:month/:day/:title 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
@@ -16,10 +16,9 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 1000
 paginate_path: "/blog/page:num"
 
-production_url : http://screen-capture.apievangelist.com
+production_url : http://ideas.apievangelist.com
 
-BASE_PATH : http://screen-capture.apievangelist.com
+BASE_PATH : http://ideas.apievangelist.com
 
-archive_path: /archive.html
 categories_path : /categories.html
 tags_path : /tags.html
