@@ -10,11 +10,6 @@
 		"name": "Great Images in NASA",
 		"description": "The Great Images in NASA has some great images, but there is no API. The records are fairly orderly, and easily scraped online.",
 		"tags": "Federal Government, Space, History"
-	},
-	{
-		"name": "test",
-		"description": "test",
-		"tags": "api-commons-manifest"
 	}],
 	"updated": "07/04/2014"
 }
