@@ -1,0 +1,21 @@
+{
+  "apis": [
+    {
+	  "name": "API Evangelist - API Ideas",
+	  "description": "This is an API for pulling, and submitting ideas for new APIs.",
+	  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
+      "tags": "api evangelist, api, ideas",
+      "license": "http://creativecommons.org/licenses/by-sa/3.0/deed.en_US",
+      "attribution": "API Evangelist",
+      "url": "http://ideas.apievangelist.com/api-commons-manifest.json",
+      "definitions": [
+        {
+          "type": "swagger",
+          "url": "http://ideas.api.apievangelist.com/definitions/ideas/Ideas"
+        }
+      ]
+    }
+  ],
+  "tags": "api-commons-manifest",
+  "updated": "07/09/2014"
+}
