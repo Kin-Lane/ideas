@@ -14,7 +14,7 @@
       "humanURL": "http://ideas.apievangelist.com/",
       "baseURL": "http://ideas.api.apievangelist.com/definitions/ideas/Ideas",
       "tags": "image, photo, filters, resize, crop",
-      "urls": [
+      "properties": [
         {
           "type": "signup",
           "url": "https://apievangelist.3scale.net/"
