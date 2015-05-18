@@ -1,0 +1,290 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "https://bitdango.com/api",
+  "resourcePath": "/marketpairs",
+  "produces": [
+    "application/json"
+  ],
+  "apis": [
+    {
+      "path": "/marketpairs",
+      "operations": [
+        {
+          "nickname": "marketpairs",
+          "method": "GET",
+          "summary": "Use this to search for market pairs. This is how you find arbitrage opportunities.",
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "<b>Success</b> Everything worked as expected."
+            },
+            {
+              "code": 401,
+              "message": "<b>FailedAuthentication</b> There was a problem validating the accessToken or signature you provided."
+            },
+            {
+              "code": 402,
+              "message": "<b>InsufficientFunds</b> You may get this error if your account is out of API credits. Keep a positive balance to prevent this error."
+            },
+            {
+              "code": 500,
+              "message": "<b>Error</b> Generic error message."
+            },
+            {
+              "code": 503,
+              "message": "<b>RequestThresholdBreached</b> You may get this error if you are making too many requests in a time period."
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": null,
+              "name": "Authorization",
+              "description": "<p>The access token for the user (<a href=\"http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html#authz-header\">format</a>: Bearer access_token).</p><p>Example: Bearer DI83JE3H8FEUIFJKWEKJ8E9383</p>",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "header",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "1",
+              "name": "page",
+              "description": "<ul>\r\n</ul>\r\n",
+              "required": false,
+              "type": "integer",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "10",
+              "name": "pageSize",
+              "description": "<ul>\r\n<li>Max Value: <span class=\"code\">10</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "integer",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "False",
+              "name": "includeTotalResults",
+              "description": "<ul>\r\n</ul>\r\n",
+              "required": false,
+              "type": "boolean",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "buyExchanges",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgox, btce</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "buyMarkets",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgoxBTCUSD, btceLTCUSD</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "buyBaseCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">BTC, LTC</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "buyQuoteCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">USD, CNY</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "sellExchanges",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgox, btce</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "sellMarkets",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgoxBTCUSD, btceLTCUSD</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "sellBaseCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">BTC, LTC</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "sellQuoteCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">USD, CNY</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "marketPairs",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">coinbaseBTCUSDmtgoxBTCEUR</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "facets",
+              "description": "<ul><li>Example: buyMarkets, buyBaseCurrencies, buyQuoteCurrencies, sellBaseCurrencies, sellQuoteCurrencies, sellMarkets</li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "expands",
+              "description": "<ul><li>Example: <span class=\"code\">orderbooks, profitCurve, tickers, trades</span></li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "notes": "<p>Use this to search for market pairs. This is how you find arbitrage opportunities.</p>\r\n<p>Authentication Level = 1 (\r\naccessToken header\r\n)</p>\r\n<h4>Facet Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">buyMarkets</td><td>Use this to get a facet of the Buy Markets.</td></tr>\r\n<tr><td class=\"code\">buyBaseCurrencies</td><td>Use this to get a facet of the Buy Base Currencies.</td></tr>\r\n<tr><td class=\"code\">buyQuoteCurrencies</td><td>Use this to get a facet of the Buy Quote Currencies.</td></tr>\r\n<tr><td class=\"code\">sellBaseCurrencies</td><td>Use this to get a facet of the Sell Base Currencies.</td></tr>\r\n<tr><td class=\"code\">sellQuoteCurrencies</td><td>Use this to get a facet of the Sell Quote Currencies.</td></tr>\r\n<tr><td class=\"code\">sellMarkets</td><td>Use this to get a facet of the Sell Markets.</td></tr>\r\n</tbody></table>\r\n<h4>Expand Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">orderbooks</td><td>Use this to return the order books for both markets in the market pair.</td></tr>\r\n<tr><td class=\"code\">profitCurve</td><td>Use this to include the profit at different traded amounts.</td></tr>\r\n<tr><td class=\"code\">tickers</td><td>Use this to include the tickers for markets.</td></tr>\r\n<tr><td class=\"code\">trades</td><td>Use this to include profitable trades that can be made.</td></tr>\r\n</tbody></table>\r\n",
+          "type": null
+        }
+      ]
+    },
+    {
+      "path": "/marketpairs",
+      "operations": []
+    },
+    {
+      "path": "/marketpairs/{marketPairCode}",
+      "operations": [
+        {
+          "nickname": "marketpairs",
+          "method": "GET",
+          "summary": "Use this get a specific market pair.",
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "<b>Success</b> Everything worked as expected."
+            },
+            {
+              "code": 401,
+              "message": "<b>FailedAuthentication</b> There was a problem validating the accessToken or signature you provided."
+            },
+            {
+              "code": 402,
+              "message": "<b>InsufficientFunds</b> You may get this error if your account is out of API credits. Keep a positive balance to prevent this error."
+            },
+            {
+              "code": 404,
+              "message": "<b>InvalidResource</b> The resource you requested doesn't exist."
+            },
+            {
+              "code": 500,
+              "message": "<b>Error</b> Generic error message."
+            },
+            {
+              "code": 503,
+              "message": "<b>RequestThresholdBreached</b> You may get this error if you are making too many requests in a time period."
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": null,
+              "name": "Authorization",
+              "description": "<p>The access token for the user (<a href=\"http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html#authz-header\">format</a>: Bearer access_token).</p><p>Example: Bearer DI83JE3H8FEUIFJKWEKJ8E9383</p>",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "header",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "marketPairCode",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">bitstampBTCUSDmtgoxBTCEUR</span></li>\r\n</ul>\r\n",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "path",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "expands",
+              "description": "<ul><li>Example: <span class=\"code\">orderbooks, profitCurve, tickers, trades</span></li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "notes": "<p>Use this get a specific market pair.</p>\r\n<p>Authentication Level = 1 (\r\naccessToken header\r\n)</p>\r\n<h4>Expand Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">orderbooks</td><td>Use this to return the order books for both markets in the market pair.</td></tr>\r\n<tr><td class=\"code\">profitCurve</td><td>Use this to include the profit at different traded amounts.</td></tr>\r\n<tr><td class=\"code\">tickers</td><td>Use this to include the tickers for markets.</td></tr>\r\n<tr><td class=\"code\">trades</td><td>Use this to include profitable trades that can be made.</td></tr>\r\n</tbody></table>\r\n",
+          "type": null
+        }
+      ]
+    }
+  ],
+  "models": []
+}
