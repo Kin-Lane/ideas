@@ -1,0 +1,134 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Matrix Profile Operations API",
+		"description": null,
+		"termsOfService": null,
+		"version": null
+	},
+	"host": "/profile",
+	"basePath": "http://localhost:8008/_matrix/client/api/v1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/login": {
+			"post": {
+				"summary": "Submit a login action.",
+				"description": "If this is part of a multi-stage login, there MUST be a 'session' key.",
+				"operationId": "submit_login",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "A login submission",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/register": {
+			"post": {
+				"summary": "Submit a registration action.",
+				"description": "If this is part of a multi-stage registration, there MUST be a 'session' key.",
+				"operationId": "submit_registration",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "A registration submission",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/profile/{userId}/avatar_url": {
+			"put": {
+				"summary": "Set an avatar URL.",
+				"description": "This can only be done by the logged in user.",
+				"operationId": "set_avatar_url",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The new avatar url for this user.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose avatar url to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/profile/{userId}/displayname": {
+			"put": {
+				"summary": "Set a display name.",
+				"description": "This can only be done by the logged in user.",
+				"operationId": "set_display_name",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The new display name for this user.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose display name to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
