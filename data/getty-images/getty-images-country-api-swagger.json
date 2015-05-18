@@ -1,0 +1,932 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Getty Images Country API",
+		"description": null,
+		"termsOfService": null,
+		"version": "v3"
+	},
+	"host": "connect.gettyimages.com",
+	"basePath": "/v3/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/v3/search/images": {
+			"get": {
+				"summary": "Search for both creative and editorial images",
+				"description": "",
+				"operationId": "Search_GetImagesByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "embed_content_only",
+						"in": "query",
+						"description": "Include only images that are embeddable. The default is false."
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "If specified, include only images created on or before this date."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "file_types",
+						"in": "query",
+						"description": "Identifies a file type for the image."
+					},
+					{
+						"name": "graphical_styles",
+						"in": "query",
+						"description": "Identifies a graphical style for the image."
+					},
+					{
+						"name": "keyword_ids",
+						"in": "query",
+						"description": "Comma separated-list of keyword IDs.  If specified, returns images containing the requested keyword(s).  If keyword IDs and phrase are both specified, returns only those images matching the query phrase which also contain the requested keyword(s)."
+					},
+					{
+						"name": "license_models",
+						"in": "query",
+						"description": "Identifies a licensing model for the image."
+					},
+					{
+						"name": "orientations",
+						"in": "query",
+						"description": "Choose images based on their aspect ratios."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					},
+					{
+						"name": "product_offerings",
+						"in": "query",
+						"description": "Allows filtering by product offering."
+					},
+					{
+						"name": "sort_order",
+						"in": "query",
+						"description": "Allows sorting of results."
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "If specified, include only images created on or after this date."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search/images/creative": {
+			"get": {
+				"summary": "Search for creative images only",
+				"description": "",
+				"operationId": "Search_GetCreativeImagesByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "embed_content_only",
+						"in": "query",
+						"description": "Include only images that are are embeddable. The default is false."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "file_types",
+						"in": "query",
+						"description": "Identifies a file type for the image."
+					},
+					{
+						"name": "graphical_styles",
+						"in": "query",
+						"description": "Identifies a graphical style for the image."
+					},
+					{
+						"name": "keyword_ids",
+						"in": "query",
+						"description": "Comma separated-list of keyword IDs.  If specified, returns images containing the requested keyword(s).  If keyword IDs and phrase are both specified, returns only those images matching the query phrase which also contain the requested keyword(s)."
+					},
+					{
+						"name": "license_models",
+						"in": "query",
+						"description": "Identifies a licensing model for the image. Possible values are: RoyaltyFree, RightsManaged"
+					},
+					{
+						"name": "orientations",
+						"in": "query",
+						"description": "Choose images based on their aspect ratios."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					},
+					{
+						"name": "product_offerings",
+						"in": "query",
+						"description": "Allows filtering by product offering."
+					},
+					{
+						"name": "sort_order",
+						"in": "query",
+						"description": "Allows sorting of results."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search/images/editorial": {
+			"get": {
+				"summary": "Search for editorial images only",
+				"description": "",
+				"operationId": "Search_GetEditorialImagesByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "editorial_segments",
+						"in": "query",
+						"description": "Identifies a editorial segment for the image."
+					},
+					{
+						"name": "embed_content_only",
+						"in": "query",
+						"description": "Include only images that embeddable. The default is false."
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "If specified, include only images created on or before this date."
+					},
+					{
+						"name": "entity_uris",
+						"in": "query",
+						"description": "specify linked data entity uri."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "file_types",
+						"in": "query",
+						"description": "Identifies a file type for the image."
+					},
+					{
+						"name": "graphical_styles",
+						"in": "query",
+						"description": "Identifies a graphical style for the image."
+					},
+					{
+						"name": "keyword_ids",
+						"in": "query",
+						"description": "Comma separated-list of keyword IDs.  If specified, returns images containing the requested keyword(s).  If keyword IDs and phrase are both specified, returns only those images matching the query phrase which also contain the requested keyword(s)."
+					},
+					{
+						"name": "orientations",
+						"in": "query",
+						"description": "Choose images based on their aspect ratios."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					},
+					{
+						"name": "product_offerings",
+						"in": "query",
+						"description": "Allows filtering by product offering."
+					},
+					{
+						"name": "sort_order",
+						"in": "query",
+						"description": "Allows sorting of results."
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "If specified, include only images created on or after this date."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search/videos": {
+			"get": {
+				"summary": "<b>*** BETA ***</b> Search for both creative and editorial videos",
+				"description": "",
+				"operationId": "Search_GetVideosByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "license_models",
+						"in": "query",
+						"description": "Identifies a licensing model for the image."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search/videos/creative": {
+			"get": {
+				"summary": "<b>*** BETA ***</b> Search for creative videos",
+				"description": "",
+				"operationId": "Search_GetCreativeVideosByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "license_models",
+						"in": "query",
+						"description": "Identifies a licensing model for the image."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search/videos/editorial": {
+			"get": {
+				"summary": "<b>*** BETA ***</b> Search for editorial videos",
+				"description": "",
+				"operationId": "Search_GetEditorialVideosByPhrase",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "collections_filter_type",
+						"in": "query",
+						"description": "Allows searching based on included or excluded collections."
+					},
+					{
+						"name": "collection_codes",
+						"in": "query",
+						"description": "Allows filtering by collection code."
+					},
+					{
+						"name": "entity_uris",
+						"in": "query",
+						"description": "specify link data entity uri."
+					},
+					{
+						"name": "exclude_nudity",
+						"in": "query",
+						"description": "Exclude images tagged as containing nudity. The default is false."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number."
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page."
+					},
+					{
+						"name": "phrase",
+						"in": "query",
+						"description": "Free-text search query."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/images/{ids}": {
+			"get": {
+				"summary": "Get image metadata",
+				"description": "",
+				"operationId": "Images_GetImagesByIds",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields arern                selected, the summary_set of fields are returned."
+					},
+					{
+						"name": "ids",
+						"in": "path",
+						"description": "Comma separated list of image ids."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/videos": {
+			"get": {
+				"summary": "<b>*** BETA ***</b> Get Video Details",
+				"description": "",
+				"operationId": "Videos_GetVideosByIds",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/downloads": {
+			"get": {
+				"summary": "Returns information about a customer's downloaded assets.",
+				"description": "",
+				"operationId": "Downloads_GetDownloads",
+				"parameters": [
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "If specified, select assets downloaded on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD)."
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number"
+					},
+					{
+						"name": "page_size",
+						"in": "query",
+						"description": "Size of page"
+					},
+					{
+						"name": "product_offering",
+						"in": "query",
+						"description": "Specifies product offerings to be included in the previous download results."
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "If specified, select assets downloaded on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD)."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/downloads/images/{id}": {
+			"post": {
+				"summary": "Download an image",
+				"description": "The single step download call returns either a redirect or a response message with the URI to download the largest image available.rn                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.",
+				"operationId": "Downloads_PostDownloads",
+				"parameters": [
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "auto_download",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "file_type",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "height",
+						"in": "query",
+						"description": "Specifies the pixel height of the particular image to download.rn                    Available heights can be found in the images/{ids} response for the specific image.rn                    If left blank, it will return the largest available size."
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Id of image to download."
+					},
+					{
+						"name": "product_id",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "product_type",
+						"in": "query",
+						"description": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/downloads/videos/{id}": {
+			"post": {
+				"summary": "Download a video",
+				"description": "The single step download call returns either a redirect or a response message with the URI to download the largest video available.rn                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.",
+				"operationId": "Downloads_PostVideoDownloads",
+				"parameters": [
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "auto_download",
+						"in": "query",
+						"description": "Specifies whether to auto-download the video. If true is specified, a 303 SeeOther status is returned with arn                    Location header set to the location of the video.rn                    If false is specified, the download URI will be returned in the response message."
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Id of video to download."
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"description": "Specifies the size to be downloaded."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/downloads/{id}": {
+			"post": {
+				"summary": "Download an image",
+				"description": "The single step download call returns either a redirect or a response message with the URI to download the largest image available.rn                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.",
+				"operationId": "Downloads_PostDownloads",
+				"parameters": [
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					},
+					{
+						"name": "auto_download",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "file_type",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "height",
+						"in": "query",
+						"description": "Specifies the pixel height of the particular image to download.rn                    Available heights can be found in the images/{ids} response for the specific image.rn                    If left blank, it will return the largest available size."
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Id of image to download."
+					},
+					{
+						"name": "product_id",
+						"in": "query",
+						"description": ""
+					},
+					{
+						"name": "product_type",
+						"in": "query",
+						"description": ""
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/collections": {
+			"get": {
+				"summary": "Gets collections applicable for the customer.",
+				"description": "",
+				"operationId": "Collections_GetCollections",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/countries": {
+			"get": {
+				"summary": "Gets countries codes and names.",
+				"description": "",
+				"operationId": "Countries_GetCountries",
+				"parameters": [
+					{
+						"name": "Accept-Language",
+						"in": "header",
+						"description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request."
+					},
+					{
+						"name": "Api-Key",
+						"in": "header",
+						"description": "Api-Key"
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization token optional. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
