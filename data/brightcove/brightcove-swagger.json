@@ -1,0 +1,55 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Brightcove",
+		"description": "The Media API is a RESTful API that allows you to interact with your Video Cloud media library.",
+		"termsOfService": "http://www.brightcove.com/en/terms-and-conditions",
+		"version": "v1"
+	},
+	"host": "api.brightcove.com",
+	"basePath": "/services",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"https": {
+			"get": {
+				"summary": "Video Library",
+				"description": "The single endpoint for the video ",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "command",
+						"in": "query",
+						"description": "The API command to be executed.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "token",
+						"in": "query",
+						"description": "The API token.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Library"
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
