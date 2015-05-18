@@ -1,0 +1,128 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Plivo SMS",
+		"description": null,
+		"termsOfService": null,
+		"version": "v1"
+	},
+	"host": "api.plivo.com",
+	"basePath": "v1/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"{auth_id}/Message/": {
+			"post": {
+				"summary": "Send Message",
+				"description": "This API enables you to send messages via Plivou2019s SMS service.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "dst",
+						"in": "query",
+						"description": "The number to which the message needs to be sent. Regular phone numbers must be prefixed with the country code but without the + sign. For e.g, a USA phone number would be, `15677654321`, with 1 denoting the country code. Multiple numbers can be added by using a delimiter.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "log",
+						"in": "query",
+						"description": "If set to false, the content of this message will not be logged on the Plivo infrastructure and the dst value will be masked. (e.g., 141XXXXX528) Defaults to true.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "method",
+						"in": "query",
+						"description": "The method used to call the url. Defaults to POST.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "src",
+						"in": "query",
+						"description": "The phone number to be used as the caller id (with the country code). For e.g. a USA number, `15671234567`. If youre sending messages to U.S. and Canada, you need to use the numbers you purchased with Plivo.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The text to send encoded in Unicode UTF-8. The API accepts up to 1000 bytes of UTF-8 encoded text in a single API request. The text will be automatically split into multiple parts and sent if it will not fit into a single SMS. See notes below for more details.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "This API enables you to send messages via Plivou2019s SMS service.",
+						"in": "path",
+						"description": "AUTH TOKEN Your Plivo AUTH ID and AUTH TOKEN can be found when you login to your dashboard.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "The type of message. Should be sms for a text message. Defaults to sms.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "url",
+						"in": "query",
+						"description": "The URL to which with the status of the message is sent.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		},
+		"{auth_id}/Message/{message_uuid}/": {
+			"get": {
+				"summary": "Message",
+				"description": "Get details of a single message.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "auth_id",
+						"in": "query",
+						"description": "AUTH TOKEN Your Plivo AUTH ID and AUTH TOKEN can be found when you login to your dashboard.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "message_uuid",
+						"in": "path",
+						"description": "The message unique id.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
