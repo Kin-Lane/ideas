@@ -1,0 +1,957 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "LinkedIn",
+		"description": "The LinkedIn platform provides you the ability to grow your user base and drive engagement in your application. We encourage our developers to support LinkedIn identity to deliver seamless and rewarding experiences for our members.",
+		"termsOfService": "https://developer.linkedin.com/documents/linkedin-apis-terms-use",
+		"version": "v1"
+	},
+	"host": "api.linkedin.com",
+	"basePath": "/v1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/comments/{comment-id}": {
+			"get": {
+				"summary": "Get Comment",
+				"description": "Get Comment",
+				"operationId": "get-comment",
+				"parameters": [
+					{
+						"name": "comment-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies": {
+			"get": {
+				"summary": "Get Company By Email Domain",
+				"description": "Get Company By Email Domain",
+				"operationId": "get-company-by-email-domain",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies/id={id}": {
+			"get": {
+				"summary": "Get Company By ID",
+				"description": "Get Company By ID",
+				"operationId": "get-company-by-id",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies/universal-name={universal-name}": {
+			"get": {
+				"summary": "Get Company By Universal Name",
+				"description": "Get Company By Universal Name",
+				"operationId": "get-company-by-universal-name",
+				"parameters": [
+					{
+						"name": "universal-name",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies/{id}/products": {
+			"get": {
+				"summary": "Get Company Products",
+				"description": "Get Company Products",
+				"operationId": "get-company-products",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies/{id}/updates": {
+			"get": {
+				"summary": "Get Company Updates (Beta)",
+				"description": "Get Company Updates (Beta)",
+				"operationId": "get-company-updates-beta",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/companies::({id},universal-name={universal-name})": {
+			"get": {
+				"summary": "Get Companies By ID And Universal Name",
+				"description": "Get Companies By ID And Universal Name",
+				"operationId": "get-companies-by-id-and-universal-name",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "universal-name",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/company-search": {
+			"get": {
+				"summary": "Search Companies",
+				"description": "Search Companies",
+				"operationId": "search-companies",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/groups/{group-id}": {
+			"get": {
+				"summary": "Get Group",
+				"description": "Get Group",
+				"operationId": "get-group",
+				"parameters": [
+					{
+						"name": "group-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/groups/{group-id}/posts": {
+			"post": {
+				"summary": "Create Group Post",
+				"description": "Create Group Post",
+				"operationId": "create-group-post",
+				"parameters": [
+					{
+						"name": "group-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/job-search": {
+			"get": {
+				"summary": "Search Jobs",
+				"description": "Search Jobs",
+				"operationId": "search-jobs",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/jobs/{id}": {
+			"get": {
+				"summary": "Get Job",
+				"description": "Get Job",
+				"operationId": "get-job",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people-search": {
+			"get": {
+				"summary": "Search People",
+				"description": "Search People",
+				"operationId": "search-people",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/id={id}": {
+			"get": {
+				"summary": "Get Member Profile",
+				"description": "Get Member Profile",
+				"operationId": "get-member-profile",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/url={public-profile-url}/network": {
+			"get": {
+				"summary": "Get Member Shares Stream By URL",
+				"description": "Get Member Shares Stream By URL",
+				"operationId": "get-member-shares-stream-by-url",
+				"parameters": [
+					{
+						"name": "public-profile-url",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/{id}": {
+			"get": {
+				"summary": "Get Out Of Network Profile",
+				"description": "Get Out Of Network Profile",
+				"operationId": "get-out-of-network-profile",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/{id}/connections": {
+			"get": {
+				"summary": "Get Member Connections By ID",
+				"description": "Get Member Connections By ID",
+				"operationId": "get-member-connections-by-id",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/{id}/network": {
+			"get": {
+				"summary": "Get Member Shares Stream By ID",
+				"description": "Get Member Shares Stream By ID",
+				"operationId": "get-member-shares-stream-by-id",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/{id}/network/updates": {
+			"get": {
+				"summary": "Get Member Network Updates",
+				"description": "Get Member Network Updates",
+				"operationId": "get-member-network-updates",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~": {
+			"get": {
+				"summary": "Get My Profile",
+				"description": "Get My Profile",
+				"operationId": "get-my-profile",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/connections": {
+			"get": {
+				"summary": "Get My Connections",
+				"description": "Get My Connections",
+				"operationId": "get-my-connections",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/following/companies": {
+			"post": {
+				"summary": "Start Following Company",
+				"description": "Start Following Company",
+				"operationId": "start-following-company",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/following/companies/id={id}": {
+			"delete": {
+				"summary": "Stop Following Company",
+				"description": "Stop Following Company",
+				"operationId": "stop-following-company",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/group-memberships": {
+			"post": {
+				"summary": "Join Group",
+				"description": "Join Group",
+				"operationId": "join-group",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/group-memberships/{group-id}": {
+			"put": {
+				"summary": "Update Group Settings",
+				"description": "Update Group Settings",
+				"operationId": "update-group-settings",
+				"parameters": [
+					{
+						"name": "group-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/group-memberships/{group-id}/posts": {
+			"get": {
+				"summary": "Get Group Member Posts",
+				"description": "Get Group Member Posts",
+				"operationId": "get-group-member-posts",
+				"parameters": [
+					{
+						"name": "group-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/job-bookmarks": {
+			"post": {
+				"summary": "Add Job Bookmark",
+				"description": "Add Job Bookmark",
+				"operationId": "add-job-bookmark",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/job-bookmarks/{job-id}": {
+			"delete": {
+				"summary": "Remove Job Bookmark",
+				"description": "Remove Job Bookmark",
+				"operationId": "remove-job-bookmark",
+				"parameters": [
+					{
+						"name": "job-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/mailbox": {
+			"post": {
+				"summary": "Invite By Email",
+				"description": "Invite By Email",
+				"operationId": "invite-by-email",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network": {
+			"get": {
+				"summary": "Get My Shares Stream",
+				"description": "Get My Shares Stream",
+				"operationId": "get-my-shares-stream",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network/network-stats": {
+			"get": {
+				"summary": "Get Network Statistics",
+				"description": "Get Network Statistics",
+				"operationId": "get-network-statistics",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network/updates": {
+			"get": {
+				"summary": "Get Network Updates",
+				"description": "Get Network Updates",
+				"operationId": "get-network-updates",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network/updates/key={network_update_key}/is-liked": {
+			"put": {
+				"summary": "Like Comment",
+				"description": "Like Comment",
+				"operationId": "like-comment",
+				"parameters": [
+					{
+						"name": "network_update_key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network/updates/key={network_update_key}/likes": {
+			"get": {
+				"summary": "Get Likes",
+				"description": "Get Likes",
+				"operationId": "get-likes",
+				"parameters": [
+					{
+						"name": "network_update_key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/network/updates/key={network_update_key}/update-comments": {
+			"post": {
+				"summary": "Post Comment",
+				"description": "Post Comment",
+				"operationId": "post-comment",
+				"parameters": [
+					{
+						"name": "network_update_key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/person-activities": {
+			"post": {
+				"summary": "Post Network Updates",
+				"description": "Post Network Updates",
+				"operationId": "post-network-updates",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/shares": {
+			"post": {
+				"summary": "Add Share",
+				"description": "Add Share",
+				"operationId": "add-share",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/suggestions/groups": {
+			"get": {
+				"summary": "Get User Suggested Groups",
+				"description": "Get User Suggested Groups",
+				"operationId": "get-user-suggested-groups",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/suggestions/groups/{id}": {
+			"get": {
+				"summary": "Delete User Suggested Group",
+				"description": "Delete User Suggested Group",
+				"operationId": "delete-user-suggested-group",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/suggestions/job-suggestions:(jobs)": {
+			"get": {
+				"summary": "Get Member Suggested Jobs",
+				"description": "Get Member Suggested Jobs",
+				"operationId": "get-member-suggested-jobs",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~/suggestions/to-follow/companies": {
+			"get": {
+				"summary": "Get Suggested Companies To Follow",
+				"description": "Get Suggested Companies To Follow",
+				"operationId": "get-suggested-companies-to-follow",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/people/~:(current-share)": {
+			"get": {
+				"summary": "Get Current Share",
+				"description": "Get Current Share",
+				"operationId": "get-current-share",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/posts/{post-id}": {
+			"get": {
+				"summary": "Get Post",
+				"description": "Get Post",
+				"operationId": "get-post",
+				"parameters": [
+					{
+						"name": "post-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/posts/{post-id}/category/code": {
+			"put": {
+				"summary": "Flag Post As Promotion",
+				"description": "Flag Post As Promotion",
+				"operationId": "flag-post-as-promotion",
+				"parameters": [
+					{
+						"name": "post-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/posts/{post-id}/comments": {
+			"post": {
+				"summary": "Add Post Comment",
+				"description": "Add Post Comment",
+				"operationId": "add-post-comment",
+				"parameters": [
+					{
+						"name": "post-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/posts/{post-id}/relation-to-viewer/is-following": {
+			"put": {
+				"summary": "Follow Post",
+				"description": "Follow Post",
+				"operationId": "follow-post",
+				"parameters": [
+					{
+						"name": "post-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/posts/{post-id}/relation-to-viewer/is-liked": {
+			"put": {
+				"summary": "Like Post",
+				"description": "Like Post",
+				"operationId": "like-post",
+				"parameters": [
+					{
+						"name": "post-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
