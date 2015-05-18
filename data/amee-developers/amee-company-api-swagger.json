@@ -1,0 +1,381 @@
+{
+    "apiVersion": "2",
+    "swaggerVersion": "1.1",
+    "basePath": "/api",
+    "resourcePath": "https://www.amee.com/companies",
+    "apis": [
+        {
+            "path": "/companies",
+            "description": "Search for companies",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Search for companies based on a number of parameters",
+                    "notes": "Returns a set of companies",
+                    "responseClass": "Company",
+                    "nickname": "getCompanies",
+                    "parameters": [
+                        {
+                            "name": "limit",
+                            "description": "Number of results per page, max 50, default 20",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "page",
+                            "description": "Page number of results, max 100, default 1",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "company_name",
+                            "description": "Fuzzy search on company_name",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "gup_amee_company_id",
+                            "description": "Search on companies with same parent",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "is_gup",
+                            "description": "Filters for parent companies",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "boolean"
+                        },
+                        {
+                            "name": "city",
+                            "description": "Exact search on city",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "postcode",
+                            "description": "Exact search on postcode",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "province_name",
+                            "description": "Exact search on province_name",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "uk_sic_2007",
+                            "description": "Exact search on uk_sic_2007",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "min_employees",
+                            "description": "minimum value for employees_total",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "max_employees",
+                            "description": "maximum value for employees_total",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "min_annual_sales_local",
+                            "description": "minimum value for annual_sales_local",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "max_annual_sales_local",
+                            "description": "maximum value for annual_sales_local",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "min_score",
+                            "description": "minimum value for amee_industry_score",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "max_score",
+                            "description": "maximum value for amee_industry_score",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "integer"
+                        },
+                        {
+                            "name": "from_lat_lon",
+                            "description": "Latitude/Longitude of a point to search around - must be used together with with distance param, e.g.: from_lat_lon=51.623,-0.0732 and distance=20",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "distance",
+                            "description": "Radius in KM to search from 'from_lat_lon' - e.g.: from_location=51.623,-0.0732 and distance=20",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "stats",
+                            "description": "Returns a list of values at the end of the results for the following statistics, 'count', 'total', 'min', 'max', 'mean', 'sum_of_squares', 'variance' and 'std_deviation'. This works with any of the available numerical parameters",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+                    ],
+                    "errorResponses": [
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/companies/{id}",
+            "description": "Get a company",
+            "operations": [
+                {
+                    "httpMethod": "GET",
+                    "summary": "Find company by AMEE company id or CRO number",
+                    "notes": "Returns a company based on ID.  The ID defaults to an AMEE company id, but you can also search via a CRO number by setting the 'type' parameter.",
+                    "responseClass": "Company",
+                    "nickname": "getCompanyById",
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "description": "ID of company that needs to be fetched, e.g. 000662801",
+                            "paramType": "path",
+                            "required": true,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        },
+                        {
+                            "name": "type",
+                            "description": "Type of company id to searching by.  Allowed values: 'amee', 'CRO'.  Defaults to 'amee'",
+                            "paramType": "query",
+                            "required": false,
+                            "allowMultiple": false,
+                            "dataType": "string"
+                        }
+
+                    ],
+                    "errorResponses": [
+                        {
+                            "code": 404,
+                            "reason": "Company not found"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ],
+    "models": {
+        "Company": {
+            "id": "Company",
+            "properties": {
+                "amee_company_id": {
+                    "type": "string",
+                    "required": true
+                },
+                "gup_amee_company_id": {
+                    "type": "string",
+                    "description": "ID of its Global Ultimate Parent"
+                },
+                "is_gup": {
+                    "type": "boolean",
+                    "required": true,
+                    "description": "Is Global Ultimate Parent?"
+                },
+                "national_identification_number": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "required": true
+                },
+                "amee_industry_score": {
+                    "type": "int"
+                },
+                "amee_industry_score_icon": {
+                    "type": "string",
+                    "required": true,
+                    "description": "URL of score icon, available in 3 styles. Default is style1, to access others replace style string in URL"
+                },
+                "amee_score_status": {
+                    "allowableValues": {
+                        "valueType": "LIST",
+                        "values": [
+                            "deprecated"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "description": "status of AMEE score",
+                    "type": "string",
+                    "required": true
+                },
+                "annual_sales_local": {
+                    "type": "long"
+                },
+                "city": {
+                    "type": "string",
+                    "required": true
+                },
+                "country_code": {
+                    "type": "string",
+                    "required": true
+                },
+                "currency_code": {
+                    "type": "string",
+                    "required": true
+                },
+                "emissions_scope1": {
+                    "type": "long"
+                },
+                "emissions_scope2": {
+                    "type": "long"
+                },
+                "emissions_status": {
+                    "allowableValues": {
+                        "valueType": "LIST",
+                        "values": [
+                            "modelled",
+                            "updated",
+                            "sourced",
+                            "no_data"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "description": "status of emissions data",
+                    "type": "string"
+
+                },
+                "emissions_total": {
+                    "type": "long"
+                },
+                "employees_total": {
+                    "type": "long"
+                },
+                "uk_sic_2007": {
+                    "type": "long"
+                },
+                "postcode": {
+                    "type": "string",
+                    "required": true
+                },
+                "province_name": {
+                    "type": "string",
+                    "required": true
+                },
+                "street_address_1": {
+                    "type": "string",
+                    "required": true
+                },
+                "street_address_2": {
+                    "type": "string"
+                },
+                "street_address_3": {
+                    "type": "string"
+                },
+                "street_address_4": {
+                    "type": "string"
+                },
+                "sustainability_report_url": {
+                    "type": "string"
+                },
+                "sustainability_report_year": {
+                    "type": "integer"
+                },
+                "total_assets_local": {
+                    "type": "long",
+                    "required": true
+                },
+                "waste_hazardous": {
+                    "type": "long"
+                },
+                "waste_non_hazardous": {
+                    "type": "long"
+                },
+                "waste_status": {
+                    "allowableValues": {
+                        "valueType": "LIST",
+                        "values": [
+                            "modelled",
+                            "updated",
+                            "sourced",
+                            "no_data"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "description": "status of waste data",
+                    "type": "string"
+
+                },
+                "water_status": {
+                    "allowableValues": {
+                        "valueType": "LIST",
+                        "values": [
+                            "modelled",
+                            "updated",
+                            "sourced",
+                            "no_data"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "description": "status of water data",
+                    "type": "string",
+                    "required": true
+
+                },
+                "water_withdrawn": {
+                    "type": "long"
+                },
+                "line_of_business": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "decimal"
+                },
+                "lon": {
+                    "type": "decimal"
+                }
+            }
+        }
+    }
+
+}
