@@ -1,0 +1,283 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "resourcePath": "",
+  "apis": [
+    {
+      "path": "/users",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Starts the new user signup process",
+          "nickname": "POST-users---format-",
+          "httpMethod": "POST",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "firstname",
+              "description": "First Name",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "lastname",
+              "description": "Last Name",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "username",
+              "description": "Username",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "description": "Email",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "password",
+              "description": "Password",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "country",
+              "description": "Country",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "share_request_key",
+              "description": "The key for a camera share request to be processed during the sign up",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ],
+          "type": "Evercam::Presenters::User"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Returns available information for the user",
+          "nickname": "GET-users--id---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ]
+        },
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Updates full or partial data on your existing user account",
+          "nickname": "PATCH-users--id---format-",
+          "httpMethod": "PATCH",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "Username",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "firstname",
+              "description": "First Name",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "lastname",
+              "description": "Last Name",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "username",
+              "description": "Username",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "country",
+              "description": "Country",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "email",
+              "description": "Email",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "billing_id",
+              "description": "Billing ID",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ],
+          "type": "Evercam::Presenters::User"
+        },
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Delete your account, any cameras you own and all stored media",
+          "nickname": "DELETE-users--id---format-",
+          "httpMethod": "DELETE",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ],
+          "type": "Evercam::Presenters::User"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}/credentials",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Fetch API credentials for an authenticated user.",
+          "nickname": "GET-users--id-credentials---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "description": "User name or email for the user to fetch credentials for.",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "password",
+              "description": "Password for the user to fetch credentials for.",
+              "type": "String",
+              "dataType": "String",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "basePath": "https://api.evercam.io/v1",
+  "models": {
+    "Evercam::Presenters::User": {
+      "id": "Evercam::Presenters::User",
+      "name": "Evercam::Presenters::User",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Unique Evercam username"
+        },
+        "created_at": {
+          "type": "integer",
+          "required": true,
+          "description": "Unix timestamp at creation"
+        },
+        "updated_at": {
+          "type": "integer",
+          "required": true,
+          "description": "Unix timestamp at last update"
+        },
+        "confirmed_at": {
+          "type": "integer",
+          "required": true,
+          "description": "Unix timestamp at account confirmation"
+        },
+        "firstname": {
+          "type": "string",
+          "required": true,
+          "description": "Users first name"
+        },
+        "lastname": {
+          "type": "string",
+          "required": true,
+          "description": "Users last name"
+        },
+        "username": {
+          "type": "string",
+          "required": true,
+          "description": "Unique Evercam username"
+        },
+        "email": {
+          "type": "string",
+          "required": true,
+          "description": "Users email address"
+        },
+        "country": {
+          "type": "string",
+          "required": true,
+          "description": "Two letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements\">ISO country code</a>"
+        },
+        "billing_id": {
+          "type": "string",
+          "required": true,
+          "description": "Users billing id"
+        }
+      }
+    }
+  }
+}
