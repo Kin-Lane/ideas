@@ -1,0 +1,49 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Login Operations",
+		"description": null,
+		"termsOfService": null,
+		"version": null
+	},
+	"host": "/login",
+	"basePath": "http://localhost:8008/_matrix/client/api/v1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/login": {
+			"post": {
+				"summary": "Submit a login action.",
+				"description": "If this is part of a multi-stage login, there MUST be a 'session' key.",
+				"operationId": "submit_login",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "A login submission",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
