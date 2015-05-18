@@ -1,0 +1,661 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Instagram API",
+		"description": "The first version of the Instagram API is an exciting step forward towards making it easier for users to have open access to their data. ",
+		"termsOfService": "http://instagram.com/about/legal/terms/",
+		"version": "v1"
+	},
+	"host": "api.instagram.com",
+	"basePath": "/v1/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/geographies/geo-id/media/recent": {
+			"get": {
+				"summary": "Geographies",
+				"description": "Get recent media from a geography subscription that you created. Note: You can only access Geographies that were explicitly created by your OAuth client. Check the Geography Subscriptions section of the real-time updates page. When you create a subscription to some geography that you define, you will be returned a unique geo-id that can be used in this query. To backfill photos from the location covered by this geography, use the media search endpoint.n                n            nn            n            n                Parametersn                n                    n                    n                        countn                        Max number of media to return.n                    n                    n                    n                        min_idn                        Return media before this min_id.",
+				"operationId": "geographies",
+				"parameters": [
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Max number of media to return.",
+						"type": "string"
+					},
+					{
+						"name": "min_id",
+						"in": "query",
+						"description": "Return media before this min_id.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/locations/location-id": {
+			"get": {
+				"summary": "Locations",
+				"description": "Get information about a location.",
+				"operationId": "locations",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/locations/location-id/media/recent": {
+			"get": {
+				"summary": "Locations",
+				"description": "Get a list of recent media objects from a given location. May return a mix of both image and video types.n                n            nn            n            n                Parametersn                n                    n                    n                        min_timestampn                        Return media after this UNIX timestampn                    n                    n                    n                        min_idn                        Return media before this min_id.n                    n                    n                    n                        max_idn                        Return media after this max_id.n                    n                    n                    n                        max_timestampn                        Return media before this UNIX timestamp",
+				"operationId": "locations",
+				"parameters": [
+					{
+						"name": "max_id",
+						"in": "query",
+						"description": "Return media after this max_id.",
+						"type": "string"
+					},
+					{
+						"name": "max_timestamp",
+						"in": "query",
+						"description": "Return media before this UNIX timestamp",
+						"type": "string"
+					},
+					{
+						"name": "min_id",
+						"in": "query",
+						"description": "Return media before this min_id.",
+						"type": "string"
+					},
+					{
+						"name": "min_timestamp",
+						"in": "query",
+						"description": "Return media after this UNIX timestamp",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/locations/search": {
+			"get": {
+				"summary": "Locations",
+				"description": "Search for a location by geographic coordinate.n                n            nn            n            n                Parametersn                n                    n                    n                        distancen                        Default is 1000m (distance=1000), max distance is 5000.n                    n                    n                    n                        facebook_places_idn                        Returns a location mapped off of a Facebook places id. If used, a Foursquare id and lat, lng are not required.n                    n                    n                    n                        foursquare_idn                        Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use lat and lng. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API.n                    n                    n                    n                        latn                        Latitude of the center search coordinate. If used, lng is required.n                    n                    n                    n                        lngn                        Longitude of the center search coordinate. If used, lat is required.n                    n                    n                    n                        foursquare_v2_idn                        Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use lat and lng.",
+				"operationId": "locations",
+				"parameters": [
+					{
+						"name": "distance",
+						"in": "query",
+						"description": "Default is 1000m (distance=1000), max distance is 5000.",
+						"type": "string"
+					},
+					{
+						"name": "facebook_places_id",
+						"in": "query",
+						"description": "Returns a location mapped off of a Facebook places id. If used, a Foursquare id and lat, lng are not required.",
+						"type": "string"
+					},
+					{
+						"name": "foursquare_id",
+						"in": "query",
+						"description": "Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use lat and lng. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API.",
+						"type": "string"
+					},
+					{
+						"name": "foursquare_v2_id",
+						"in": "query",
+						"description": "Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use lat and lng.",
+						"type": "string"
+					},
+					{
+						"name": "lat",
+						"in": "query",
+						"description": "Latitude of the center search coordinate. If used, lng is required.",
+						"type": "string"
+					},
+					{
+						"name": "lng",
+						"in": "query",
+						"description": "Longitude of the center search coordinate. If used, lat is required.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/media-id": {
+			"get": {
+				"summary": "Media",
+				"description": "Get information about a media object. The returned type key will allow you to differentiate between image and video media.   Note: if you authenticate with an OAuth Token, you will receive the user_has_liked key which quickly tells you whether the current user has liked this media item.",
+				"operationId": "media",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/media-id/comments": {
+			"post": {
+				"summary": "Comments",
+				"description": "Create a comment on a media object. This endpoint is restricted to the following use cases:A business requesting rights to media objects from the Instagram Community in order for the media to be used for display outside of Instagram.A business providing customer service to members of the Instagram Community by interacting through comments.A business responding to members of the Instagram Community that participate in a specific reward or coupon campaign.Use of this endpoint is subject to the following guidelines:Comments must be written in the voice of the user account from which it is being generated.Comments must not be automated.The total length of the comment cannot exceeed 300 characters.The comment cannot contain more than 4 hashtags.The comment cannot contain more than 1 URL.The comment cannot consist of all capital letters.To request access to this endpoint, please complete this form.n                n                Required scope: commentsn                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.n                    n                    n                    n                        textn                        Text to post as a comment on the media object as specified in media-id.",
+				"operationId": "comments",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "Text to post as a comment on the media object as specified in media-id.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/media-id/comments/comment-id": {
+			"del": {
+				"summary": "Comments",
+				"description": "Remove a comment either on the authenticated user's media object or authored by the authenticated user.n                n                Required scope: commentsn                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.",
+				"operationId": "comments",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/media-id/likes": {
+			"post": {
+				"summary": "Likes",
+				"description": "Set a like on this media by the currently authenticated user.n                n                Required scope: likesn                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.",
+				"operationId": "likes",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/popular": {
+			"get": {
+				"summary": "Media",
+				"description": "Get a list of what media is most popular at the moment. Can return mix of image and video types.",
+				"operationId": "media",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/search": {
+			"get": {
+				"summary": "Media",
+				"description": "Search for media in a given area. The default time span is set to 5 days.  The time span must not exceed 7 days.  Defaults time stamps cover the last 5 days. Can return mix of image and video types.n                n            nn            n            n                Parametersn                n                    n                    n                        latn                        Latitude of the center search coordinate. If used, lng is required.n                    n                    n                    n                        min_timestampn                        A unix timestamp. All media returned will be taken later than this timestamp.n                    n                    n                    n                        lngn                        Longitude of the center search coordinate. If used, lat is required.n                    n                    n                    n                        max_timestampn                        A unix timestamp. All media returned will be taken earlier than this timestamp.n                    n                    n                    n                        distancen                        Default is 1km (distance=1000), max distance is 5km.",
+				"operationId": "media",
+				"parameters": [
+					{
+						"name": "distance",
+						"in": "query",
+						"description": "Default is 1km (distance=1000), max distance is 5km.",
+						"type": "string"
+					},
+					{
+						"name": "lat",
+						"in": "query",
+						"description": "Latitude of the center search coordinate. If used, lng is required.",
+						"type": "string"
+					},
+					{
+						"name": "lng",
+						"in": "query",
+						"description": "Longitude of the center search coordinate. If used, lat is required.",
+						"type": "string"
+					},
+					{
+						"name": "max_timestamp",
+						"in": "query",
+						"description": "A unix timestamp. All media returned will be taken earlier than this timestamp.",
+						"type": "string"
+					},
+					{
+						"name": "min_timestamp",
+						"in": "query",
+						"description": "A unix timestamp. All media returned will be taken later than this timestamp.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/shortcode/shortcode": {
+			"get": {
+				"summary": "Media",
+				"description": "This endpoint returns the same response as GET /media/media-id.A media object's shortcode can be found in its shortlink URL.An example shortlink is http://instagram.com/p/D/Its corresponding shortcode is D.",
+				"operationId": "media",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/tags/search": {
+			"get": {
+				"summary": "Tags",
+				"description": "Search for tags by name. Results are ordered first as an exact match, then by popularity. Short tags will be treated as exact matches.n                n            nn            n            n                Parametersn                n                    n                    n                        qn                        A valid tag name without a leading #. (eg. snowy, nofilter)",
+				"operationId": "tags",
+				"parameters": [
+					{
+						"name": "q",
+						"in": "query",
+						"description": "A valid tag name without a leading #. (eg. snowy, nofilter)",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/tags/tag-name": {
+			"get": {
+				"summary": "Tags",
+				"description": "Get information about a tag object.",
+				"operationId": "tags",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/tags/tag-name/media/recent": {
+			"get": {
+				"summary": "Tags",
+				"description": "Get a list of recently tagged media. Note that this media is ordered by when the media was tagged with this tag, rather than the order it was posted. Use the max_tag_id and min_tag_id parameters in the pagination response to paginate through these objects. Can return a mix of image and video types.n                n            nn            n            n                Parametersn                n                    n                    n                        countn                        Count of tagged media to return.n                    n                    n                    n                        min_tag_idn                        Return media before this min_tag_id.n                    n                    n                    n                        max_tag_idn                        Return media after this max_tag_id.",
+				"operationId": "tags",
+				"parameters": [
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Count of tagged media to return.",
+						"type": "string"
+					},
+					{
+						"name": "max_tag_id",
+						"in": "query",
+						"description": "Return media after this max_tag_id.",
+						"type": "string"
+					},
+					{
+						"name": "min_tag_id",
+						"in": "query",
+						"description": "Return media before this min_tag_id.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/search": {
+			"get": {
+				"summary": "Users",
+				"description": "Search for a user by name.n                n            nn            n            n                Parametersn                n                    n                    n                        qn                        A query string.n                    n                    n                    n                        countn                        Number of users to return.",
+				"operationId": "users",
+				"parameters": [
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Number of users to return.",
+						"type": "string"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "A query string.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/self/feed": {
+			"get": {
+				"summary": "Users",
+				"description": "See the authenticated user's feed. May return a mix of both image and video types.n                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.n                    n                    n                    n                        countn                        Count of media to return.n                    n                    n                    n                        min_idn                        Return media later than this min_id.n                    n                    n                    n                        max_idn                        Return media earlier than this max_id.s",
+				"operationId": "users",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					},
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Count of media to return.",
+						"type": "string"
+					},
+					{
+						"name": "max_id",
+						"in": "query",
+						"description": "Return media earlier than this max_id.s",
+						"type": "string"
+					},
+					{
+						"name": "min_id",
+						"in": "query",
+						"description": "Return media later than this min_id.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/self/media/liked": {
+			"get": {
+				"summary": "Users",
+				"description": "See the authenticated user's list of media they've liked. May return a mix of both image and video types. Note: This list is ordered by the order in which the user liked the media. Private media is returned as long as the authenticated user has permission to view that media. Liked media lists are only available for the currently authenticated user.n                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.n                    n                    n                    n                        countn                        Count of media to return.n                    n                    n                    n                        max_like_idn                        Return media liked before this id.",
+				"operationId": "users",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					},
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Count of media to return.",
+						"type": "string"
+					},
+					{
+						"name": "max_like_id",
+						"in": "query",
+						"description": "Return media liked before this id.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/self/requested-by": {
+			"get": {
+				"summary": "Relationships",
+				"description": "List the users who have requested this user's permission to follow.n                n                Required scope: relationshipsn                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.",
+				"operationId": "relationships",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/user-id": {
+			"get": {
+				"summary": "Users",
+				"description": "Get basic information about a user.",
+				"operationId": "users",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/user-id/followed-by": {
+			"get": {
+				"summary": "Relationships",
+				"description": "Get the list of users this user is followed by.n                n                Required scope: relationships",
+				"operationId": "relationships",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/user-id/follows": {
+			"get": {
+				"summary": "Relationships",
+				"description": "Get the list of users this user follows.n                n                Required scope: relationships",
+				"operationId": "relationships",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/user-id/media/recent": {
+			"get": {
+				"summary": "Users",
+				"description": "Get the most recent media published by a user. May return a mix of both image and video types.n                n            nn            n            n                Parametersn                n                    n                    n                        countn                        Count of media to return.n                    n                    n                    n                        max_timestampn                        Return media before this UNIX timestamp.n                    n                    n                    n                        access_tokenn                        A valid access token.n                    n                    n                    n                        min_timestampn                        Return media after this UNIX timestamp.n                    n                    n                    n                        min_idn                        Return media later than this min_id.n                    n                    n                    n                        max_idn                        Return media earlier than this max_id.",
+				"operationId": "users",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					},
+					{
+						"name": "client_id",
+						"in": "query",
+						"description": "A valid client id.",
+						"type": "string"
+					},
+					{
+						"name": "count",
+						"in": "query",
+						"description": "Count of media to return.",
+						"type": "string"
+					},
+					{
+						"name": "max_id",
+						"in": "query",
+						"description": "Return media earlier than this max_id.",
+						"type": "string"
+					},
+					{
+						"name": "max_timestamp",
+						"in": "query",
+						"description": "Return media before this UNIX timestamp.",
+						"type": "string"
+					},
+					{
+						"name": "min_id",
+						"in": "query",
+						"description": "Return media later than this min_id.",
+						"type": "string"
+					},
+					{
+						"name": "min_timestamp",
+						"in": "query",
+						"description": "Return media after this UNIX timestamp.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/user-id/relationship": {
+			"post": {
+				"summary": "Relationships",
+				"description": "Modify the relationship between the current user and the target user.n                n                Required scope: relationshipsn                n            nn            n            n                Parametersn                n                    n                    n                        access_tokenn                        A valid access token.n                    n                    n                    n                        actionn                        One of follow/unfollow/block/unblock/approve/ignore.",
+				"operationId": "relationships",
+				"parameters": [
+					{
+						"name": "access_token",
+						"in": "query",
+						"description": "A valid access token.",
+						"type": "string"
+					},
+					{
+						"name": "action",
+						"in": "query",
+						"description": "One of follow/unfollow/block/unblock/approve/ignore.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
