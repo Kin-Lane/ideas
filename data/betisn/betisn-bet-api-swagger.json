@@ -1,0 +1,1644 @@
+{
+    "apis": [
+        {
+            "path": "/bet/betdetails/{betId}",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "betId",
+                            "defaultValue": null,
+                            "description": "Bet ID",
+                            "required": true,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "path"
+                        },
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getBetDatabyBetRefNo",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "BetDataWrapper",
+                    "notes": "<p>The bet data will be returned only if it was placed on a event that is not older than 21 days excluding today.</p> <p>This API can be used to fetch the details of a bet placed via internet as well. Parlay bets are not supported.</p><p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr><tr><td class=\"code\" width=\"15%\">205</td><td>No Bet Data exists for the given bet id. Either the Bet ID is invalid or the bet has been placed on a match held before 21 days or earlier.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Retrieves bet details by Bet ID"
+                }
+            ]
+        },
+        {
+            "path": "/bet/pendingbets",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getPendingBets",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "List[BetDataWrapper]",
+                    "notes": "<p>It will return empty array if there are no pending bets found.</p><p>The response will include those bets placed via internet as well.</p><p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Retrieves the list of bets pending for backoffice admin's approval."
+                }
+            ]
+        },
+        {
+            "path": "/bet/placebet",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "selectionId",
+                            "defaultValue": null,
+                            "description": "One of the marketSelectionId values returned by the Price Listing API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "stake",
+                            "defaultValue": null,
+                            "description": "Bet Amount to be placed",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "double",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "odds",
+                            "defaultValue": null,
+                            "description": "Value of decimalOdds attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "handicap",
+                            "defaultValue": null,
+                            "description": "Value of handicap attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "nativeOdds",
+                            "defaultValue": null,
+                            "description": "Value of decimalOdds attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "score",
+                            "defaultValue": null,
+                            "description": "Value of currentScore attribute in the Price Listing API for corresponding marketSelectionId. Required only for bets on Live markets.",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "placeBet",
+                    "httpMethod": "POST",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "BetPlacementResponseVO",
+                    "notes": "<p>This API won't accept in-running bets on a non-soccer match. Please use preparebet and confirmbet API for that.</p><p>Parlay bets are not supported. At one time only one bet is allowed.</p><p>The Content-Type must be application/x-www-form-urlencoded for this request.</p><p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr><tr><td class=\"code\" width=\"15%\">200</td><td>Invalid Selection ID provided.</td></tr><tr><td class=\"code\" width=\"15%\">211</td><td>Invalid native odds</td></tr><tr><td class=\"code\" width=\"15%\">BAL</td><td>Your Bet Credit is insufficient to place this bet.</td></tr><tr><td class=\"code\" width=\"15%\">MBTR0598</td><td>Market updating. Please try again.</td></tr><tr><td class=\"code\" width=\"15%\">MB0501</td><td>Stake amount is less than minimum bet amount</td></tr><tr><td class=\"code\" width=\"15%\">MB0502</td><td>Stake amount is more than maximum bet amount</td></tr><tr><td class=\"code\" width=\"15%\">MBTR0503</td><td>Stake amount is more than maximum bet amount per match</td></tr><tr><td class=\"code\" width=\"15%\">MT004</td><td>Odds has changed</td></tr><tr><td class=\"code\" width=\"15%\">210</td><td>To place in-running bets on a non-soccer match please use preparebet and confirmbet APIs.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Place a bet on a particuler market selection."
+                }
+            ]
+        },
+        {
+            "path": "/bet/preparebet",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "selectionId",
+                            "defaultValue": null,
+                            "description": "One of the marketSelectionId values returned by the Price Listing API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "stake",
+                            "defaultValue": null,
+                            "description": "Bet Amount to be placed",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "double",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "odds",
+                            "defaultValue": null,
+                            "description": "Value of decimalOdds attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "handicap",
+                            "defaultValue": null,
+                            "description": "Value of handicap attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "nativeOdds",
+                            "defaultValue": null,
+                            "description": "Value of decimalOdds attribute in the Price Listing API for corresponding marketSelectionId",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "score",
+                            "defaultValue": null,
+                            "description": "Value of currentScore attribute in the Price Listing API for corresponding marketSelectionId. Required only for bets on Live markets.",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "prepareBet",
+                    "httpMethod": "POST",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "PrepareBetResponseVO",
+                    "notes": "<p>This is a special API to be used to place an in-running bet on a non-soccer match. It involves two steps listed below: </p><p>1. Call preparebet API with all necessary inputs. This will return an unique ID (called prepared bet id).<br/>2. After obtaining the prepared bet id, immediately after 4 seconds (actual delay is indicated by the otherSportsLiveBetDelay attribute in the response of this API), call the confirmbet API with the prepared bet id. This will complete the bet placement process.<br/></p><p>Please note if the match is not in-running state or the match is paused, then this API will automatically call confirmbet API and return the response (refer the confirmbet API JSON response). The client need not to execute another call to confirmbet API in that case.</p><p>Parlay bets are not supported. At one time only one bet is allowed.</p><p>The Content-Type must be application/x-www-form-urlencoded for this request.</p><p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Returns an unique ID which is needed by the confirmbet API"
+                }
+            ]
+        },
+        {
+            "path": "/bet/confirmbet",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "preparedBetId",
+                            "defaultValue": null,
+                            "description": "Value of preparedBetId - obtained via /preparebet API.",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "form"
+                        },
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "confirmBet",
+                    "httpMethod": "POST",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "BetPlacementResponseVO",
+                    "notes": "<p>This API cannot be used directly. Please call the preparebet API first before calling this API. Read the prepare bet API description above for more info.</p><p>The Content-Type must be application/x-www-form-urlencoded for this request.</p><p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr><tr><td class=\"code\" width=\"15%\">200</td><td>Invalid Selection ID provided.</td></tr><tr><td class=\"code\" width=\"15%\">211</td><td>Invalid native odds</td></tr><tr><td class=\"code\" width=\"15%\">BAL</td><td>Your Bet Credit is insufficient to place this bet.</td></tr><tr><td class=\"code\" width=\"15%\">MBTR0598</td><td>Market updating. Please try again.</td></tr><tr><td class=\"code\" width=\"15%\">MB0501</td><td>Stake amount is less than minimum bet amount</td></tr><tr><td class=\"code\" width=\"15%\">MB0502</td><td>Stake amount is more than maximum bet amount</td></tr><tr><td class=\"code\" width=\"15%\">MBTR0503</td><td>Stake amount is more than maximum bet amount per match</td></tr><tr><td class=\"code\" width=\"15%\">MT004</td><td>Odds has changed</td></tr><tr><td class=\"code\" width=\"15%\">208</td><td>It is too early to call confirmbet followed by preparebet API. Please wait for 4 seconds before calling confirmbet API.</td></tr><tr><td class=\"code\" width=\"15%\">209</td><td>The preparedBetId has been expired.</td></tr><tr><td class=\"code\" width=\"15%\">207</td><td>Prepared bet id not found. Please call preparebet API to obtain a valid prepared bet id.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Completes the bet placement process initiated by the preparebet API call"
+                }
+            ]
+        },
+        {
+            "path": "/bet/betlist",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getBetList",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "List[BetDataWrapper]",
+                    "notes": "<p>The response will include those bets placed via internet as well. Parlay bets are not supported.</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Retrieves the list of bets placed today"
+                }
+            ]
+        },
+        {
+            "path": "/bet/last60minsbetlist",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getLast60MinsBetList",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "List[BetDataWrapper]",
+                    "notes": "<p>The response will include those bets placed via internet as well. Parlay bets are not supported.</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Retrieves the list of bets placed during last 60 mins"
+                }
+            ]
+        },
+        {
+            "path": "/bet/betlimit/{selectionId}",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "selectionId",
+                            "defaultValue": null,
+                            "description": "One of the marketSelectionId values returned by the Price Listing API",
+                            "required": true,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "path"
+                        },
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getSingleBetLimit",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "BetLimitVO",
+                    "notes": "<p>List of error codes and messages given below:</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr><tr><td class=\"code\" width=\"15%\">200</td><td>Invalid Selection ID provided.</td></tr></tbody></table><p style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</p>",
+                    "summary": "Retrieves the minium and maximum stake that can be placed on a particular market selection"
+                }
+            ]
+        },
+        {
+            "path": "/bet/outcome/{eventId}",
+            "description": "APIs to retrieve list of bets and place a new bet",
+            "operations": [
+                {
+                    "parameters": [
+                        {
+                            "name": "memberToken",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be a valid token obtained from login API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "userId",
+                            "defaultValue": null,
+                            "description": "Header Parameter, must be the same user-id used for logging-in",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "apiKey",
+                            "defaultValue": null,
+                            "description": "Header Parameter, a valid apiKey obtained via /apiKey API",
+                            "required": false,
+                            "allowableValues": null,
+                            "dataType": "string",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "header"
+                        },
+                        {
+                            "name": "eventId",
+                            "defaultValue": null,
+                            "description": "Path Parameter, event id",
+                            "required": true,
+                            "allowableValues": null,
+                            "dataType": "int",
+                            "notes": null,
+                            "wrapperName": null,
+                            "internalDescription": null,
+                            "paramAccess": null,
+                            "allowMultiple": false,
+                            "paramType": "path"
+                        }
+                    ],
+                    "deprecated": null,
+                    "nickname": "getBetOutcome",
+                    "httpMethod": "GET",
+                    "errorResponses": [
+                        {
+                            "reason": "Any one of the above cases, use the errorCode attribute to handle it",
+                            "code": 400
+                        }
+                    ],
+                    "responseClass": "List[StatementTicketVO]",
+                    "notes": "<p>The response will include the win/loss status of bets placed via internet as well. Parlay bets are not supported.</p><table class=\"fullwidth\"><thead><tr><th>errorCode</th><th>errorMessage</th></tr></thead><tbody><tr><td class=\"code\" width=\"15%\">100</td><td>Required header parameters memberToken, userId and apiKey are either missing or invalid.</td></tr><tr><td class=\"code\" width=\"15%\">105</td><td>Session time out or you have been logged out. Please re-login.</td></tr><tr><td class=\"code\" width=\"15%\">212</td><td>No bets found for the given match id.</td></tr><tr><td class=\"code\" width=\"15%\">213</td><td>Match not found.</td></tr><tr><td class=\"code\" width=\"15%\">214</td><td>Match not yet resulted.</td></tr></tbody></table><span style=\"font-weight: bold\"><br/>Note: The response Content-Encoding will be gzip for all the Betting API responses, including this one.</span>",
+                    "summary": "Retrieves win/loss details of bets placed on a particuler match"
+                }
+            ]
+        }
+    ],
+    "swaggerVersion": "1.1",
+    "resourcePath": "/bet",
+    "models": {
+        "BetPlacementResponseVO": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "respCode": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "stake": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "selectionId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "requestId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "status": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "respMessage": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "handicap": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "betDate": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Date",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "odds": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "betId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "long",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                }
+            },
+            "id": "BetPlacementResponseVO",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        },
+        "EventResultVO": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "scoreType": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Score Type",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<table width='100%' class='fullwidth enumTable'><thead><th>Market Type</th><th>Score Type value</th><th></tr><tbody><tr><td>For normal HT/FT market result</td><td>Normal</td><td></tr><tr><td>For EXT HT/FT market result</td><td>EXT</td><td></tr><tr><td>For FGLG market result</td><td>FGLG</td><td></tr><tr><td>For Cards market result</td><td>Cards</td><td></tr><tr><td>For Corners market result</td><td>Corners</td><td></tr><tr><td>For Penalty market result</td><td>Penalty</td><td></tr><tr><td>For Outright market result</td><td>Outright</td><td></tr></tbody></table>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "string - Refer the list of possible values",
+                    "uniqueItems": false
+                }
+            },
+            "id": "EventResultVO",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        },
+        "StatementTicketVO": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "result": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "ref:eventResultVO",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "-"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "Result JSON will follow one among the fomrats given here.",
+                    "uniqueItems": false
+                },
+                "stake": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "eventId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "betDetails": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "BetDataWrapper",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "winLossAmount": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "refNo": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "long",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "commission": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "winLossStatus": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Win/Loss Status",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<ul class='enumValues'><li>Win</li><li>Loss</li><li>Refund</li></ul>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "string - Refer the list of possible values",
+                    "uniqueItems": false
+                }
+            },
+            "id": "StatementTicketVO",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        },
+        "BetDataWrapper": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "marketId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "betPlacedDate": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Date",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "awayTeam": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "marketTypeId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Market Type",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<table width='100%' class='enumTable'><tr><td style='font-weight: bold; border: none;'>Market Type list for Soccer:</td></tr><tr><td><table width='100%' class='fullwidth enumTable'><thead><tr><th>Id</th><th>Short Name</th></tr></thead><tbody><tr><td>1</td><td>AH</td></tr><tr><td>2</td><td>HT AH</td></tr><tr><td>3</td><td>RB AH</td></tr><tr><td>4</td><td>RB HT AH</td></tr><tr><td>5</td><td>OU</td></tr><tr><td>6</td><td>HT OU</td></tr><tr><td>7</td><td>RB OU</td></tr><tr><td>8</td><td>RB HT OU</td></tr><tr><td>9</td><td>Odd/Even</td></tr><tr><td>10</td><td>1x2</td></tr><tr><td>11</td><td>HT 1x2</td></tr><tr><td>12</td><td>RB 1x2</td></tr><tr><td>13</td><td>RB HT 1x2</td></tr><tr><td>14</td><td>Total Goal</td></tr><tr><td>15</td><td>Correct Score</td></tr><tr><td>16</td><td>Half/Full Time</td></tr><tr><td>17</td><td>Corners AH</td></tr><tr><td>18</td><td>Corners OU</td></tr><tr><td>19</td><td>Cards AH</td></tr><tr><td>20</td><td>Cards OU</td></tr><tr><td>21</td><td>ET AH</td></tr><tr><td>22</td><td>ET OU</td></tr><tr><td>23</td><td>ET 1x2</td></tr><tr><td>24</td><td>ET HT 1x2</td></tr><tr><td>25</td><td>PK AH</td></tr><tr><td>26</td><td>PK OU</td></tr><tr><td>27</td><td>First/Last Goal</td></tr><tr><td>29</td><td>Outright</td></tr><tr><td>37</td><td>RB Cards AH</td></tr><tr><td>38</td><td>RB Cards OU</td></tr><tr><td>39</td><td>RB Corners AH</td></tr><tr><td>40</td><td>RB Corners OU</td></tr><tr><td>41</td><td>ET HT AH</td></tr><tr><td>42</td><td>ET HT OU</td></tr></tbody></table></td></tr><tr><td style='font-weight: bold; border: none; padding-top: 20px;'>Market Type list for all other non-soccer sports:</td></tr><tr><td><table width='100%' class='fullwidth enumTable'><thead><tr><th>Id</th><th>Short Name</th></tr></thead><tbody><tr><td>101</td><td>AH</td></tr><tr><td>102</td><td>HT AH</td></tr><tr><td>103</td><td>OU</td></tr><tr><td>104</td><td>HT OU</td></tr><tr><td>105</td><td>Odd/Even</td></tr><tr><td>106</td><td>1x2</td></tr><tr><td>107</td><td>HT 1x2</td></tr><tr><td>108</td><td>IR AH</td></tr><tr><td>109</td><td>IR HT AH</td></tr><tr><td>110</td><td>IR OU</td></tr><tr><td>111</td><td>IR HT OU</td></tr><tr><td>112</td><td>IR 1x2</td></tr><tr><td>113</td><td>IR HT 1x2</td></tr><tr><td>114</td><td>Outright</td></tr></tbody></table></td></tr><tr></td>&nbsp;</td></tr></table>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "int - Refer the list of Id values",
+                    "uniqueItems": false
+                },
+                "sportName": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "handicap": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "betStatus": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Bet Status",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<span style='font-size: 14px;'>/betdetails and /betlist APIs will return one of the following status: <span><br/><ul class='enumValues'><li>Confirmed</li><li>Pending</li><li>Cancelled</li></ul><br/><span style='font-size: 14px;'>/outcome API will return one of the following status: </span><br/><ul class='enumValues'><li>Settled</li></ul>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "string - Refer the list of possible values",
+                    "uniqueItems": false
+                },
+                "league": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "odds": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "selection": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "cancelReason": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Cancel Reason",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<table width='100%' class='fullwidth enumTable'><thead><tr><th>English</th><th>Simplified Chinese</th><th>Traditional Chinese</th></tr></thead><tbody><tr><td>Wrong handicap/prices</td><td>盘口/价格错误</td><td>盤口/價格錯誤</td></tr><tr><td>Wrong AH</td><td>让球盘口错误</td><td>讓球盤口錯誤</td></tr><tr><td>Wrong OU</td><td>大小盘口错误</td><td>大小盤口錯誤</td></tr><tr><td>Wrong score</td><td>比分错误</td><td>比分錯誤</td></tr><tr><td>Wrong red card</td><td>红卡错误</td><td>紅卡錯誤</td></tr><tr><td>Irregular play time</td><td>赛事时间不正规</td><td>賽事時間不正規</td></tr><tr><td>Wrong team name</td><td>球队错误</td><td>球隊錯誤</td></tr><tr><td>Wrong league name</td><td>联赛错误</td><td>聯賽錯誤</td></tr><tr><td>System error</td><td>系统错误</td><td>系統錯誤</td></tr><tr><td>Weak Satellite</td><td>卫星信号差</td><td>衛星信號差</td></tr><tr><td>Game Cancel</td><td>赛事已取消</td><td>賽事已取消</td></tr><tr><td>Game Suspend</td><td>赛事已暂停</td><td>賽事已暫停</td></tr><tr><td>Game Postponed</td><td>赛事已延期</td><td>賽事已延期</td></tr><tr><td>VoidResult</td><td>取消赛果</td><td>取消赛果</td></tr></tbody></table>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "string - Refer the list of possible values",
+                    "uniqueItems": false
+                },
+                "betId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "long",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "marketSelectionId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "sportId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "stake": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "matchDate": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Date",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "homeAwayScore": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "marketType": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "Market Type",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": {
+                        "values": [
+                            "<table width='100%' class='enumTable'><tr><td style='font-weight: bold; border: none;'>Market Type list for Soccer:</td></tr><tr><td><table width='100%' class='fullwidth enumTable'><thead><tr><th>Id</th><th>Short Name</th></tr></thead><tbody><tr><td>1</td><td>AH</td></tr><tr><td>2</td><td>HT AH</td></tr><tr><td>3</td><td>RB AH</td></tr><tr><td>4</td><td>RB HT AH</td></tr><tr><td>5</td><td>OU</td></tr><tr><td>6</td><td>HT OU</td></tr><tr><td>7</td><td>RB OU</td></tr><tr><td>8</td><td>RB HT OU</td></tr><tr><td>9</td><td>Odd/Even</td></tr><tr><td>10</td><td>1x2</td></tr><tr><td>11</td><td>HT 1x2</td></tr><tr><td>12</td><td>RB 1x2</td></tr><tr><td>13</td><td>RB HT 1x2</td></tr><tr><td>14</td><td>Total Goal</td></tr><tr><td>15</td><td>Correct Score</td></tr><tr><td>16</td><td>Half/Full Time</td></tr><tr><td>17</td><td>Corners AH</td></tr><tr><td>18</td><td>Corners OU</td></tr><tr><td>19</td><td>Cards AH</td></tr><tr><td>20</td><td>Cards OU</td></tr><tr><td>21</td><td>ET AH</td></tr><tr><td>22</td><td>ET OU</td></tr><tr><td>23</td><td>ET 1x2</td></tr><tr><td>24</td><td>ET HT 1x2</td></tr><tr><td>25</td><td>PK AH</td></tr><tr><td>26</td><td>PK OU</td></tr><tr><td>27</td><td>First/Last Goal</td></tr><tr><td>29</td><td>Outright</td></tr><tr><td>37</td><td>RB Cards AH</td></tr><tr><td>38</td><td>RB Cards OU</td></tr><tr><td>39</td><td>RB Corners AH</td></tr><tr><td>40</td><td>RB Corners OU</td></tr><tr><td>41</td><td>ET HT AH</td></tr><tr><td>42</td><td>ET HT OU</td></tr></tbody></table></td></tr><tr><td style='font-weight: bold; border: none; padding-top: 20px;'>Market Type list for all other non-soccer sports:</td></tr><tr><td><table width='100%' class='fullwidth enumTable'><thead><tr><th>Id</th><th>Short Name</th></tr></thead><tbody><tr><td>101</td><td>AH</td></tr><tr><td>102</td><td>HT AH</td></tr><tr><td>103</td><td>OU</td></tr><tr><td>104</td><td>HT OU</td></tr><tr><td>105</td><td>Odd/Even</td></tr><tr><td>106</td><td>1x2</td></tr><tr><td>107</td><td>HT 1x2</td></tr><tr><td>108</td><td>IR AH</td></tr><tr><td>109</td><td>IR HT AH</td></tr><tr><td>110</td><td>IR OU</td></tr><tr><td>111</td><td>IR HT OU</td></tr><tr><td>112</td><td>IR 1x2</td></tr><tr><td>113</td><td>IR HT 1x2</td></tr><tr><td>114</td><td>Outright</td></tr></tbody></table></td></tr><tr></td>&nbsp;</td></tr></table>"
+                        ],
+                        "valueType": "LIST"
+                    },
+                    "notes": "string - Refer the list of short names",
+                    "uniqueItems": false
+                },
+                "cancelRemarks": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "matchId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "estimatePayout": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "double",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "match": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "homeTeam": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                }
+            },
+            "id": "BetDataWrapper",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        },
+        "BetLimitVO": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "selectionId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "minBet": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "maxBet": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                }
+            },
+            "id": "BetLimitVO",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        },
+        "PrepareBetResponseVO": {
+            "name": null,
+            "default": null,
+            "properties": {
+                "otherSportsLiveBetDelay": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "int",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                },
+                "preparedBetId": {
+                    "name": null,
+                    "default": null,
+                    "properties": null,
+                    "id": null,
+                    "type": "string",
+                    "description": null,
+                    "additionalProperties": null,
+                    "access": null,
+                    "required": false,
+                    "items": null,
+                    "allowableValues": null,
+                    "notes": null,
+                    "uniqueItems": false
+                }
+            },
+            "id": "PrepareBetResponseVO",
+            "type": "any",
+            "description": null,
+            "additionalProperties": null,
+            "access": null,
+            "required": false,
+            "items": null,
+            "allowableValues": null,
+            "notes": null,
+            "uniqueItems": false
+        }
+    }
+}
