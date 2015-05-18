@@ -1,0 +1,75 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Clockwork SMS",
+		"description": "The HTTP interface to send text messages can be accessed using GET or POST. All parameters must be URL Encoded and sent as UTF-8 text.",
+		"termsOfService": "http://www.clockworksms.com/terms-and-conditions/",
+		"version": "v1"
+	},
+	"host": "api.clockworksms.com",
+	"basePath": "http/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"send.aspx": {
+			"get": {
+				"summary": "Send SMS Via HTTP",
+				"description": "The HTTP interface to send text messages can be accessed using GET or POST. All parameters must be URL Encoded and sent as UTF-8 text.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "Content",
+						"in": "query",
+						"description": "The message you want to send. Mobile networks only support characters listed in the GSM character set, but for consistency all characters must be UTF-8 encoded when sending through the API.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "From",
+						"in": "query",
+						"description": "The text or phone number displayed when a text message is received on a phone. This can be either a 12 digit number or 11 characters long. You can set a default by logging in to Clockwork.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "Key",
+						"in": "query",
+						"description": "Your API key, available by logging in (with your username and password) to Clockwork.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "Long",
+						"in": "query",
+						"description": "Set this to 1 and weu2019ll stick together multiple messages giving you up to 459 characters, rather than the standard 160 (each recipient will cost up to 3 message credits)",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "total",
+						"in": "query",
+						"description": "Up to 50 comma separated numbers. Each number should start with an international country code without any leading zeros or plus symbols.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
