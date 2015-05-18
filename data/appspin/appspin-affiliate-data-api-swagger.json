@@ -1,0 +1,145 @@
+{
+ "swaggerVersion": "1.2", 
+ "apis": [
+  {
+   "operations": [
+    {
+     "parameters": [
+      {
+       "paramType": "query", 
+       "required": true, 
+       "type": "integer", 
+       "name": "campaign_id", 
+       "description": "The ID of the campaign."
+      }, 
+      {
+       "paramType": "query", 
+       "required": true, 
+       "type": "string", 
+       "name": "contact", 
+       "description": "The unique idenitifier for the user's contact (email or phone number)"
+      }, 
+      {
+       "paramType": "query", 
+       "required": true, 
+       "type": "string", 
+       "name": "token", 
+       "description": "Your AppSpin developer API token."
+      }
+     ], 
+     "items": {
+      "$ref": "Affiliate"
+     }, 
+     "notes": "", 
+     "responseMessages": [], 
+     "summary": "Get campaign affiliate information by user contact", 
+     "type": "array", 
+     "nickname": "getAffiliateInfoByContact", 
+     "method": "GET"
+    }
+   ], 
+   "path": "/generate"
+  }, 
+  {
+   "operations": [
+    {
+     "parameters": [
+      {
+       "paramType": "query", 
+       "required": true, 
+       "type": "string", 
+       "name": "contact", 
+       "description": "The unique idenitifier for the user's contact (email or phone number)"
+      }, 
+      {
+       "paramType": "query", 
+       "required": true, 
+       "type": "string", 
+       "name": "token", 
+       "description": "Your AppSpin developer API token."
+      }
+     ], 
+     "items": {
+      "$ref": "Earnings"
+     }, 
+     "notes": "", 
+     "responseMessages": [], 
+     "summary": "Get earnings information by user contact", 
+     "type": "array", 
+     "nickname": "getEarningsInfoByContact", 
+     "method": "GET"
+    }
+   ], 
+   "path": "/earnings"
+  }
+ ], 
+ "models": {
+  "Affiliate": {
+   "required": [
+    "contact", 
+    "campaign_id", 
+    "info_link", 
+    "affiliate_link"
+   ], 
+   "id": "Affiliate", 
+   "properties": {
+    "affiliate_link": {
+     "type": "string", 
+     "description": "The unique install tracking link for the end-user to share"
+    }, 
+    "contact": {
+     "type": "string", 
+     "description": "The given user contact"
+    }, 
+    "campaign_id": {
+     "type": "integer", 
+     "description": "The ID for the given campaign"
+    }, 
+    "info_link": {
+     "type": "string", 
+     "description": "The URL for displaying rewards program details to the end-user"
+    }
+   }
+  }, 
+  "Earnings": {
+   "required": [
+    "campaign_id", 
+    "earnings"
+   ], 
+   "id": "Earnings", 
+   "properties": {
+    "install_count": {
+     "type": "integer", 
+     "description": "The number of app installs garnered by this affiliate contact"
+    }, 
+    "end_date": {
+     "type": "datetime", 
+     "description": "The time beyond which the user can no longer earn rewards for this campaign. Format: YYYY-MM-DD HH:MM:SS+00:00 (all times are UTC)"
+    }, 
+    "click_count": {
+     "type": "integer", 
+     "description": "The number of app store clicks garnered by this affiliate contact"
+    }, 
+    "campaign_id": {
+     "type": "integer", 
+     "description": "The ID for the given campaign"
+    }, 
+    "value_earned": {
+     "minimum": "0.0", 
+     "type": "Decimal", 
+     "description": "Dollar amount for rewards garnered by this affiliate contact"
+    }, 
+    "expired": {
+     "type": "boolean", 
+     "description": "Indicates whether end_date is in the past"
+    }
+   }
+  }
+ }, 
+ "basePath": "http://api.appsp.in", 
+ "produces": [
+  "application/json"
+ ], 
+ "resourcePath": "/affiliate", 
+ "apiVersion": "1.0.0"
+}
