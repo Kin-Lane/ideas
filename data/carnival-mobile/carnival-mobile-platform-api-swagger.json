@@ -1,0 +1,447 @@
+{
+  "apiVersion": "2.0",
+  "swaggerVersion": "1.2",
+    "basePath": "https://api.carnivalmobile.com/v2",
+    "resourcePath": "/",
+  "apis": [
+
+    {
+      "path": "/stats/active_users",
+      "description": "Active Users",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "monthly_active_users",
+        "summary": "Get a list of unique users of an app or network in a month period",
+        "notes": "Returns a list of unique users by day in the context of a month window",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/installs",
+      "description": "Per app installs",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "app_installs",
+        "summary": "Get the installs of a particular app",
+        "notes": "Installs are returned as a feed of DateTime objects with counts next to them. These timestamps represent the beginning of an hour period, and the count is the number of installs that happened in that hour. In hour periods where there were no installs, the object will be omitted from the array returned by this API",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/opens",
+      "description": "Per app opens",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "app_opens",
+        "summary": "Get the opens of a particular app",
+        "notes": "Opens are returned as a feed of DateTime objects with counts next to them. These timestamps represent the beginning of an hour period, and the count is the number of opens that happened in that hour. In hour periods where there were no opens, the object will be omitted from the array returned by this API",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/sessions",
+      "description": "App sessions",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "app_sessions",
+        "summary": "Get sessions related to a particular app",
+        "notes": "Sessions are returned as a feed of DateTime objects with counts next to them. These timestamps represent the beginning of an hour period, and the count is the number of sessions that happened in that hour. In hour periods where there were no sessions, the object will be omitted from the array returned by this API",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/total_installs",
+      "description": "Total installs",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "app_total_installs",
+        "summary": "Get total installs for a particular app",
+        "notes": "Totals installs are returned as a count",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/total_events",
+      "description": "Total events",
+      "operations": [{
+        "parameters": [{
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "app_total_events",
+        "summary": "Get total events for a particular app",
+        "notes": "Totals events (such as impressions and opens) are returned as a count",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+
+    {
+      "path": "/stats/messages/{message_id}/events",
+      "description": "Message events",
+      "operations": [{
+        "parameters": [{
+          "paramType": "path",
+          "name": "message_id",
+          "description": "id of the Message",
+          "dataType": "string",
+          "format": "string",
+          "required": true
+        }],
+        "method": "GET",
+        "nickname": "message_events",
+        "summary": "Get events for a particular message",
+        "notes": "Returns message events",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/notifications/{notification_id}/events",
+      "description": "Notification events",
+      "operations": [{
+        "parameters": [{
+          "paramType": "path",
+          "name": "notification_id",
+          "description": "id of the Notification",
+          "dataType": "string",
+          "format": "string",
+          "required": true
+        }, {
+          "paramType": "query",
+          "name": "from",
+          "description": "Beginning date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }, {
+          "paramType": "query",
+          "name": "to",
+          "description": "Ending date range",
+          "dataType": "string",
+          "format": "string",
+          "required": false
+        }],
+        "method": "GET",
+        "nickname": "notification_events",
+        "summary": "Get events for a particular notification",
+        "notes": "Returns notification events",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/devices/geography",
+      "description": "Locale, Country and Time Zone data",
+      "operations": [{
+        "parameters": [],
+        "method": "GET",
+        "nickname": "device_geography",
+        "summary": "Get geographic information for devices registered with an app",
+        "notes": "Returns countries, time_zone and locale",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/stats/devices/technology",
+      "description": "Hardware, OS and App version data",
+      "operations": [{
+        "parameters": [],
+        "method": "GET",
+        "nickname": "device_technology",
+        "summary": "Get technology breakdown for devices registered with an app",
+        "notes": "Returns hardware_name, os_version and app_version",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    },
+
+    {
+      "path": "/notifications",
+      "description": "Send a push notification",
+      "operations": [{
+        "parameters": [{
+          "paramType": "body",
+          "name": "body",
+          "description": "Push notification attributes",
+          "required": true,
+          "type": "Notifications"
+        }
+        ],
+        "method": "POST",
+        "nickname": "push_notification",
+        "summary": "Sends a push notification",
+        "notes": "POST a push notification in JSON format. Notifications can optionally also be filtered by fields, like 'locale'. An example of a tag filter is as follows:<br><pre>{<br>&nbsp;'field': 'tags',<br>&nbsp;&nbsp;'fieldType': 'term',<br>&nbsp;&nbsp;'values': [<br>&nbsp;&nbsp;&nbsp;&nbsp;{ 'term': 'tag1' },<br>&nbsp;&nbsp;&nbsp;&nbsp;{ 'term': 'tag2' }<br>&nbsp;&nbsp;]<br>}</pre>",
+        "responseMessages": [{
+          "code": 404,
+          "message": "Not found"
+        }, {
+          "code": 401,
+          "message": "Not authorised"
+        }, {
+          "code": 403,
+          "message": "Incorrect permissions"
+        }]
+      }]
+    }
+
+  ],
+  "authorizations": {
+    "basicAuth": {
+      "type": "basicAuth"
+    }
+  },
+  "models": {
+    "Notifications": {
+      "id": "Notifications",
+      "required": ["payload"],
+      "properties": {
+        "notification": {
+          "$ref": "Notification"
+        }
+      }
+    },
+    "Notification": {
+      "id": "Notification",
+      "properties": {
+        "filters": {
+          "type": "array",
+          "items": {
+            "$ref": "Filter"
+          }
+        },
+        "payload": {
+          "$ref": "Payload"
+        }
+      }
+    },
+    "Filter" : {
+      "id": "Filter",
+      "properties": {
+        "field": {
+          "type": "string",
+          "format": "string"
+        },
+        "fieldType": {
+          "type": "string",
+          "format": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "Criteria"
+          }
+        }
+      }
+    },
+    "Criteria": {
+      "id": "Criteria",
+      "properties": {
+        "term": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "Payload": {
+        "id": "Payload",
+        "required": ["alert"],
+        "properties": {
+          "alert": {
+            "type": "string",
+            "format": "string"
+          },
+           "sound": {
+            "type": "string",
+            "format": "string"
+          },
+           "badge": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+    }
+  }
+}
