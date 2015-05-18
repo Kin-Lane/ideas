@@ -1,0 +1,1658 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Google AdSense Management API",
+		"description": "The AdSense Management API is intended for individual developers who want to get reports on AdSense earnings and manage AdSense inventory.",
+		"termsOfService": "https://developers.google.com/site-terms/",
+		"version": null
+	},
+	"host": "www.googleapis.com",
+	"basePath": "/adsense/v1.1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/accounts": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}": {
+			"get": {
+				"summary": "List Accounts",
+				"description": "List Accounts",
+				"operationId": "list-accounts",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "tree",
+						"in": "query",
+						"description": "Whether the tree of sub accounts should be returned.",
+						"type": "boolean"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients": {
+			"get": {
+				"summary": "Get Account",
+				"description": "Get Account",
+				"operationId": "get-account",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits": {
+			"get": {
+				"summary": "List Ad Clients",
+				"description": "List Ad Clients",
+				"operationId": "list-ad-clients",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}": {
+			"get": {
+				"summary": "List Ad Units",
+				"description": "List Ad Units",
+				"operationId": "list-ad-units",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
+			"get": {
+				"summary": "Get Ad Unit",
+				"description": "Get Ad Unit",
+				"operationId": "get-ad-unit",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels": {
+			"get": {
+				"summary": "List Ad Unit Custom Channels",
+				"description": "List Ad Unit Custom Channels",
+				"operationId": "list-ad-unit-custom-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}": {
+			"get": {
+				"summary": "List Custom Channels",
+				"description": "List Custom Channels",
+				"operationId": "list-custom-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
+			"get": {
+				"summary": "Get Custom Channel",
+				"description": "Get Custom Channel",
+				"operationId": "get-custom-channel",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel for which to list ad units.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/urlchannels": {
+			"get": {
+				"summary": "List Custom Channel Ad Units",
+				"description": "List Custom Channel Ad Units",
+				"operationId": "list-custom-channel-ad-units",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list URL channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/reports": {
+			"get": {
+				"summary": "List URL Channels",
+				"description": "List URL Channels",
+				"operationId": "list-url-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "currency",
+						"in": "query",
+						"description": "Not available.",
+						"type": "string"
+					},
+					{
+						"name": "dimension",
+						"in": "query",
+						"description": "Optional dimensions on which to base the report.Available dimensions are:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDING_TYPE_NAME- BUYER_NETWORK_ID- BUYER_NETWORK_NAME- BID_TYPE_CODE- BID_TYPE_NAME- DOMAIN_NAME- COUNTRY_CODE- COUNTRY_NAME- TARGETING_",
+						"type": "string"
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "End of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "Set of filters to be applied to the report.",
+						"type": "string"
+					},
+					{
+						"name": "locale",
+						"in": "query",
+						"description": "Optional locale to use for translating report output to a local language. Defaults to en_US if not specified.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of rows of report data to return. The minumum value is 0 (zero), the maximum value is 50000 (50 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "metric",
+						"in": "query",
+						"description": "Optional numeric columns to include in the report.Available metrics are:- PAGE_VIEWS- PAGE_VIEWS_CTR- PAGE_VIEWS_RPM- AD_REQUESTS- AD_REQUESTS_COVERAGE- AD_REQUESTS_CTR- AD_REQUESTS_RPM- MATCHED_AD_REQUESTS- MATCHED_AD_REQUESTS_CTR- MATCHED_AD_REQUESTS_RPM- INDIVIDUAL_AD_IMPRESSIONS- INDIVIDUAL_AD_IMPRESSIONS_CTR- INDIVIDUAL_AD_IMPRESSIONS_RPM- CLICKS- EARNINGS- TOTAL_EARNINGS- COST_PER_CLICK",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Optional name of a dimension or metric on which to sort the resulting report. Optionally prefixed with + to sort ascending or - to sort descending. If no prefix is specified, the column is sorted ascending:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDI",
+						"type": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Start of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "startIndex",
+						"in": "query",
+						"description": "Index of the first row of report data to return. The minumum value is 0 (zero), the maximum value is 5000 (5 thousand). If startIndex is either unset or zero, the API will return as many rows as specified by the value of maxResults. If maxResults is not set the API will return as many rows as possible, up to 50,000. If startIndex is set to a non-zero value, the sum of startIndex and maxResults cannot be greater than 5000, or an error will be returned: paging past row 5000 is unsupported.",
+						"type": "integer"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients": {
+			"get": {
+				"summary": "Generate Reports",
+				"description": "Generate Reports",
+				"operationId": "generate-reports",
+				"parameters": [
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad clients to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits": {
+			"get": {
+				"summary": "List Ad Clients",
+				"description": "List Ad Clients",
+				"operationId": "list-ad-clients",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to get the ad units.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits/{adUnitId}": {
+			"get": {
+				"summary": "List Ad Units",
+				"description": "List Ad Units",
+				"operationId": "list-ad-units",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to get the ad unit.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
+			"get": {
+				"summary": "Get Ad Unit",
+				"description": "Get Ad Unit",
+				"operationId": "get-ad-unit",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of custom channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels": {
+			"get": {
+				"summary": "List Ad Unit Custom Channels",
+				"description": "List Ad Unit Custom Channels",
+				"operationId": "list-ad-unit-custom-channels",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of custom channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels/{customChannelId}": {
+			"get": {
+				"summary": "List Custom Channels",
+				"description": "List Custom Channels",
+				"operationId": "list-custom-channels",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client that contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
+			"get": {
+				"summary": "Get Custom Channel",
+				"description": "Get Custom Channel",
+				"operationId": "get-custom-channel",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel for which to list ad units.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/urlchannels": {
+			"get": {
+				"summary": "List Custom Channel Ad Units",
+				"description": "List Custom Channel Ad Units",
+				"operationId": "list-custom-channel-ad-units",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list URL channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of URL channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/reports": {
+			"get": {
+				"summary": "List URL Channels",
+				"description": "List URL Channels",
+				"operationId": "list-url-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Accounts upon which to report.",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "currency",
+						"in": "query",
+						"description": "Not available.",
+						"type": "string"
+					},
+					{
+						"name": "dimension",
+						"in": "query",
+						"description": "Optional dimensions on which to base the report.Available dimensions are:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDING_TYPE_NAME- BUYER_NETWORK_ID- BUYER_NETWORK_NAME- BID_TYPE_CODE- BID_TYPE_NAME- DOMAIN_NAME- COUNTRY_CODE- COUNTRY_NAME- TARGETING_",
+						"type": "string"
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "End of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "Set of filters to be applied to the report.",
+						"type": "string"
+					},
+					{
+						"name": "locale",
+						"in": "query",
+						"description": "Optional locale to use for translating report output to a local language. Defaults to en_US if not specified.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of rows of report data to return. The minumum value is 0 (zero), the maximum value is 50000 (50 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "metric",
+						"in": "query",
+						"description": "Optional numeric columns to include in the report.Available metrics are:- PAGE_VIEWS- PAGE_VIEWS_CTR- PAGE_VIEWS_RPM- AD_REQUESTS- AD_REQUESTS_COVERAGE- AD_REQUESTS_CTR- AD_REQUESTS_RPM- MATCHED_AD_REQUESTS- MATCHED_AD_REQUESTS_CTR- MATCHED_AD_REQUESTS_RPM- INDIVIDUAL_AD_IMPRESSIONS- INDIVIDUAL_AD_IMPRESSIONS_CTR- INDIVIDUAL_AD_IMPRESSIONS_RPM- CLICKS- EARNINGS- TOTAL_EARNINGS- COST_PER_CLICK",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Optional name of a dimension or metric on which to sort the resulting report. Optionally prefixed with + to sort ascending or - to sort descending. If no prefix is specified, the column is sorted ascending:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDI",
+						"type": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Start of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "startIndex",
+						"in": "query",
+						"description": "Index of the first row of report data to return. The minumum value is 0 (zero), the maximum value is 5000 (5 thousand). If startIndex is either unset or zero, the API will return as many rows as specified by the value of maxResults. If maxResults is not set the API will return as many rows as possible, up to 50,000. If startIndex is set to a non-zero value, the sum of startIndex and maxResults cannot be greater than 5000, or an error will be returned: paging past row 5000 is unsupported.",
+						"type": "integer"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
