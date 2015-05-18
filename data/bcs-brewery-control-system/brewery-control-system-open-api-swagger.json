@@ -1,0 +1,713 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Brewery Control System Open API",
+		"description": "The BCS-460 uses AJAX to read and write parameters via the web browser. This is done by using the HTTP GET and POST mechanisms to access simple data files on the controller. Users can create their own applications based on this interface to link multiple controllers together, or to create custom GUIs.",
+		"termsOfService": null,
+		"version": null
+	},
+	"host": "{bcs-device}",
+	"basePath": "/api",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/alarm": {
+			"": {
+				"summary": "Get the current alarm status",
+				"description": "",
+				"operationId": "getAlarm",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Alarm object",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/device": {
+			"": {
+				"summary": "Get information about the device",
+				"description": "",
+				"operationId": "getDevice",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Device object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/din": {
+			"": {
+				"summary": "List of current temperature values",
+				"description": "",
+				"operationId": "getDins",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/din/{id}": {
+			"": {
+				"summary": "Get information about a Digital Input",
+				"description": "",
+				"operationId": "getDinById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Din object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The Din number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/estop": {
+			"": {
+				"summary": "Stop all processes and shut down all outputs",
+				"description": "This method will return 400 Bad Request unless estop is true",
+				"operationId": "postEStop",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "estop",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/flash": {
+			"": {
+				"summary": "Turn off alarm",
+				"description": "Does not return",
+				"operationId": "postFirmware",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "TFTP Server",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/igniter/{id}": {
+			"": {
+				"summary": "Get igniter settings for the BCS",
+				"description": "",
+				"operationId": "getIgniter",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Igniter object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The igniter number (0-2)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ladder/{rung}": {
+			"": {
+				"summary": "Get ladder settings for the BCS",
+				"description": "",
+				"operationId": "getLadder",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Ladder/Rung object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "rung",
+						"in": "path",
+						"description": "The ladder rung number (0-39)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/network": {
+			"": {
+				"summary": "Get the current network settings",
+				"description": "",
+				"operationId": "getNetwork",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "TCPIP object",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/output": {
+			"": {
+				"summary": "List of current output values",
+				"description": "",
+				"operationId": "getoutputs",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/output/{id}": {
+			"": {
+				"summary": "Get information about a Digital Output",
+				"description": "",
+				"operationId": "getoutputById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "output object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The output number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/pid/{id}": {
+			"": {
+				"summary": "Get global PID settings for the BCS",
+				"description": "",
+				"operationId": "getPID",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "PID object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The PID number (0-7)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process": {
+			"": {
+				"summary": "List of current processes, 0 = not running, 1 = running",
+				"description": "",
+				"operationId": "getprocesses",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{id}": {
+			"": {
+				"summary": "Get information about a process",
+				"description": "",
+				"operationId": "getprocessById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Process object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}": {
+			"": {
+				"summary": "List of current timer values",
+				"description": "",
+				"operationId": "getprocesstimers",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/state/{state_id}": {
+			"": {
+				"summary": "Get information about a state",
+				"description": "",
+				"operationId": "getstateById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "State object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "state_id",
+						"in": "path",
+						"description": "The state number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/state/{state_id}/boolean_outputs": {
+			"": {
+				"summary": "Get information about a state's direct/boolean outputs (BCS-462 ONLY!)",
+				"description": "",
+				"operationId": "getstateBOById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "BooleanOutputs array to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "state_id",
+						"in": "path",
+						"description": "The state number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/state/{state_id}/exit_conditions": {
+			"": {
+				"summary": "Get information about a state's exit conditions",
+				"description": "",
+				"operationId": "getstateECById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "ExitCondition array to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "state_id",
+						"in": "path",
+						"description": "The state number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/state/{state_id}/output_controllers": {
+			"": {
+				"summary": "Get information about a state's output controllers",
+				"description": "",
+				"operationId": "getstateOCById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "OutputController array to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "state_id",
+						"in": "path",
+						"description": "The state number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/timer/{timer_id}": {
+			"": {
+				"summary": "Get information about a timer",
+				"description": "",
+				"operationId": "gettimerById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Timer object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "timer_id",
+						"in": "path",
+						"description": "The timer number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/process/{process_id}/win/{win_id}": {
+			"": {
+				"summary": "Get information about a win",
+				"description": "",
+				"operationId": "getwinById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Win object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "process_id",
+						"in": "path",
+						"description": "The process number",
+						"type": "integer"
+					},
+					{
+						"name": "win_id",
+						"in": "path",
+						"description": "The win number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/reset": {
+			"": {
+				"summary": "Reset the device",
+				"description": "This method will return 400 Bad Request unless reset is true",
+				"operationId": "postReset",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Reset object",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/system": {
+			"": {
+				"summary": "Get global settings for the BCS",
+				"description": "",
+				"operationId": "getSystem",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "System object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/temp": {
+			"": {
+				"summary": "List of current temperature values",
+				"description": "",
+				"operationId": "getTemps",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/temp/{probe}": {
+			"": {
+				"summary": "Get information about a temperature probe",
+				"description": "",
+				"operationId": "getTempById",
+				"parameters": [
+					{
+						"name": "",
+						"in": "body",
+						"description": "Probe object to update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "probe",
+						"in": "path",
+						"description": "The probe number",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
