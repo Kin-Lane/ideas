@@ -1,0 +1,626 @@
+{
+	"apiVersion" : 1.1,
+	"swaggerVersion" : 1.1,
+	"basePath" : "https://www.callfire.com/api/1.1/rest",
+	"resourcePath" : "/call",
+	"apis" : [ {
+		"path" : "/call",
+		"description" : "Creates a call broadcast, adds numbers to it, and sends it immediately",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "SendCall",
+			"responseClass" : "void",
+			"summary" : "Creates a call broadcast, adds numbers to it, and sends it immediately",
+			"notes" : "<p>Start sending calls using <code>VoiceBroadcastConfig</code> or by setting up an IVR using <code>IvrBroadcastConfig</code>. Sending a call requires at least a ToNumber and sound id or an IVR. The returned broadcastId can be passed to <code>QueryCalls</code> to get state of call actions in campaign and get list of individual callIds for use in <code>GetCall</code> request. The broadcastId can also be passed to <code>GetBroadcastStats</code> to get information about the call campaign, such as BilledAmount, Duration, State, etc... </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID, used to de-dup requests and make sure request is not processed twice",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Type",
+				"description" : "Type of Broadcast",
+				"dataType" : "BroadcastType",
+				"required" : true,
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "VOICE", "IVR", "TEXT", "CCC" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "BroadcastName",
+				"description" : "Title of Broadcast (default: API Send)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "To",
+				"description" : "List of E.164 11 digit numbers space or comma separated",
+				"dataType" : "ToNumber",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "ToNumber[ClientData]",
+				"description" : "PhoneNumber 'To' param represents (default: homePhone)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "ScrubBroadcastDuplicates",
+				"description" : "Scrub duplicates (default: false)",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "MaxActive",
+				"description" : "Max simultaneous calls",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "Created",
+				"description" : "DateTime Broadcast was created 'CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]'",
+				"dataType" : "dateTime",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "From",
+				"description" : "E.164 11 digit number or short code",
+				"dataType" : "PhoneNumber",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictBegin",
+				"description" : "Earliest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictEnd",
+				"description" : "Latest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MaxAttempts",
+				"description" : "Max attempts to retry broadcast (default: 1)",
+				"dataType" : "int",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MinutesBetweenAttempts",
+				"description" : "Minutes between broadcast attempts (default: 60)",
+				"dataType" : "int",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "RetryResults",
+				"description" : "Conditions to retry on",
+				"dataType" : "Result",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "LA", "AM", "BUSY", "DNC", "XFER", "XFER_LEG", "NO_ANS", "UNDIALED", "SENT", "RECEIVED", "DNT", "TOO_BIG", "INTERNAL_ERROR", "CARRIER_ERROR", "CARRIER_TEMP_ERROR", "SD", "POSTPONED", "ABANDONED", "SKIPPED" ]
+				},
+				"allowMultiple" : true,
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "RetryPhoneTypes",
+				"description" : "Phone types to call in retry",
+				"dataType" : "RetryPhoneType",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "FIRST_NUMBER", "HOME_PHONE", "WORK_PHONE", "MOBILE_PHONE" ]
+				},
+				"allowMultiple" : true,
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "AnsweringMachineConfig",
+				"description" : "Action to take if machine answers",
+				"dataType" : "AnsweringMachineConfig",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "AM_ONLY", "AM_AND_LIVE", "LIVE_WITH_AMD", "LIVE_IMMEDIATE" ]
+				},
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LiveSoundText",
+				"description" : null,
+				"dataType" : "string",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LiveSoundId",
+				"description" : "ID of Sound to play if call answered by live person",
+				"dataType" : "long",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LiveSoundTextVoice",
+				"description" : null,
+				"dataType" : "Voice",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MachineSoundText",
+				"description" : null,
+				"dataType" : "string",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MachineSoundId",
+				"description" : "ID of Sound to play if call answered by machine",
+				"dataType" : "long",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MachineSoundTextVoice",
+				"description" : null,
+				"dataType" : "Voice",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "TransferSoundText",
+				"description" : null,
+				"dataType" : "string",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "TransferSoundId",
+				"description" : "ID of Sound to play if call transfered",
+				"dataType" : "long",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "TransferSoundTextVoice",
+				"description" : null,
+				"dataType" : "Voice",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "TransferDigit",
+				"description" : "Phone digit call transfers on if pressed",
+				"dataType" : "PhoneDigit",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "TransferNumber",
+				"description" : "Number to transfer call to",
+				"dataType" : "PhoneNumber",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "DncSoundText",
+				"description" : null,
+				"dataType" : "string",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "DncSoundId",
+				"description" : "Do Not Call unique ID of sound",
+				"dataType" : "long",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "DncSoundTextVoice",
+				"description" : null,
+				"dataType" : "Voice",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "DncDigit",
+				"description" : "Do Not Call Digit",
+				"dataType" : "PhoneDigit",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MaxActiveTransfers",
+				"description" : "Max Transfers",
+				"dataType" : "int",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "VOICE"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "Created",
+				"description" : "DateTime Broadcast was created 'CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]'",
+				"dataType" : "dateTime",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "From",
+				"description" : "E.164 11 digit number or short code",
+				"dataType" : "PhoneNumber",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictBegin",
+				"description" : "Earliest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictEnd",
+				"description" : "Latest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MaxAttempts",
+				"description" : "Max attempts to retry broadcast (default: 1)",
+				"dataType" : "int",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "MinutesBetweenAttempts",
+				"description" : "Minutes between broadcast attempts (default: 60)",
+				"dataType" : "int",
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "RetryResults",
+				"description" : "Conditions to retry on",
+				"dataType" : "Result",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "LA", "AM", "BUSY", "DNC", "XFER", "XFER_LEG", "NO_ANS", "UNDIALED", "SENT", "RECEIVED", "DNT", "TOO_BIG", "INTERNAL_ERROR", "CARRIER_ERROR", "CARRIER_TEMP_ERROR", "SD", "POSTPONED", "ABANDONED", "SKIPPED" ]
+				},
+				"allowMultiple" : true,
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "form",
+				"name" : "RetryPhoneTypes",
+				"description" : "Phone types to call in retry",
+				"dataType" : "RetryPhoneType",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "FIRST_NUMBER", "HOME_PHONE", "WORK_PHONE", "MOBILE_PHONE" ]
+				},
+				"allowMultiple" : true,
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			}, {
+				"paramType" : "body",
+				"name" : "DialplanXml",
+				"description" : "IVR xml document describing dialplan",
+				"dataType" : "file",
+				"required" : true,
+				"conditions" : [ {
+					"field" : "Type",
+					"value" : "IVR"
+				} ]
+			} ]
+		} ]
+	}, {
+		"path" : "/call",
+		"description" : "Lists inbound and outbound calls",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryCalls",
+			"responseClass" : "void",
+			"summary" : "Lists inbound and outbound calls",
+			"notes" : "<p>Query for calls using standard ActionQuery which filters on batchId, broadcastId, toNumber, etc... Returns a list of calls and all associated info. See <code>GetCall</code> to return just a single call action by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "BroadcastId",
+				"description" : "BroadcastId to query on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "BatchId",
+				"description" : "BatchId to query on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "State",
+				"description" : "List of Action States to query on",
+				"dataType" : "ActionState",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "READY", "SELECTED", "CALLBACK", "DISABLED", "FINISHED", "DNC", "DUP", "INVALID", "TIMEOUT" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "query",
+				"name" : "Result",
+				"description" : "List of Results to query on",
+				"dataType" : "Result",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "LA", "AM", "BUSY", "DNC", "XFER", "XFER_LEG", "NO_ANS", "UNDIALED", "SENT", "RECEIVED", "DNT", "TOO_BIG", "INTERNAL_ERROR", "CARRIER_ERROR", "CARRIER_TEMP_ERROR", "SD", "POSTPONED", "ABANDONED", "SKIPPED" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "query",
+				"name" : "Inbound",
+				"description" : "Is call inbound",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "query",
+				"name" : "IntervalBegin",
+				"description" : "Beginning of DateTime interval to search on",
+				"dataType" : "dateTime"
+			}, {
+				"paramType" : "query",
+				"name" : "IntervalEnd",
+				"description" : "End of DateTime interval to search on",
+				"dataType" : "dateTime"
+			}, {
+				"paramType" : "query",
+				"name" : "FromNumber",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "query",
+				"name" : "ToNumber",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "query",
+				"name" : "LabelName",
+				"description" : "Label that result must have to be included",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/call/{Id}",
+		"description" : "Gets a call by ID",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetCall",
+			"responseClass" : "void",
+			"summary" : "Gets a call by ID",
+			"notes" : "<p>Return individual call action. See <code>QueryCalls</code> to return a list of call actions and determine individual callIds. </p> <p>General usage is to start a call campaign using <code>SendCall</code>, then to pass returned broadcastId to <code>QueryCalls</code> to determine callIds of call actions created. This <code>GetCall</code> can then be called with unique callId to determine info and state of call action. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/call/sound",
+		"description" : "Creates a new CallFire-hosted sound for use in calls.",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateSound",
+			"responseClass" : "void",
+			"summary" : "Creates a new CallFire-hosted sound for use in calls.",
+			"notes" : "<p>There are two ways to create a sound: (1) uploading a pre-recorded WAV or MP3, or (2) initiating a call to record a sound over the phone. </p> <p>Duplicate uploads are not allowed. If a duplicate sound data are provided, a new sound is not created. Instead, the ID of the previous sound is returned. </p> <p>Recording a sound over the phone works by first creating a sound asset using the RecordingCall option, then call the ToNumber to record live voice as sound. If sound is created using RecordingCall then need to wait for sound to be active by calling <code>GetSoundMeta</code> until Status = 'ACTIVE'. </p> <p>Use the returned soundId in a subsequent <code>SendCall</code> request.</p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "The name of your sound. This name is included in SoundMeta and shown in the web interface.",
+				"dataType" : "string"
+			}, {
+				"paramType" : "body",
+				"name" : "Data",
+				"description" : "MP3 or WAV bytes. Base64 encoded bytes can be provided inline. Capable clients can avoid the 33% encoding overhead by sending the data as an MTOM attachement",
+				"dataType" : "file",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "ToNumber",
+				"description" : "E.164 11 digit number to call to record a new sound.",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "SoundText",
+				"description" : null,
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "SoundTextVoice",
+				"description" : null,
+				"dataType" : "Voice"
+			} ]
+		} ]
+	}, {
+		"path" : "/call/sound",
+		"description" : "Lists sounds available for use in calls.",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QuerySoundMeta",
+			"responseClass" : "void",
+			"summary" : "Lists sounds available for use in calls.",
+			"notes" : "<p>Return list of sound meta info that includes id, status, name, length, etc... This operation only returns meta info, not the actual sound data. The raw binary sound data can be obtained from the <code>GetSoundData</code>. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/call/sound/{Id}",
+		"description" : "Gets metadata for a sound for use in calls",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetSoundMeta",
+			"responseClass" : "void",
+			"summary" : "Gets metadata for a sound for use in calls",
+			"notes" : "<p>Return sound meta info for specified sound that includes id, status, name, length, etc... This operation only returns meta info, not the actual sound data. The raw binary sound data can be obtained from the <code>GetSoundData</code>. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/call/callerid/send-verification",
+		"description" : "Sends call to callerId number and voice verification code",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "SendVerificationCodeToCallerId",
+			"responseClass" : "void",
+			"summary" : "Sends call to callerId number and voice verification code",
+			"notes" : "<p>Creating broadcasts requires a verified callerId (FromNumber) as one of the mandatory parameters. This api method along with <code>VerifyCallerIdRequest</code> can be used to verify a callerId that can be used in subsequent create broadcast requests. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID, used to de-dup requests and make sure request is not processed twice",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "CallerId",
+				"description" : "CallerId number to verify",
+				"dataType" : "PhoneNumber"
+			} ]
+		} ]
+	}, {
+		"path" : "/call/callerid/verify",
+		"description" : "Verify callerId by including verification code",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "VerifyCallerId",
+			"responseClass" : "void",
+			"summary" : "Verify callerId by including verification code",
+			"notes" : "<p>Verifying a callerId is a two step process. First a verification code must be sent to callerId <code>SendVerificationCodeToCallerId</code>. Then the verificationCode sent to callerId must be entered here to mark callerId as verified. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "CallerId",
+				"description" : "CallerId number to verify",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "VerificationCode",
+				"description" : "4-digit verification code that was sent to phone number in CallerId",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/call/callerid",
+		"description" : "Return list of verified callerIds",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetCallerIds",
+			"responseClass" : "void",
+			"summary" : "Return list of verified callerIds",
+			"notes" : "<p>Creating broadcasts requires verified callerId as <code>FromNumber<code>. This method returns the list of callerId numbers that have been verified and can be used to create broadcasts. See <code>SendVerificationCodeToCallerId</code> and <code>VerifyCallerIdRequest</code> for instructions on how to verify a callerId. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			} ]
+		} ]
+	} ]
+}
