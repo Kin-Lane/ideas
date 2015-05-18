@@ -1,0 +1,85 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Pinboard API",
+		"description": "The Pinboard API is a way to interact programatically with your bookmarks, notes and other Pinboard data.",
+		"termsOfService": "https://pinboard.in/tos/",
+		"version": "1.0"
+	},
+	"host": "api.pinboard.in",
+	"basePath": "/v1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/posts/all": {
+			"get": {
+				"summary": "All Bookmarks",
+				"description": "Returns all bookmarks in the users account.",
+				"operationId": "returnAllBookmarks",
+				"parameters": [
+					{
+						"name": "fromdt",
+						"in": "query",
+						"description": "return only bookmarks created after this time",
+						"type": "string",
+						"format": "dateTime"
+					},
+					{
+						"name": "meta",
+						"in": "query",
+						"description": "include a change detection signature for each bookmark",
+						"type": "integer",
+						"format": "integer"
+					},
+					{
+						"name": "results",
+						"in": "query",
+						"description": "number of results to return. Default is all",
+						"type": "integer",
+						"format": "integer"
+					},
+					{
+						"name": "start",
+						"in": "query",
+						"description": "offset value (default is 0)",
+						"type": "integer",
+						"format": "integer"
+					},
+					{
+						"name": "tag",
+						"in": "query",
+						"description": "filter by up to three tags",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "todt",
+						"in": "query",
+						"description": "return only bookmarks created before this time",
+						"type": "string",
+						"format": "dateTime"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": ""
+					}
+				},
+				"tags": [
+					"Links",
+					" URL",
+					" Bookmarks"
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
