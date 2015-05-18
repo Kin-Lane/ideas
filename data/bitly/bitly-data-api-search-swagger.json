@@ -1,0 +1,310 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Bit.ly Search API",
+		"description": "Search links receiving clicks across bitly by content, language, location, and more.",
+		"termsOfService": "http://dev.bitly.com/best_practices.html",
+		"version": "3.0"
+	},
+	"host": "api-ssl.bitly.com",
+	"basePath": "/v3",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/search": {
+			"get": {
+				"summary": "Link Search",
+				"description": "Search links receiving clicks across bitly by content, language, location, and more.",
+				"operationId": "searchLinks",
+				"parameters": [
+					{
+						"name": "cities",
+						"in": "query",
+						"description": "show links active in this city (ordered like country-state-city, e.g. us-il-chicago).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "domain",
+						"in": "query",
+						"description": "restrict results to this web domain (like bitly.com).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "which fields to return in the response (comma-separated). May be any of: domain, initial_epoch, h2, h3, site, lastindexed, keywords, last_indexed_epoch, title, initial, summaryText, content, score, summaryTitle, type, description, cities, lang, url, referrer, aggregate_link, lastseen, page, ogtitle, aggregate_link. By default, all will be returned.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "full_domain",
+						"in": "query",
+						"description": "restrict results to this full web domain (like blog.bitly.com).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "favor results in this language (two letter ISO code).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "which result to start with (defaults to 0).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "query",
+						"in": "query",
+						"description": "string to query for.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful Links Response"
+					}
+				},
+				"tags": [
+					"Links",
+					" URL",
+					" URL Shortener",
+					" Search"
+				]
+			}
+		},
+		"/v3/expand": {
+			"get": {
+				"summary": "expand",
+				"description": "expand",
+				"operationId": "expand",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/info": {
+			"get": {
+				"summary": "info",
+				"description": "info",
+				"operationId": "info",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/link/clicks": {
+			"get": {
+				"summary": "link_clicks",
+				"description": "link_clicks",
+				"operationId": "link-clicks",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/link/countries": {
+			"get": {
+				"summary": "link_countries",
+				"description": "link_countries",
+				"operationId": "link-countries",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/link/lookup": {
+			"get": {
+				"summary": "lookup",
+				"description": "lookup",
+				"operationId": "lookup",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/link/referrers": {
+			"get": {
+				"summary": "link_referrers",
+				"description": "link_referrers",
+				"operationId": "link-referrers",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/link/shares": {
+			"get": {
+				"summary": "link_shares",
+				"description": "link_shares",
+				"operationId": "link-shares",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/realtime/bursting_phrases": {
+			"get": {
+				"summary": "realtime_bursting_phrases",
+				"description": "realtime_bursting_phrases",
+				"operationId": "realtime-bursting-phrases",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/realtime/hot_phrases": {
+			"get": {
+				"summary": "realtime_hot_phrases",
+				"description": "realtime_hot_phrases",
+				"operationId": "realtime-hot-phrases",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/search": {
+			"get": {
+				"summary": "realtime_search",
+				"description": "realtime_search",
+				"operationId": "realtime-search",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/shorten": {
+			"get": {
+				"summary": "shorten",
+				"description": "shorten",
+				"operationId": "shorten",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/user/info": {
+			"get": {
+				"summary": "user_info",
+				"description": "user_info",
+				"operationId": "user-info",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/user/link_history": {
+			"get": {
+				"summary": "user_link_history",
+				"description": "user_link_history",
+				"operationId": "user-link-history",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v3/user/popular_links": {
+			"get": {
+				"summary": "user_popular_links",
+				"description": "user_popular_links",
+				"operationId": "user-popular-links",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
