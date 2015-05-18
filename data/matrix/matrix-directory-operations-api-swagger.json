@@ -1,0 +1,310 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Matrix Directory Operations API",
+		"description": null,
+		"termsOfService": null,
+		"version": null
+	},
+	"host": "/directory",
+	"basePath": "http://localhost:8008/_matrix/client/api/v1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/login": {
+			"post": {
+				"summary": "Submit a login action.",
+				"description": "If this is part of a multi-stage login, there MUST be a 'session' key.",
+				"operationId": "submit_login",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "A login submission",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/register": {
+			"post": {
+				"summary": "Submit a registration action.",
+				"description": "If this is part of a multi-stage registration, there MUST be a 'session' key.",
+				"operationId": "submit_registration",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "A registration submission",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/profile/{userId}/avatar_url": {
+			"put": {
+				"summary": "Set an avatar URL.",
+				"description": "This can only be done by the logged in user.",
+				"operationId": "set_avatar_url",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The new avatar url for this user.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose avatar url to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/profile/{userId}/displayname": {
+			"put": {
+				"summary": "Set a display name.",
+				"description": "This can only be done by the logged in user.",
+				"operationId": "set_display_name",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The new display name for this user.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose display name to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/presence/list/{userId}": {
+			"post": {
+				"summary": "Add or remove users from this presence list.",
+				"description": "Add or remove users from this presence list.",
+				"operationId": "modify_presence_list",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The modifications to make to this presence list.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose presence list is being modified."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/presence/{userId}/status": {
+			"put": {
+				"summary": "Update this user's presence state.",
+				"description": "This can only be done by the logged in user.",
+				"operationId": "update_presence",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The new presence state",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "The user whose presence to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/events": {
+			"get": {
+				"summary": "Listen on the event stream",
+				"description": "This can only be done by the logged in user. This will block until an event is received, or until the timeout is reached.",
+				"operationId": "get_event_stream",
+				"parameters": [
+					{
+						"name": "from",
+						"in": "query",
+						"description": "The token to stream from."
+					},
+					{
+						"name": "timeout",
+						"in": "query",
+						"description": "The maximum time in milliseconds to wait for an event."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/events/{eventId}": {
+			"get": {
+				"summary": "Get information about a single event.",
+				"description": "Get information about a single event.",
+				"operationId": "get_event",
+				"parameters": [
+					{
+						"name": "eventId",
+						"in": "path",
+						"description": "The event ID to get."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/initialSync": {
+			"get": {
+				"summary": "Get this user's current state.",
+				"description": "Get this user's current state.",
+				"operationId": "initial_sync",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "The maximum number of messages to return for each room."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/publicRooms": {
+			"get": {
+				"summary": "Get a list of publicly visible rooms.",
+				"description": "",
+				"operationId": "get_public_room_list",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/directory/room/{roomAlias}": {
+			"put": {
+				"summary": "Create a new mapping from room alias to room ID.",
+				"description": "Volatile: This API is likely to change.",
+				"operationId": "add_room_alias",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "The room ID to set.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "roomAlias",
+						"in": "path",
+						"description": "The room alias to set."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
