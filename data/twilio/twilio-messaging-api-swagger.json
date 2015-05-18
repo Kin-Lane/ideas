@@ -1,0 +1,121 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Twilio Messaging API",
+		"description": "A Message instance resource represents an inbound or outbound message. When you send an SMS or MMS message via the REST API, use the <Message> verb in TwiML, or someone sends a message to one of your Twilio numbers Twilio creates a Message instance resource.",
+		"termsOfService": null,
+		"version": "2010-04-01"
+	},
+	"host": "api.twilio.com",
+	"basePath": "/2010-04-01/Accounts/{AccountSid}/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"Messages/": {
+			"post": {
+				"summary": "Messages",
+				"description": "A Message instance resource represents an inbound or outbound message. When you send an SMS or MMS message via the REST API, use the <Message> verb in TwiML, or someone sends a message to one of your Twilio numbers Twilio creates a Message instance resource.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "AccountSid",
+						"in": "path",
+						"description": "Account ID",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "ApplicationSid",
+						"in": "query",
+						"description": "Twilio will POST MessageSid as well as MessageStatus=sent or MessageStatus=failed to the URL in the MessageStatusCallback property of this Application. If the StatusCallback parameter above is also passed, the Applications MessageStatusCallback parameter will take precedence.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "Body",
+						"in": "query",
+						"description": "The text of the message you want to send, limited to 1600 characters.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "From",
+						"in": "query",
+						"description": "A Twilio phone number enabled for the type of message you wish to send. Only phone numbers or short codes purchased from Twilio work here; you cannot (for example) spoof messages from your own cell phone number.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "MediaUrl",
+						"in": "query",
+						"description": "The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipients device. Other types are also accepted by the API. The media size limit is 5MB. If you wish to send more than one image in the message body, please provide multiple MediaUrls values in the POST request. You may include up to 10 MediaUrls per message.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "StatusCallback",
+						"in": "query",
+						"description": "A URL that Twilio will POST to each time your message status changes to one of the following: failed, sent, delivered, or undelivered. Twilio will POST the MessageSid along with the other standard request parameters as well as MessageStatus and ErrorCode.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "To",
+						"in": "query",
+						"description": "The destination phone number. Format with a + and country code e.g., +16175551212 (E.164 format). For To numbers without a +, Twilio will use the same country code as the From number. Twilio will also attempt to handle locally formatted numbers for that country code (e.g. (415) 555-1212 for US, 07400123456 for GB). If you are sending to a different country than the From number, you must include a + and the country code to ensure proper delivery.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		},
+		"Messages/{MessageSid}/": {
+			"get": {
+				"summary": "Message",
+				"description": "This resource represents an individual SMS or MMS message.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "MessageSid",
+						"in": "path",
+						"description": "The message ID.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "This resource represents an individual SMS or MMS message.",
+						"in": "path",
+						"description": "The account ID.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
