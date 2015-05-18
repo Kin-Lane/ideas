@@ -1,0 +1,837 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Amazon S3",
+		"description": "This is the Amazon Simple Storage Service API Reference. ",
+		"termsOfService": null,
+		"version": "2006-03-01"
+	},
+	"host": "s3.amazonaws.com",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/": {
+			"put": {
+				"summary": "PUT Bucket",
+				"description": "This implementation of the PUT operation creates a new bucket. To createa bucket, you must register with Amazon S3 and have a valid AWS Access Key ID toauthenticate requests. Anonymous requests are never allowed to create buckets. Bycreating the bucket, you become the bucket owner.Not every string is an acceptable bucket name. For information on bucket namingrestrictions, see Working with Amazon S3 Buckets. By default, the bucket is created in the US Standard region. You can optionally specify aregion in the request body. You might choose a region to optimize latency, minimizecosts, or address regulatory requirements. For example, if you reside in Europe, youwill probably find it advantageous to create buckets in the EU (Ireland) region. Formore information, see How to Select a Region for Your Buckets. NoteIf you create a bucket in a region other than US Standard, your application must be ableto handle 307 redirect. For more information, go to Virtual Hosting of Buckets in Amazon Simple Storage Service Developer Guide.When creating a bucket using this operation, you can optionally specify the accounts orgroups that should be granted specific permissions on the bucket. There are two ways togrant the appropriate permissions using the request headers.Specify a canned ACL using the x-amz-acl request header. For moreinformation, see Canned ACL in the Amazon Simple Storage Service Developer Guide. Specify access permissions explicitly using the x-amz-grant-read,x-amz-grant-write, x-amz-grant-read-acp,x-amz-grant-write-acp,x-amz-grant-full-control headers. These headers map to theset of permissions Amazon S3 supports in an ACL. For more information, go toAccess Control List (ACL) Overview in the AmazonSimple Storage Service Developer Guide.NoteYou can use either a canned ACL or specify access permissions explicitly. You cannot doboth. ",
+				"operationId": "put-bucket",
+				"parameters": [
+					{
+						"name": "x-amz-acl",
+						"in": "header",
+						"description": "The canned ACL to apply to the bucket you are creating. For more information, gottttttttttttto Canned ACL in the Amazon SimplettttttttttttStorage Service DeveloperttttttttttttGuide. tttttttttttType: Stringttttttttttt Valid Values: private | public-read | public-read-write | authenticated-read | bucket-owner-read | bucket-owner-full-control",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-full-control",
+						"in": "header",
+						"description": "Allows grantee the READ, WRITE, READ_ACP, and WRITE_ACP permissions on thettttttttttttbucket.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read",
+						"in": "header",
+						"description": "Allows grantee to list the objects in the bucket.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read-acp",
+						"in": "header",
+						"description": "Allows grantee to read the bucket ACL.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write",
+						"in": "header",
+						"description": "Allows grantee to create, overwrite, and delete any object in the bucket.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write-acp",
+						"in": "header",
+						"description": "Allows grantee to write the ACL for the applicable bucket.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?acl": {
+			"put": {
+				"summary": "PUT Bucket acl",
+				"description": "This implementation of the PUT operation uses the aclsubresource to set the permissions on an existing bucket using access control lists(ACL). For more information, go to Using ACLs. To set the ACL of a bucket, you must have WRITE_ACP permission. You can use one of the following two ways to set a bucket's permissions:Specify the ACL in the request bodySpecify permissions using request headers NoteYou cannot specify access permission using both the body and the request headers. Depending on your application needs, you may choose to set the ACL on a bucket using eitherthe request body or the headers. For example, if you have an existing application thatupdates a bucket ACL using the request body, then you can continue to use that approach.  ",
+				"operationId": "put-bucket-acl",
+				"parameters": [
+					{
+						"name": "x-amz-acl",
+						"in": "header",
+						"description": "Sets the ACL of the bucket using the specified canned ACL. tttttttttttType: StringttttttttValid Values: private | public-read | public-read-write |tttttttttauthenticated-read ttttttttttt Default: private",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-full-control",
+						"in": "header",
+						"description": "Allows the specified grantee(s) the READ, WRITE, READ_ACP, and WRITE_ACPtttttttttpermissions on the bucket.tttttttttType: Stringttttttttt Default: NonetttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read",
+						"in": "header",
+						"description": "Allows the specified grantee(s) to list the objects in the bucket.tttttttttType: StringtttttttttDefault: NonetttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read-acp",
+						"in": "header",
+						"description": "Allows the specified grantee(s) to read the bucket ACL.tttttttttType: Stringttttttttt Default: NonetttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write",
+						"in": "header",
+						"description": "Allows the specified grantee(s) to create, overwrite, and delete any object in thetttttttttbucket.tttttttttType: StringtttttttttDefault: NonetttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write-acp",
+						"in": "header",
+						"description": "Allows the specified grantee(s) to write the ACL for the applicabletttttttttbucket.tttttttttType: Stringttttttttt Default: NonetttttttttConstraints: None",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?cors": {
+			"get": {
+				"summary": "GET Bucket cors",
+				"description": "Returns the cors configuration information set for thebucket.To use this operation, you must have permission to perform the s3:GetBucketCORSaction. By default, the bucket owner has this permission and can grant it toothers.To learn more cors, go to EnablingCross-Origin Resource Sharing in the Amazon Simple Storage Service Developer Guide.",
+				"operationId": "get-bucket-cors",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?delete": {
+			"post": {
+				"summary": "Delete Multiple Objects",
+				"description": "The Multi-Object Delete operation enables you to delete multiple objects from a bucketusing a single HTTP request. If you know the object keys that you want to delete, thenthis operation provides a suitable alternative to sending individual delete requests(see DELETE Object), reducingper-request overhead. The Multi-Object Delete request contains a list of up to 1000 keys that you want to delete.In the XML, you provide the object key names, and optionally, version IDs if you want todelete a specific version of the object from a versioning-enabled bucket. For each key,Amazon S3 performs a delete operation and returns the result of that delete, success, orfailure, in the response. Note that, if the object specified in the request is notfound, Amazon S3 returns the result as deleted.The Multi-Object Delete operation supports two modes for the response; verbose and quiet.By default, the operation uses verbose mode in which the response includes the result ofdeletion of each key in your request. In quiet mode the response includes only keyswhere the delete operation encountered an error. For a successful deletion, theoperation does not return any information about the delete in the response body. When performing a Multi-Object Delete operation on an MFA Delete enabled bucket, thatattempts to delete any versioned objects, you must include an MFA token. If you do notprovide one, the entire request will fail, even if there are non versioned objects youare attempting to delete. If you provide an invalid token, whether there are versionedkeys in the request or not, the entire Multi-Object Delete request will fail. Forinformation about MFA Delete, see MFA Delete.Finally, the Content-MD5 header is required for all Multi-Object Deleterequests. Amazon S3 uses the header value to ensure that your request body has not bealtered in transit. ",
+				"operationId": "delete-multiple-objects",
+				"parameters": [
+					{
+						"name": "Content-Length",
+						"in": "header",
+						"description": "Length of the body according to RFC 2616. tttttttttType: StringtttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Content-MD5",
+						"in": "header",
+						"description": "The base64-encoded 128-bit MD5 digest of the data. This header must be used as atttttttttmessage integrity check to verify that the request body was nottttttttttcorrupted in transit. For more information, go to RFCttttttttt1864.tttttttttType: String tttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-mfa",
+						"in": "header",
+						"description": "The value is the concatenation of the authentication devices serial number, a space,tttttttttand the value that is displayed on your authenticationtttttttttdevice.tttttttttType: StringtttttttttDefault: None tttttttttCondition: Required to permanently delete a versionedttttttttttobject if versioning is configured with MFA Delete enabled.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?lifecycle": {
+			"put": {
+				"summary": "PUT Bucket lifecycle",
+				"description": "Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration.For information about lifecycle configuration, go toObject Lifecycle Management in the Amazon Simple Storage Service Developer Guide.",
+				"operationId": "put-bucket-lifecycle",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?location": {
+			"put": {
+				"summary": "PUT Bucket logging",
+				"description": "NoteThe logging implementation of PUT Bucket is a beta feature.This implementation of the PUT operation uses thelogging subresource to set the logging parameters for abucket and to specify permissions for who can view and modify the logging parameters. Toset the logging status of a bucket, you must be the bucket owner.The bucket owner is automatically granted FULL_CONTROL to all logs. You use theGrantee request element to grant access to other people. ThePermissions request element specifies the kind of access thegrantee has to the logs.To enable logging, you use LoggingEnabled and its childrenrequest elements.To disable logging, you use an empty BucketLoggingStatusrequest element:&lt;BucketLoggingStatus xmlns=http://doc.s3.amazonaws.com/2006-03-01 /&gt;For more information about creating a bucket, see PUTBucket. For more information about returning the logging status of a bucket,see GET Bucket logging.",
+				"operationId": "put-bucket-logging",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?logging": {
+			"put": {
+				"summary": "PUT Bucket notification",
+				"description": "The Amazon S3 notification feature enables you to receive notifications when certain eventshappen in your bucket. For more information about event notifications, go to Configuring Event Notifications inthe Amazon Simple Storage Service Developer Guide. Using this API, you can replace an existing notification configuration. Theconfiguration is an XML file that defines the event types that you want Amazon S3 to publishand the destination where you want Amazon S3 to publish an event notification when it detectsan event of the specified type. By default, your bucket has no event notifications configured. That is, thenotification configuration will be an emptyNotificationConfiguration.&lt;NotificationConfiguration&gt;&lt;/NotificationConfiguration&gt;This operation replaces the existing notification configuration with the configurationyou include in the request body. After Amazon S3 receives this request, it first verifies that any SNS or SQS destinationexists, and that the bucket owner has permission to publish to it by sending a testnotification. In the case of Lambda destinations, Amazon S3 will verify that the actorsubmitting the configuration has permissions to pass the invocation role specified, andAmazon S3 can assume the role. For more information, go to Configuring Notifications for Amazon S3Events in the Amazon Simple Storage Service Developer Guide.You can disable notification by adding the emptyNotificationConfiguration element.  By default, only the bucket owner can configure notifications on a bucket. However,bucket owners can use a bucket policy to grant permission to other users to set thisconfiguration with s3:PutBucketNotification permission.NoteThe PUT notification is an atomic operation. For example, suppose yournotification configuration includes SNS topic, SQS queue, and Lambda functionconfigurations. When you send a PUT request with this configuration, Amazon S3sends test messges to your SNS topic. If the message fails, the entire PUToperation will fail, and Amazon S3 will not add the configuration to yourbucket.",
+				"operationId": "put-bucket-notification",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?notification": {
+			"get": {
+				"summary": "GET Bucket notification",
+				"description": "This implementation of the GET operation uses thenotification subresource to return the notificationconfiguration of a bucket. If notifications are not enabled on the bucket, the operation returns an emptyNotificationConfiguration element.By default, you must be the bucket owner to read the notification configuration of a bucket.However, the bucket owner can use a bucket policy to grant permission to other users toread this configuration with the s3:GetBucketNotificationpermission.For more information about setting and reading the notification configuration on a bucket,see Setting Up Notification of Bucket Events. For more information about bucketpolicies, see Using Bucket Policies.",
+				"operationId": "get-bucket-notification",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?policy": {
+			"put": {
+				"summary": "PUT Bucket policy",
+				"description": "This implementation of the PUT operation uses the policysubresource to add to or replace a policy on a bucket. If the bucket already has apolicy, the one in this request completely replaces it. To perform this operation, youmust be the bucket owner.If you are not the bucket owner but have PutBucketPolicy permissionson the bucket, Amazon S3 returns a 405 Method Not Allowed. In allother cases for a PUT bucket policy request that is not from the bucket owner, Amazon S3returns 403 Access Denied. There are restrictions about who can createbucket policies and which objects in a bucket they can apply to. For more information,go to Using Bucket Policies.",
+				"operationId": "put-bucket-policy",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?requestPayment": {
+			"put": {
+				"summary": "PUT Bucket requestPayment",
+				"description": "This implementation of the PUT operation uses therequestPayment subresource to set the request paymentconfiguration of a bucket. By default, the bucket owner pays for downloads from thebucket. This configuration parameter enables the bucket owner (only) to specify that theperson requesting the download will be charged for the download. For more information,see Requester Pays Buckets.",
+				"operationId": "put-bucket-requestpayment",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?tagging": {
+			"put": {
+				"summary": "PUT Bucket tagging",
+				"description": "This implementation of the PUT operation uses the taggingsubresource to add a set of tags to an existing bucket.Use tags to organize your AWS bill to reflect your own cost structure.To do this, sign up to get your AWS account bill with tag key values included.Then, to see the cost of combined resources, organize your billing informationaccording to resources with the same tag key values. For example, you can tagseveral resources with a specific application name, and then organize your billinginformation to see the total cost of that application across several services.For more information, see Cost Allocation and Tagging in About AWS Billing and Cost Management.To use this operation, you must have permission to perform thes3:PutBucketTagging action. By default, the bucket owner hasthis permission and can grant this permission to others. ",
+				"operationId": "put-bucket-tagging",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?uploads": {
+			"get": {
+				"summary": "List Multipart Uploads",
+				"description": "This operation lists in-progress multipart uploads. An in-progress multipart upload is amultipart upload that has been initiated, using the Initiate Multipart Upload request,but has not yet been completed or aborted. This operation returns at most 1,000 multipart uploads in the response. 1,000 multipartuploads is the maximum number of uploads a response can include, which is also thedefault value. You can further limit the number of uploads in a response by specifyingthe max-uploads parameter in the response. If additionalmultipart uploads satisfy the list criteria, the response will contain anIsTruncated element with the value true. To list theadditional multipart uploads, use the key-marker andupload-id-marker request parameters.In the response, the uploads are sorted by key. If your application has initiated more thanone multipart upload using the same object key, then uploads in the response are firstsorted by key. Additionally,  uploads are sorted in ascending order within each key bythe upload initiation time. For more information on multipart uploads, go to Uploading Objects Using Multipart Upload in the Amazon S3Developer Guide.For information on permissions required to use the multipart upload API, go to Multipart Upload API and Permissions in the Amazon Simple Storage Service Developer Guide .",
+				"operationId": "list-multipart-uploads",
+				"parameters": [
+					{
+						"name": "delimiter",
+						"in": "query",
+						"description": "Character you use to group keys. ttttttttAll keys that contain the same string between the prefix, iftttttttttspecified, and the first occurrence of the delimiter after thetttttttttprefix are grouped under a single result element,ttttttttttCommonPrefixes. If you dont specifytttttttttthe prefix parameter, then the substringtttttttttstarts at the beginning of the key. The keys that are groupedtttttttttunder CommonPrefixes result element aretttttttttnot returned elsewhere in the response.ttttttttT",
+						"type": "string"
+					},
+					{
+						"name": "encoding-type",
+						"in": "query",
+						"description": "Requests Amazon S3 to encode the response and specifies the encoding method totttttttttuse.ttttttttAn object key can contain any Unicode character; however, XML 1.0 parser cannot parsetttttttttsome characters, such as characters with an ASCII value from 0tttttttttto 10. For characters that are not supported in XML 1.0, you cantttttttttadd this parameter to request that Amazon S3 encode the keys intttttttttthe response.  ttttttttttttttttType: StringttttttttDefault: NonettttttttValid value: url",
+						"type": "string"
+					},
+					{
+						"name": "key-marker",
+						"in": "query",
+						"description": "Together with upload-id-marker, this parameter specifies the multiparttttttttttupload after which listing should begin. ttttttttIf upload-id-marker is not specified, only the keys lexicographicallytttttttttgreater than the specified key-markertttttttttwill be included in the list. ttttttttIf upload-id-marker is specified, any multipart uploads for a key equaltttttttttto the key-marker might also be included,tttttttttprovided those multipart uploads have upload IDstttttttttlexicographically great",
+						"type": "string"
+					},
+					{
+						"name": "max-uploads",
+						"in": "query",
+						"description": "Sets the maximum number of multipart uploads, from 1 to 1,000, to return in thetttttttttresponse body. 1,000 is the maximum number of uploads that cantttttttttbe returned in a response.ttttttttType: IntegerttttttttDefault: 1,000",
+						"type": "string"
+					},
+					{
+						"name": "prefix",
+						"in": "query",
+						"description": "Lists in-progress uploads only for those keys that begin with the specified prefix.tttttttttYou can use prefixes to separate a bucket into differenttttttttttgrouping of keys. (You can think of using prefix to make groupstttttttttin the same way youd use a folder in a file system.) ttttttttType: String",
+						"type": "string"
+					},
+					{
+						"name": "upload-id-&#8203;marker",
+						"in": "query",
+						"description": "Together with key-marker, specifies the multipart upload after whichtttttttttlisting should begin. If key-marker is nottttttttttspecified, the upload-id-marker parameter istttttttttignored. Otherwise, any multipart uploads for a key equal to thettttttttttkey-marker might be included in the list onlytttttttttif they have an upload ID lexicographically greater than thetttttttttspecified upload-id-marker. ttttttttType: String",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?versioning": {
+			"put": {
+				"summary": "PUT Bucket versioning",
+				"description": "This implementation of the PUT operation uses theversioning subresource to set the versioning state of anexisting bucket. To set the versioning state, you must be the bucket owner.You can set the versioning state with one of the following values:Enabled&#8212;Enables versioning for theobjects in the bucketAll objects added to the bucket receive a unique version ID.Suspended&#8212;Disables versioning for theobjects in the bucketAll objects added to the bucket receive the version IDnull.If the versioning state has never been set on a bucket, it has no versioning state; aGETversioning request does not return a versioning statevalue.If the bucket owner enables MFA Delete in the bucket versioning configuration, thebucket owner must include the x-amz-mfa request header and theStatus and the MfaDelete requestelements in a request to set the versioning state of the bucket.For more information about creating a bucket, see PUTBucket. For more information about returning the versioning state of abucket, see GET Bucket VersioningStatus.",
+				"operationId": "put-bucket-versioning",
+				"parameters": [
+					{
+						"name": "x-amz-mfa",
+						"in": "header",
+						"description": "The value is the concatenation of the authenticationtttttttttdevices serial number, a space, and the value displayed on yourtttttttttauthentication device.ttttttttType: Stringtttttttt Default: NonettttttttCondition: Required to configure the versioning state iftttttttttversioning is configured with MFA Delete enabled.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?versions": {
+			"get": {
+				"summary": "GET Bucket Object versions",
+				"description": "You can use the versions subresource to list metadata about all ofthe versions of objects in a bucket. You can also use request parameters as selectioncriteria to return metadata about a subset of all the object versions. For moreinformation, see RequestParameters.To use this operation, you must have READ access to the bucket.",
+				"operationId": "get-bucket-object-versions",
+				"parameters": [
+					{
+						"name": "delimiter",
+						"in": "query",
+						"description": "A delimiter is a character that you specify to group keys. Alltttttttttkeys that contain the same string between the prefix and the first occurrence of thetttttttttdelimiter are grouped under a single result element inttttttttttCommonPrefixes. These groups aretttttttttcounted as one result against the max-keystttttttttlimitation. These keys are not returned elsewhere intttttttttthe response. Also, see prefix.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "encoding-type",
+						"in": "query",
+						"description": "Requests Amazon S3 to encode the response and specifies the encoding method totttttttttuse.ttttttttAn object key can contain any Unicode character; however, XML 1.0 parser cannot parsetttttttttsome characters, such as characters with an ASCII value from 0tttttttttto 10. For characters that are not supported in XML 1.0, you cantttttttttadd this parameter to request that Amazon S3 encode the keys intttttttttthe response. ttttttttttttttttType: StringttttttttDefault: NonettttttttValid value: url",
+						"type": "string"
+					},
+					{
+						"name": "key-marker",
+						"in": "query",
+						"description": "Specifies the key in the bucket that you want to start listingtttttttttfrom. Also, see version-id-marker.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "max-keys",
+						"in": "query",
+						"description": "Sets the maximum number of keys returned in the response body.tttttttttThe response might contain fewer keys, but will never containtttttttttmore. If  additional keys satisfy the search criteria, but weretttttttttnot returned because max-keys wastttttttttexceeded, the response containstttttttttt&lt;isTruncated&gt;true&lt;/isTruncated&gt;. Totttttttttreturn the additional keys, see key-marker and version-id-marker.ttttttttType: StringttttttttDefault: 1000",
+						"type": "string"
+					},
+					{
+						"name": "prefix",
+						"in": "query",
+						"description": "Use this parameter to select only those keys that begin withtttttttttthe specified prefix. You can use prefixes to separate a buckettttttttttinto different groupings of keys. (You can think of usingttttttttttprefix to make groups in the same waytttttttttyoud use a folder in a file system.) You can use prefix with delimiter totttttttttroll up numerous objects into a single result under CommonPrefixes. Also, see delimiter.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "version-id-marker",
+						"in": "query",
+						"description": "Specifies the object version you want to start listing from.tttttttttAlso, see key-marker.ttttttttType: StringttttttttDefault: NonettttttttValid Values: Valid version ID | DefaultttttttttConstraint: May not be an empty string",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/?website": {
+			"put": {
+				"summary": "PUT Bucket website",
+				"description": "Sets the configuration of the website that is specified in thewebsite subresource. To configure a bucket as a website, youcan add this subresource on the bucket with website configuration information such asthe file name of the index document and any redirect rules. For more information, go toHosting Websites on Amazon S3 in theAmazon Simple Storage Service Developer Guide.This PUT operation requires the S3:PutBucketWebsite permission. Bydefault, only the bucket owner can configure the website attachedto a bucket; however, bucket owners can allow other users to set thewebsite configuration by writing a bucket policy that grants them the S3:PutBucketWebsite permission. ",
+				"operationId": "put-bucket-website",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/destinationObject": {
+			"put": {
+				"summary": "PUT Object - Copy",
+				"description": "This implementation of the PUT operation creates a copy of an object thatis already stored in Amazon S3. A PUT copy operation is the same as performing aGET and then a PUT. Adding the request header,x-amz-copy-source, makes the PUT operation copythe source object into the destination bucket.NoteYou can store individual objects of up to 5 TB in Amazon S3. You create a copy of yourobject up to 5 GB in size in a single atomic operation using this API. However, forcopying an object greater than 5 GB, you must use the multipart upload API. Forconceptual information on multipart upload, go to Uploading Objects Using MultipartUpload in the Amazon Simple Storage Service Developer Guide.When copying an object, you can preserve most of the metadata (default) or specify newmetadata. However, the ACL is not preserved and is set to private for theuser making the request. All copy requests must be authenticated and cannot contain a message body.Additionally, you must have READ access to the source object and WRITE access to thedestination bucket. For more information, see REST Authentication.To copy an object only under certain conditions, such as whether the ETagmatches or whether the object was modified before or after a specified date, use therequest headers x-amz-copy-source-if-match,x-amz-copy-source-if-none-match,x-amz-copy-source-if-unmodified-since, orx-amz-copy-source-if-modified-since. NoteAll headers prefixed with x-amz- must be signed, includingx-amz-copy-source.You can use this operation to change the storage class of an object that is already storedin Amazon S3 using the x-amz-storage-class request header. For more information,go to Changing the Storage Class of anObject in Amazon S3 in the Amazon Simple Storage Service Developer Guide.The source object that you are copying can be encrypted or unencrypted. If the sourceobject is encrypted, it can be encrypted by server-side encryption using AWS-managedencryption keys or by using a customer-provided encryption key. When copying an object,you can request that Amazon S3 encrypt the target object by using either the AWS-managedencryption keys or by using your own encryption key, regardless of what form ofserver-side encryption was used to encrypt the source or if the source object was notencrypted. For more information about server-side encryption, go to Using Server-SideEncryption in the Amazon Simple Storage Service Developer Guide. There are two opportunities for a copy request to return an error. One can occur whenAmazon S3 receives the copy request and the other can occur while Amazon S3 is copying the files.If the error occurs before the copy operation starts, you receive astandard Amazon S3 error. If the error occurs during the copy operation, theerror response is embedded in the 200 OK response. This means that a200 OK response can contain either a success or an error. Make sure todesign your application to parse the contents of the response and handle itappropriately. If the copy is successful, you receive a response that contains the information aboutthe copied object.Note If the request is an HTTP 1.1 request, the response is chunk encoded.Otherwise, it will not contain the content-length and you will need to read theentire body. ",
+				"operationId": "put-object--copy",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName": {
+			"put": {
+				"summary": "PUT Object",
+				"description": "This implementation of the PUT operation adds an object to a bucket. Youmust have WRITE permissions on a bucket to add an object to it.Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added theentire object to the bucket.Amazon S3 is a distributed system. If it receives multiple write requests for the sameobject simultaneously, it overwrites all but the last object written. Amazon S3 does notprovide object locking; if you need this, make sure to build it into your applicationlayer or use versioning instead.To ensure that data is not corrupted traversing the network, use theContent-MD5 header. When you use this header, Amazon S3 checks the objectagainst the provided MD5 value and, if they do not match, returns an error.Additionally, you can calculate the MD5 while putting an object to Amazon S3 and compare thereturned ETag to the calculated MD5 value. NoteTo configure your application to send the Request Headers prior to sending therequest body, use the 100-continue HTTP status code. ForPUT operations, this helps you avoid sending the messagebody if the message is rejected based on the headers (e.g., because ofauthentication failure or redirect). For more information on the100-continue HTTP status code, go to Section 8.2.3 of http://www.ietf.org/rfc/rfc2616.txt.You can optionally request server-side encryption where Amazon S3 encrypts your dataas it writes it to disks in its data centers and decrypts it for you when you access it.You have option to provide your own encryption key or use AWS-managed encryption keys.For more information, go to Using Server-Side Encryption in theAmazon Simple Storage Service Developer Guide.",
+				"operationId": "put-object",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?acl": {
+			"put": {
+				"summary": "PUT Object acl",
+				"description": "This implementation of the PUT operation uses the aclsubresource to set the access control list (ACL) permissions for an object that alreadyexists in a bucket. You must have WRITE_ACP permission to set the ACL of an object. You can use one of the following two ways to set an object's permissions:Specify the ACL in the request body, orSpecify permissions using request headersDepending on your application needs, you may choose to set the ACL on an object using eitherthe request body or the headers. For example, if you have an existing application thatupdates an object ACL using the request body, then you can continue to use thatapproach. ",
+				"operationId": "put-object-acl",
+				"parameters": [
+					{
+						"name": "x-amz-acl",
+						"in": "header",
+						"description": "The canned ACL to apply to the object. For more information, go to Canned ACL in the Amazon Simplettttttttt. ttttttttType: Stringtttttttt Valid Values: private | public-read | public-read-write | authenticated-read | bucket-owner-read | bucket-owner-full-control ttttttttDefault: private",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-full-control",
+						"in": "header",
+						"description": "Allows the specified grantee the READ, WRITE, READ_ACP, andtttttttttWRITE_ACP permissions on the bucket.ttttttttType: Stringtttttttt Default: NonettttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read",
+						"in": "header",
+						"description": "Allows the specified grantee to list the objects in thetttttttttbucket.ttttttttType: StringttttttttDefault: NonettttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read-acp",
+						"in": "header",
+						"description": "Allows the specified grantee to read the buckettttttttttACL.ttttttttType: Stringtttttttt Default: NonettttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write",
+						"in": "header",
+						"description": "Not applicable when granting access permissions on objects. You can use this whentttttttttgranting access permissions on buckets.ttttttttType: StringttttttttDefault: NonettttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write-acp",
+						"in": "header",
+						"description": "Allows the specified grantee to write the ACL for thetttttttttapplicable bucket.ttttttttType: Stringtttttttt Default: NonettttttttConstraints: None",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?partNumber=PartNumber&amp;uploadId=UploadId": {
+			"put": {
+				"summary": "Upload Part",
+				"description": "This operation uploads a part in a multipart upload.  NoteIn this operation, you provide part data in your request. However, you have an option tospecify your existing Amazon S3 object as a data source for the part you areuploading. To upload a part from an existing object, you use the Upload Part (Copy)operation. For more information, see Upload Part - Copy. You must initiate a multipart upload (see Initiate Multipart Upload) before you can upload any part. In response toyour initiate request, Amazon S3 returns an upload ID, a unique identifier, that youmust include in your upload part request.Part numbers can be any number from 1 to 10,000, inclusive. A part number uniquelyidentifies a part and also defines its position within the object being created. If youupload a new part using the same part number that was used with a previous part, thepreviously uploaded part is overwritten. Each part must be at least 5 MB in size, exceptthe last part. There is no size limit on the last part of your multipart upload.To ensure that data is not corrupted when traversing the network, specify theContent-MD5 header in the upload part request. Amazon S3 checks thepart data against the provided MD5 value. If they do not match, Amazon S3 returns anerror. NoteAfter you initiate multipart upload and upload one or more parts, you musteither complete or abort multipart upload in order to stop getting charged forstorage of the uploaded parts. Only after you either complete or abort the multipartupload, Amazon S3 frees up the parts storage and stops charging you for it. For more information on multipart uploads, go to Multipart Upload Overview in the Amazon Simple Storage Service Developer Guide .For information on the permissions required to use the multipart upload API, go to Multipart Upload API andPermissions in the Amazon Simple Storage Service Developer Guide.You can optionally request server-side encryption where Amazon S3 encrypts your data as itwrites it to disks in its data centers and decrypts it for you when you access it. Youhave the option of providing your own encryption key, or you can use the AWS-managed encryption keys.If you choose to provide your own encryption key, the request headers youprovide in the request must match the headers you used in the request to initiate the upload by using Initiate Multipart Upload. For more information, go to Using Server-Side Encryption in the Amazon Simple Storage Service Developer Guide.",
+				"operationId": "upload-part",
+				"parameters": [
+					{
+						"name": "Content-Length",
+						"in": "header",
+						"description": "The size of the part, in bytes. For more information, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13.ttttttttType: IntegerttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Content-MD5",
+						"in": "header",
+						"description": "The base64-encoded 128-bit MD5 digest of the part data. This header can be used asttttttttta message integrity check to verify that the part data is thetttttttttsame data that was originally sent. Although it is optional, wetttttttttrecommend using the Content-MD5 mechanism as an end-to-endtttttttttintegrity check. For more information, see RFCttttttttt1864.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Expect",
+						"in": "header",
+						"description": "When your application uses 100-continue, it does not send the request body until ittttttttttreceives an acknowledgment. If the message is rejected based ontttttttttthe headers, the body of the message is not sent. For moretttttttttinformation, go to RFCttttttttt2616.ttttttttType: StringttttttttDefault: NonettttttttValid Values: 100-continue",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source",
+						"in": "header",
+						"description": "The name of the source bucket and the source object key name separated by a slashttttttttt(/).ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source&#8203;-server-side&#8203;-encryption&#8203;-customer-algorithm",
+						"in": "header",
+						"description": "Specifies algorithm to use when decrypting thettttttttttttsource object.tttttttttttType: StringtttttttttttDefault: NonetttttttttttValid Value: AES256tttttttttttConstraints: Must be accompanied by a validttttttttttttx-amz-copy-source-server-side-encryption-customer-keyttttttttttttandttttttttttttx-amz-copy-source-server-side-encryption-customer-key-MD5ttttttttttttheaders.",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source&#8203;-server-side&#8203;-encryption&#8203;-customer-key",
+						"in": "header",
+						"description": "Specifies the customer provided base-64 encoded encryption key for Amazon S3 to usetttttttttttto decrypt the source object. The encryption keytttttttttttprovided in this header must be one that was used whentttttttttttthe source object was created.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: Must be accompanied by a validttttttttttttx-amz-copy-source-server-side-encryption-customer-algorithmttttttttttttandttttttttttttx-amz-copy-source-server-side-encryption-customer-key",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-&#8203;server-side&#8203;-encryption&#8203;-customer-key-MD5",
+						"in": "header",
+						"description": "Specifies the base64-encoded 128-bit MD5 digest ofttttttttttttthe encryption key according to RFC 1321. Amazon S3 uses this header fortttttttttttta message integrity check to ensure the encryption keyttttttttttttwas transmitted without error.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: Must be accompanied by a validttttttttttttx-amz-copy-source-server-side-encryption-customer-algorithmttttttttttttandttttttttttttx-amz-copy-source-server-side&#8203;-encryption-customer-ke",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-if-match",
+						"in": "header",
+						"description": "Perform a copy if the source object entity tag (ETag) matches the specified value.tttttttttIf the value does not match, Amazon S3 returns an HTTP statustttttttttcode 412 precondition failed error.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-if-modified-since",
+						"in": "header",
+						"description": "Perform a copy if the source object is modified after the time specified using thistttttttttheader. If the source object is not modified, Amazon S3 returnstttttttttan HTTP status code 412 precondition failedttttttttterror. ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-if-none-match",
+						"in": "header",
+						"description": "Perform a copy if the source object entity tag (ETag) is different than the valuetttttttttspecified using this header. If the values match, Amazon S3tttttttttreturns an HTTP status code 412 preconditionttttttttttfailed  error. ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-if-unmodified-since",
+						"in": "header",
+						"description": "Perform a copy if the source object is not modified after the time specified usingtttttttttthis header. If the source object is modified, Amazon S3 returnstttttttttan HTTP status code 412 precondition failedttttttttterror. ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-copy-source-range",
+						"in": "header",
+						"description": "The range of bytes to copy from the source object. The range value must usetttttttttthe form bytes=first-last, where the first and lasttttttttttare the zero-based byte offsets to copy. For example,ttttttttttbytes=0-9 indicates that you want to copy thetttttttttfirst ten bytes of the source.ttttttttThis request header isttttttttnot required when copying an entire source object. ttttttttType: IntegerttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption",
+						"in": "header",
+						"description": "Specifies a server-side encryption algorithm to use when Amazon S3 creates anttttttttttttttobject. tttttttttttttType: StringtttttttttttttValid Value: AES256",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-algorithm",
+						"in": "header",
+						"description": "Specifies the algorithm to use to when encrypting the object.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttValid Value: AES256tttttttttttttConstraints: Must be accompanied by validttttttttttttttx-amz-server-side-encryption-customer-keyttttttttttttttandttttttttttttttx-amz-server-side-encryption-customer-key-MD5ttttttttttttttheaders.",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-key",
+						"in": "header",
+						"description": "Specifies the customer-provided base64-encoded encryption key for Amazon S3 to use intttttttttttttencrypting data. This value is used to store thetttttttttttttobject and then is discarded; Amazon does nottttttttttttttstore the encryption key. The key must betttttttttttttappropriate for use with the algorithm specifiedtttttttttttttin thetttttttttttttx-amz-server-side&#8203;-encryption&#8203;-customer-algorithmtttttttttttttheader.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttCons",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-key-MD5",
+						"in": "header",
+						"description": "Specifies the base64-encoded 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header forttttttttttttta message integrity check to ensure the encryptiontttttttttttttkey was transmitted without error.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttConstraints: Must be accompanied by valid x-amz-server-side-encryption-customer-algorithm and ttttttttttttttx-amz-server-side-encryption-customer-key headers.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?restore&amp;versionId=VersionID": {
+			"post": {
+				"summary": "POST Object restore",
+				"description": "Restores a temporary copy of an archived object. You can optionally provide version ID torestore specific object version. If version ID is not provided, it will restore thecurrent version.In the request, you specify the number of days that you want the restored copy toexist. After the specified period, Amazon S3 deletes the temporary copy. Note that the objectremains archived; Amazon S3 deletes only the restored copy. An object in the Glacier storage class is an archived object. To access the object, you mustfirst initiate a restore request, which restores a copy of the archived object.  Restorejobs typically complete in three to five hours. For more information about archiving objects, go to Object Lifecycle Management in Amazon Simple Storage Service Developer Guide.You can obtain restoration status by sending a HEAD request. In the response, theseoperations return the x-amz-restore header with restoration statusinformation.After restoring an object copy, you can update the restoration period by reissuing thisrequest with the new period. Amazon S3 updates the restoration period relative to thecurrent time and charges only for the request, and there are no data transfercharges.You cannot issue another restore request when Amazon S3 is actively processing your first restorerequest for the same object; however, after Amazon S3 restores a copy of the object, you cansend restore requests to update the expiration period of the restored objectcopy.If your bucket has a lifecycle configuration with a rule that includes an expirationaction, the object expiration overrides the life span that you specify in a restorerequest. For example, if you restore an object copy for 10 days but the objectis scheduled to expire in 3 days, Amazon S3 deletes the object in 3 days. For more information about lifecycle configuration, see PUT Bucket lifecycle.To use this action, you must have s3:RestoreObject permissions on thespecified object. For more information, go to Access Control section in the Amazon S3 DeveloperGuide.",
+				"operationId": "post-object-restore",
+				"parameters": [
+					{
+						"name": "Content-MD5",
+						"in": "header",
+						"description": "The base64-encoded 128-bit MD5 digest of the data. This headertttttttttmust be used as a message integrity check to verify that thetttttttttrequest body was not corrupted in transit. For more information,tttttttttgo to RFCtttttttttt1864.ttttttttType: String ttttttttDefault: None",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?torrent": {
+			"get": {
+				"summary": "GET Object torrent",
+				"description": "This implementation of the GET operation uses thetorrent subresource to return torrent files from a bucket.BitTorrent can save you bandwidth when you're distributing large files. For moreinformation about BitTorrent, see Amazon S3 Torrent.NoteYou can get torrent only for objects that are less than 5 GB in size and that are notencrypted using server-side encryption with customer-provided encryptionkey.To use GET, you must have READ access to the object.",
+				"operationId": "get-object-torrent",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?uploadId=UploadId": {
+			"post": {
+				"summary": "Complete Multipart Upload",
+				"description": "This operation completes a multipart upload by assembling previously uploaded parts. You first initiate the multipart upload and then upload all parts using the Upload Partsoperation (see Upload Part).After successfully uploading all relevant parts of an upload, you call this operation tocomplete the upload. Upon receiving this request, Amazon S3 concatenates all the partsin ascending order by part number to create a new object. In the Complete MultipartUpload request, you must provide the parts list. You must ensure the parts list iscomplete, this operation concatenates the parts you provide in the list. For each partin the list, you must provide the part number and the ETag headervalue, returned after that part was uploaded. Processing of a Complete Multipart Upload request could take several minutes to complete.After Amazon S3 begins processing the request, it sends an HTTP response header thatspecifies a 200 OK response. While processing is in progress, Amazon S3periodically sends whitespace characters to keep the connection from timing out. Becausea request could fail after the initial 200 OK response has been sent, it isimportant that you check the response body to determine whether the requestsucceeded.Note that if Complete Multipart Upload fails, applications should be prepared to retry thefailed requests. For more information, go to Amazon S3 Error Best Practices section of the Amazon Simple Storage Service Developer Guide .  For more information on multipart uploads, go to Uploading Objects Using Multipart Upload in the Amazon Simple Storage Service Developer Guide .For information on permissions required to use the multipart upload API, go to Multipart Upload API and Permissions in the Amazon Simple Storage Service Developer Guide .",
+				"operationId": "complete-multipart-upload",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/ObjectName?uploads": {
+			"post": {
+				"summary": "Initiate Multipart Upload",
+				"description": "This operation initiates a multipart upload and returns an upload ID. This upload ID is usedto associate all the parts in the specific multipart upload. You specify this upload IDin each of your subsequent upload part requests (see Upload Part). You also include this upload ID in the finalrequest to either complete or abort the multipart upload request.For more information on multipart uploads, go to Multipart Upload Overview in the Amazon Simple Storage Service Developer Guide. For information on permissions required to use the multipart upload API, go to Multipart Upload API and Permissions in the Amazon Simple Storage Service Developer Guide.For request signing, multipart upload is just a series of regular requests, youinitiate multipart upload, send one or more requests to upload parts, and finallycomplete multipart upload. You sign each request individually, there is nothing specialabout signing multipart upload requests. For more information about signing, see Authenticating Requests (AWS Signature Version 4). Note After you initiate multipart upload and upload one or more parts, you must either complete orabort multipart upload in order to stop getting charged for storage of the uploadedparts. Only after you either complete or abort multipart upload, Amazon S3 frees upthe parts storage and stops charging you for the parts storage.You can optionally request server-side encryption where Amazon S3 encrypts your data as itwrites it to disks in its data centers and decrypts it for you when you access it. Youhave the options of providing your own encryption key, using AWS Key Management Service (KMS) encryption keys, or the Amazon S3-managed encryption keys. If you choose to provide your own encryption key, the request headers you provide in the request must match the headers you used in the request to initiate the upload by using Initiate Multipart Upload. For more information, go to Protecting Data Using Server-Side Encryption in the Amazon Simple Storage Service Developer Guide.",
+				"operationId": "initiate-multipart-upload",
+				"parameters": [
+					{
+						"name": "Cache-Control",
+						"in": "header",
+						"description": "Can be used to specify caching behavior along the request/reply chain. For moretttttttttinformation, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Content-&#8203;Disposition",
+						"in": "header",
+						"description": "Specifies presentational information for the object. For more information, tttttttttgo to http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Content-Encoding",
+						"in": "header",
+						"description": "Specifies what content encodings have been applied to the object and thus whattttttttttdecoding mechanisms must be applied to obtain the media-typetttttttttreferenced by the Content-Type header field. For moretttttttttinformation, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "header",
+						"description": "A standard MIME type describing the format of the object data. For moretttttttttinformation, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17. ttttttttttttttttType: StringttttttttDefault: binary/octel-streamttttttttttttttttConstraints: MIME types only",
+						"type": "string"
+					},
+					{
+						"name": "Expires",
+						"in": "header",
+						"description": "The date and time at which the object is no longer cacheable. For more information,tttttttttgo to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-acl",
+						"in": "header",
+						"description": "The canned ACL to apply to the object.tttttttttttType: StringtttttttttttDefault: privatetttttttttttValid Values: private | public-read | public-read-write | authenticated-read | bucket-owner-read | bucket-owner-full-control tttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-full-control",
+						"in": "header",
+						"description": "Allows grantee the READ, READ_ACP, and WRITE_ACP permissions on thettttttttttttobject.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read",
+						"in": "header",
+						"description": "Allows grantee to read the object data and its metadata.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-read-acp",
+						"in": "header",
+						"description": "Allows grantee to read the object ACL.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write",
+						"in": "header",
+						"description": "Not applicable.tttttttttttType: StringtttttttttttDefault: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-grant-write-acp",
+						"in": "header",
+						"description": "Allows grantee to write the ACL for the applicable object.tttttttttttType: Stringttttttttttt Default: NonetttttttttttConstraints: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-meta-",
+						"in": "header",
+						"description": "Any header starting with this prefix is considered user metadata. It will be storedtttttttttwith the object and returned when you retrieve thetttttttttobject.ttttttttType: StringttttttttDefault: None",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption",
+						"in": "header",
+						"description": "Specifies a server-side encryption algorithm to use when Amazon S3 creates antttttttttttttttobject. ttttttttttttttType: StringttttttttttttttValid Value: aws:kms, AES256",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-algorithm",
+						"in": "header",
+						"description": "Specifies the algorithm to use to when encrypting the object.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttValid Value: AES256tttttttttttttConstraints: Must be accompanied by validttttttttttttttx-amz-server-side-encryption-customer-keyttttttttttttttandttttttttttttttx-amz-server-side-encryption-customer-key-MD5ttttttttttttttheaders.",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-key",
+						"in": "header",
+						"description": "Specifies the customer-provided base64-encoded encryption key for Amazon S3 to use inttttttttttttencrypting data. This value is used to store thettttttttttttobject and then is discarded; Amazon does notttttttttttttstore the encryption key. The key must bettttttttttttappropriate for use with the algorithm specifiedttttttttttttin thettttttttttttx-amz-server-side&#8203;-encryption&#8203;-customer-algorithmttttttttttttheader.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttConstraints",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side&#8203;-encryption&#8203;-customer-key-MD5",
+						"in": "header",
+						"description": "Specifies the base64-encoded 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header forttttttttttttmessage integrity check to ensure the encryptionttttttttttttkey was transmitted without error.tttttttttttttType: StringtttttttttttttDefault: NonetttttttttttttConstraints: Must be accompanied by valid x-amz-server-side-encryption-customer-algorithm and ttttttttttttttx-amz-server-side-encryption-customer-key headers.",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-server-side-encryption-aws-kms-key-id",
+						"in": "header",
+						"description": "If the x-amz-server-side-encryption is present and has the value of aws:kms, ttttttttttttttthis header specifices the ID of the AWS Key Management Service (KMS) master encryption key that ttttttttttttttwas used for the object.tttttttttttttType: String",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-storage-&#8203;class",
+						"in": "header",
+						"description": "The type of storage to use for the object that is created after successfultttttttttmultipart upload.ttttttttType: StringttttttttValid Values: STANDARD | REDUCED_REDUNDANCYttttttttDefault: STANDARDttttttttConstraints: You cannot specify GLACIER as thetttttttttstorage class. To transition objects to the GLACIER storagetttttttttclass you can use lifecycle configuration.",
+						"type": "string"
+					},
+					{
+						"name": "x-amz-website&#8203;-redirect-location",
+						"in": "header",
+						"description": "If the bucket is configured as a website, redirects requests for this object totttttttttanother object in the same bucket or to an external URL. AmazontttttttttS3 stores the value of this header in the object metadata. Fortttttttttinformation about object metadata, go to Object Key and Metadata.ttttttttIn the following example, the request header sets the redirect to an objectttttttttt(anotherPage.html) in the same bucket:ttttttttx-amz-website-redirect-location:ttttttttt/anotherPage.htmltttttttt",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"?requestPayment": {
+			"get": {
+				"summary": "GET Bucket requestPayment",
+				"description": "This implementation of the GET operation uses therequestPayment subresource to return the request paymentconfiguration of a bucket. To use this version of the operation, you must be the bucketowner. For more information, see Requester Pays Buckets.",
+				"operationId": "get-bucket-requestpayment",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"xmlns="http: //s3.amazonaws.com/doc/2006-03-01/"&gt;n": {
+			"&lt;versioningconfiguration": {
+				"summary": "GET Bucket versioning",
+				"description": "This implementation of the GET operation uses theversioning subresource to return the versioning state of abucket. To retrieve the versioning state of a bucket, you must be the bucketowner.This implementation also returns the MFA Delete status of the versioning state, i.e.,if the MFA Delete status is enabled, the bucket owner must use anauthentication device to change the versioning state of the bucket.There are three versioning states:If you enabled versioning on a bucket, the response is:&lt;VersioningConfiguration xmlns=http://s3.amazonaws.com/doc/2006-03-01/&gt;  &lt;Status&gt;Enabled&lt;/Status&gt;&lt;/VersioningConfiguration&gt;If you suspended versioning on a bucket, the response is:&lt;VersioningConfiguration xmlns=http://s3.amazonaws.com/doc/2006-03-01/&gt;  &lt;Status&gt;Suspended&lt;/Status&gt;&lt;/VersioningConfiguration&gt;If you never enabled (or suspended) versioning on a bucket, the responseis:&lt;VersioningConfiguration xmlns=http://s3.amazonaws.com/doc/2006-03-01//&gt;",
+				"operationId": "get-bucket-versioning",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
