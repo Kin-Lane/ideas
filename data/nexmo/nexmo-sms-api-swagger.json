@@ -1,0 +1,131 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Nexmo SMS API",
+		"description": "Nexmo makes it simple to send and receive a high volume of SMS anywhere in the world within minutes.",
+		"termsOfService": "https://www.nexmo.com/terms",
+		"version": "v1"
+	},
+	"host": "rest.nexmo.com",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"sms/{format}": {
+			"get": {
+				"summary": "Send Message",
+				"description": "Nexmo makes it simple to send and receive a high volume of SMS anywhere in the world within minutes.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your API Key.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_secret",
+						"in": "query",
+						"description": "Your API Secret.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "client-ref",
+						"in": "query",
+						"description": "Include any reference string for your reference. Useful for your internal reports (40 characters max).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "XML or JSON",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "from",
+						"in": "query",
+						"description": "Sender address may be alphanumeric (Ex: from=MyCompany20). Restrictions may apply, depending on the destination. ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "message-class",
+						"in": "query",
+						"description": "Set to 0 for Flash SMS.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "network-code",
+						"in": "query",
+						"description": "Force the recipient network operator MCCMNC, make sure to supply the correct information otherwise the message wont be delivered.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "status-report-req",
+						"in": "query",
+						"description": "Set to 1 if you want to receive a delivery report (DLR) for this request. Make sure to configure your Callback URL in your API Settings",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "Body of the text message (with a maximum length of 3200 characters), UTF-8 and URL encoded value. ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "to",
+						"in": "query",
+						"description": "Mobile number in international format, and one recipient per request.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "ttl",
+						"in": "query",
+						"description": "Message life span in milliseconds.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "type_of_media",
+						"in": "query",
+						"description": "This can be omitted for text (default), but is required when sending a Binary (binary), WAP Push (wappush), Unicode message (unicode), vcal (vcal) or vcard (vcard).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "vcard",
+						"in": "query",
+						"description": "vcard text body correctly formatted.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
