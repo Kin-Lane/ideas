@@ -1,0 +1,75 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Clickatell SMS",
+		"description": "The Clickatell HTTP/S API provides just about the simplest way of programming your connection to Clickatell, and if you need to overcome a firewall problem HTTP/S is almost certainly your best solution.",
+		"termsOfService": "https://www.clickatell.com/about-us/terms-and-conditions/?_ga=1.209522258.1120142809.1413957851",
+		"version": "v1"
+	},
+	"host": "api.clickatell.com",
+	"basePath": "http/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"sendmsg/": {
+			"get": {
+				"summary": "Send Message",
+				"description": "The Clickatell HTTP/S API provides just about the simplest way of programming your connection to Clickatell, and if you need to overcome a firewall problem HTTP/S is almost certainly your best solution.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "to",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "user",
+						"in": "query",
+						"description": "The user id sending message.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
