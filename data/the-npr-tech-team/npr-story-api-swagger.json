@@ -1,0 +1,176 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "NPR Story API",
+		"description": "The Story API was NPRu2019s first u2013 and still most popular u2013 API. The Story API returns stories from NPRu2019s on-air programs and NPR.org. The Story API is the workhorse that sends NPRu2019s stories to mobile devices, connected cars, and NPR member station sites.",
+		"termsOfService": "http://www.npr.org/about-npr/179876898/terms-of-use",
+		"version": "v1"
+	},
+	"host": "api.npr.org",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"list/": {
+			"get": {
+				"summary": "Lists",
+				"description": "What we call u201cListsu201d in the NPR API is a collection of NPR stories that represent a given topic or subject matter (e.g.: Health Care, Interviews). Following is a definition of the various list types available in the API along with the URLs to access these lists.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "apiKey",
+						"in": "query",
+						"description": "The API key used for the query",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "childrenOf",
+						"in": "query",
+						"description": "Returns only items which are assigned to the given topic ID.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "hideChildren",
+						"in": "query",
+						"description": "If set to u201c1u201d, returns only topics which are not subtopics of another topic. ",
+						"type": "boolean",
+						"format": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The idea of the list",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"news",
+					" lists"
+				]
+			}
+		},
+		"query/": {
+			"get": {
+				"summary": "NPR News",
+				"description": "The Story API was NPRu2019s first u2013 and still most popular u2013 API. The Story API returns stories from NPRu2019s on-air programs and NPR.org. The Story API is the workhorse that sends NPRu2019s stories to mobile devices, connected cars, and NPR member station sites.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "apiKey",
+						"in": "query",
+						"description": "The apiKey parameter is required for all API requests. To get a key, you must register. Once registered, you can get and/or change your apiKey from your Account Manager. Upon registration, your apiKey will be saved to a cookie that will enable the Query Generator to apply your apiKey to your queries",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "Returns stories with the exact date requested. Date format is supplied in: YYYY-MM-DD format (e.g.: July 22nd, 2012 would be: 2012-07-22). The special value: date=current is also allowed. ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "Returns stories with a story date earlier than or equal to the endDate. Can be used with startDate to return stories within a date range; dateType can modify the meaning of this parameter",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Returns stories that belong to the provided IDs. Lists of IDs must be comma-delimited (e.g.: id=1001,2). At least one ID is required for all queries, unless the query is using searchTerm.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "orgId",
+						"in": "query",
+						"description": "Returns stories that are provided by the selected organization. Owner organizations primarily include NPR and NPR member stations.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "searchTerm",
+						"in": "query",
+						"description": "Returns stories that are considered matches to the searchTerm based on NPRu2019s search engine. Can be used with searchType to inform the search engine which fields it should search.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "searchType",
+						"in": "query",
+						"description": "Used with searchTerm to inform the search engine which fields it should search. Default is to search the full content of the story (full text, transcripts, etc). ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Returns stories with a story date later than or equal to the startDate. Can be used with endDate to return stories within a date range; dateType can modify the meaning of this parameter",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"npr",
+					" news",
+					" stories"
+				]
+			}
+		},
+		"transcript/": {
+			"get": {
+				"summary": "Transcript",
+				"description": "The Transcript API provides access to full transcripts of stories airing on selected NPR programs. Note: NPR transcripts are created on a rush deadline by a contractor for NPR, and accuracy and availability may vary. This text may not be in its final form and may be updated or revised in the future. Please be aware that the authoritative record of NPRu2019s programming is the audio.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "apiKey",
+						"in": "query",
+						"description": "The apiKey parameter is required for all API requests. To get a key, you must register. Once registered, you can get and/or change your apiKey from your Account Manager. Upon registration, your apiKey will be saved to a cookie that will enable the Query Generator to apply your apiKey to your queries.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Story ID of the story for which you want a transcript.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"news",
+					" transcript",
+					" npr"
+				]
+			}
+		}
+	}
+}
