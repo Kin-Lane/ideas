@@ -1,0 +1,274 @@
+{
+  "apis": [
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Returns the list of the numbers directly accessible from the PSTN under your domain.</p>",
+          "summary": "Number List",
+          "httpMethod": "GET"
+        }
+      ],
+      "path": "/{api_key}/numbers"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "required": true,
+              "dataType": "integer",
+              "description": "The id of the number whose details are returned",
+              "paramType": "path",
+              "name": "id"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Returns a number by id.</p>",
+          "summary": "Number Read",
+          "httpMethod": "GET"
+        }
+      ],
+      "path": "/{api_key}/numbers/{id}"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "required": true,
+              "description": "Choose your country.",
+              "paramType": "query",
+              "name": "country",
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "France",
+                  "Spain",
+                  "United Kingdom",
+                  "Netherlands"
+                ]
+              }
+            },
+            {
+              "required": true,
+              "dataType": "string",
+              "description": "prefix DID number. ex: 00331",
+              "paramType": "query",
+              "name": "prefix"
+            },
+            {
+              "required": true,
+              "dataType": "integer",
+              "description": "How many numbers you need (defaults to 1).",
+              "paramType": "query",
+              "name": "limit"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Returns a list of bookable numbers.</p>",
+          "summary": "Number Search",
+          "httpMethod": "GET"
+        }
+      ],
+      "path": "/{api_key}/numbers/search"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "required": true,
+              "description": "Choose your country.",
+              "paramType": "query",
+              "name": "country",
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "France",
+                  "Spain",
+                  "United Kingdom",
+                  "Netherlands"
+                ]
+              }
+            },
+            {
+              "required": false,
+              "dataType": "string",
+              "description": "prefix number.",
+              "paramType": "path",
+              "name": "prefix"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Buy a number from APIdaze.</p>",
+          "summary": "Number Buy",
+          "httpMethod": "POST"
+        }
+      ],
+      "path": "/{api_key}/numbers/buy"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "required": true,
+              "dataType": "integer",
+              "description": "ID number.",
+              "paramType": "path",
+              "name": "id"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Release a number previously bought at APIdaze.</p>",
+          "summary": "Number Release",
+          "httpMethod": "POST"
+        }
+      ],
+      "path": "/{api_key}/numbers/release/{id}"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            },
+            {
+              "required": true,
+              "dataType": "string",
+              "description": "The number to add. Digits only with country code first, e.g. : 33123456789",
+              "paramType": "query",
+              "name": "number"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Add a new number coming from another carrier using SIP (BYOT). Prior to creating the number, you should make sure that you have created a SIP Trunk that will route your incoming calls to APIdaze.</p>",
+          "summary": "External Number Create (BYOT)",
+          "httpMethod": "POST"
+        }
+      ],
+      "path": "/{api_key}/numbers"
+    },
+    {
+      "operations": [
+        {
+          "parameters": [
+            {
+              "dataType": "string",
+              "description": "Your access API key",
+              "paramType": "path",
+              "name": "api_key",
+              "threescale_name": "app_ids"
+            },
+            {
+              "dataType": "string",
+              "description": "Your access API secret",
+              "paramType": "query",
+              "name": "api_secret",
+              "threescale_name": "app_keys"
+            },
+            {
+              "required": true,
+              "dataType": "integer",
+              "description": "id of the number to delete",
+              "paramType": "path",
+              "name": "id"
+            }
+          ],
+          "group": "numbers",
+          "description": "<p>Deletes a number previously created using BYOT.</p>",
+          "summary": "External Number Delete (BYOT)",
+          "httpMethod": "DELETE"
+        }
+      ],
+      "path": "/{api_key}/numbers/{id}"
+    }
+  ],
+  "basePath": "https://api4.apidaze.io",
+  "apiVersion": "1.4"
+}
