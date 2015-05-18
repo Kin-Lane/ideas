@@ -1,0 +1,289 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "resourcePath": "",
+  "apis": [
+    {
+      "path": "/public/cameras/nearest/snapshot",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Returns jpg from nearest publicly discoverable camera from within the Evercam system.If location isn't provided requester's IP address is used.",
+          "nickname": "GET-public-cameras-nearest-snapshot---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "near_to",
+              "description": "Specify an address or latitude longitude points.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/public/cameras",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Fetch a list of publicly discoverable cameras from within the Evercam system.",
+          "nickname": "GET-public-cameras---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "offset",
+              "description": "The offset into the list of cameras to start the fetch from. Defaults to 0.",
+              "type": "Integer",
+              "dataType": "Integer",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "limit",
+              "description": "The maximum number of cameras to retrieve. Defaults to 100, cannot be more than 1000.",
+              "type": "Integer",
+              "dataType": "Integer",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "case_sensitive",
+              "description": "Set whether search terms are case sensitive. Defaults to true.",
+              "type": "Boolean",
+              "dataType": "Boolean",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "id_starts_with",
+              "description": "Search for cameras whose id starts with the given value.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "id_ends_with",
+              "description": "Search for cameras whose id ends with the given value.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "id_contains",
+              "description": "Search for cameras whose id contains the given value.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "is_near_to",
+              "description": "Search for cameras within 1000 meters of a given address or latitude longitude point.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "within_distance",
+              "description": "Search for cameras within a specific range, in meters, of the is_near_to point.",
+              "type": "Float",
+              "dataType": "Float",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "thumbnail",
+              "description": "Set to true to get base64 encoded 150x150 thumbnail with camera view or null if it's not available.",
+              "type": "Boolean",
+              "dataType": "Boolean",
+              "required": false
+            }
+          ],
+          "type": "Evercam::Presenters::Camera"
+        }
+      ]
+    },
+    {
+      "path": "/public/cameras/nearest",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "Fetch nearest publicly discoverable camera from within the Evercam system.If location isn't provided requester's IP address is used.",
+          "nickname": "GET-public-cameras-nearest---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "near_to",
+              "description": "Specify an address or latitude longitude points.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ],
+          "type": "Evercam::Presenters::Camera"
+        }
+      ]
+    }
+  ],
+  "basePath": "https://api.evercam.io/v1",
+  "models": {
+    "Evercam::Presenters::Camera": {
+      "id": "Evercam::Presenters::Camera",
+      "name": "Evercam::Presenters::Camera",
+      "properties": {
+        "id": {
+          "type": "string",
+          "required": true,
+          "description": "Unique Evercam identifier for the camera"
+        },
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "Human readable or friendly name for the camera"
+        },
+        "owned": {
+          "type": "Boolean",
+          "description": "True if the user owns the camera, false otherwise"
+        },
+        "owner": {
+          "type": "string",
+          "required": true,
+          "description": "Username of camera owner"
+        },
+        "vendor_id": {
+          "type": "string",
+          "description": "Unique identifier for the camera vendor"
+        },
+        "vendor_name": {
+          "type": "string",
+          "description": "The name for the camera vendor"
+        },
+        "model_id": {
+          "type": "string",
+          "description": "Unique identifier for the camera model"
+        },
+        "model_name": {
+          "type": "string",
+          "description": "Name of the camera model"
+        },
+        "created_at": {
+          "type": "integer",
+          "required": true,
+          "description": "Unix timestamp at creation"
+        },
+        "updated_at": {
+          "type": "integer",
+          "required": true,
+          "description": "Unix timestamp at last update"
+        },
+        "last_polled_at": {
+          "type": "integer",
+          "description": "Unix timestamp at last heartbeat poll"
+        },
+        "last_online_at": {
+          "type": "integer",
+          "description": "Unix timestamp of the last successful heartbeat of the camera"
+        },
+        "timezone": {
+          "type": "string",
+          "required": true,
+          "description": "Name of the <a href=\"http://en.wikipedia.org/wiki/List_of_tz_database_time_zones\">IANA/tz</a> timezone where this camera is located"
+        },
+        "is_online": {
+          "type": "boolean",
+          "description": "Whether or not this camera is currently online"
+        },
+        "is_public": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether or not this camera is publically available"
+        },
+        "discoverable": {
+          "type": "boolean",
+          "description": "Whether the camera is publicly findable"
+        },
+        "cam_username": {
+          "type": "String",
+          "description": "Camera username"
+        },
+        "cam_password": {
+          "type": "String",
+          "description": "Camera password"
+        },
+        "mac_address": {
+          "type": "string",
+          "description": "The physical network MAC address of the camera"
+        },
+        "location": {
+          "type": "hash",
+          "description": "GPS lng and lat coordinates of the camera location"
+        },
+        "host": {
+          "type": "String",
+          "description": "Internal host of the camera"
+        },
+        "port": {
+          "type": "Integer",
+          "description": "Internal rtsp port of the camera"
+        },
+        "camera": {
+          "type": "String",
+          "description": "Internal camera url"
+        },
+        "jpg": {
+          "type": "String",
+          "description": "Short snapshot url using evr.cm url shortener and proxy"
+        },
+        "mjpg": {
+          "type": "String",
+          "description": "Mjpg url using evr.cm dynamic DNS"
+        },
+        "mpeg": {
+          "type": "String",
+          "description": "Dynamis DNS mpeg url"
+        },
+        "audio": {
+          "type": "String",
+          "description": "Dynamis DNS audio url"
+        },
+        "h264": {
+          "type": "String",
+          "description": "Dynamis DNS h264 url"
+        },
+        "rtmp": {
+          "type": "String",
+          "description": "RTMP url"
+        },
+        "rights": {
+          "type": "String",
+          "description": "A comma separated list of the users rights on the camera"
+        },
+        "thumbnail": {
+          "type": "Image",
+          "description": "150x150 preview of camera view"
+        },
+        "thumbnail_url": {
+          "type": "String",
+          "description": "Latest recorded snapshot url"
+        }
+      }
+    }
+  }
+}
