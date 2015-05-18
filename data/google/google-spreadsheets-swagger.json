@@ -1,0 +1,5418 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Google Spreadsheets",
+		"description": "The Google Sheets API enables developers to create applications that read and modify the data in Google Sheets.",
+		"termsOfService": "https://developers.google.com/google-apps/spreadsheets/terms",
+		"version": null
+	},
+	"host": "spreadsheets.google.com",
+	"basePath": "/feeds",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/accounts": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}": {
+			"get": {
+				"summary": "List Accounts",
+				"description": "List Accounts",
+				"operationId": "list-accounts",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "tree",
+						"in": "query",
+						"description": "Whether the tree of sub accounts should be returned.",
+						"type": "boolean"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients": {
+			"get": {
+				"summary": "Get Account",
+				"description": "Get Account",
+				"operationId": "get-account",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits": {
+			"get": {
+				"summary": "List Ad Clients",
+				"description": "List Ad Clients",
+				"operationId": "list-ad-clients",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}": {
+			"get": {
+				"summary": "List Ad Units",
+				"description": "List Ad Units",
+				"operationId": "list-ad-units",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
+			"get": {
+				"summary": "Get Ad Unit",
+				"description": "Get Ad Unit",
+				"operationId": "get-ad-unit",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels": {
+			"get": {
+				"summary": "List Ad Unit Custom Channels",
+				"description": "List Ad Unit Custom Channels",
+				"operationId": "list-ad-unit-custom-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}": {
+			"get": {
+				"summary": "List Custom Channels",
+				"description": "List Custom Channels",
+				"operationId": "list-custom-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
+			"get": {
+				"summary": "Get Custom Channel",
+				"description": "Get Custom Channel",
+				"operationId": "get-custom-channel",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel for which to list ad units.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/adclients/{adClientId}/urlchannels": {
+			"get": {
+				"summary": "List Custom Channel Ad Units",
+				"description": "List Custom Channel Ad Units",
+				"operationId": "list-custom-channel-ad-units",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list URL channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/accounts/{accountId}/reports": {
+			"get": {
+				"summary": "List URL Channels",
+				"description": "List URL Channels",
+				"operationId": "list-url-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account on which to report.",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "currency",
+						"in": "query",
+						"description": "Not available.",
+						"type": "string"
+					},
+					{
+						"name": "dimension",
+						"in": "query",
+						"description": "Optional dimensions on which to base the report.Available dimensions are:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDING_TYPE_NAME- BUYER_NETWORK_ID- BUYER_NETWORK_NAME- BID_TYPE_CODE- BID_TYPE_NAME- DOMAIN_NAME- COUNTRY_CODE- COUNTRY_NAME- TARGETING_",
+						"type": "string"
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "End of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "Set of filters to be applied to the report.",
+						"type": "string"
+					},
+					{
+						"name": "locale",
+						"in": "query",
+						"description": "Optional locale to use for translating report output to a local language. Defaults to en_US if not specified.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of rows of report data to return. The minumum value is 0 (zero), the maximum value is 50000 (50 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "metric",
+						"in": "query",
+						"description": "Optional numeric columns to include in the report.Available metrics are:- PAGE_VIEWS- PAGE_VIEWS_CTR- PAGE_VIEWS_RPM- AD_REQUESTS- AD_REQUESTS_COVERAGE- AD_REQUESTS_CTR- AD_REQUESTS_RPM- MATCHED_AD_REQUESTS- MATCHED_AD_REQUESTS_CTR- MATCHED_AD_REQUESTS_RPM- INDIVIDUAL_AD_IMPRESSIONS- INDIVIDUAL_AD_IMPRESSIONS_CTR- INDIVIDUAL_AD_IMPRESSIONS_RPM- CLICKS- EARNINGS- TOTAL_EARNINGS- COST_PER_CLICK",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Optional name of a dimension or metric on which to sort the resulting report. Optionally prefixed with + to sort ascending or - to sort descending. If no prefix is specified, the column is sorted ascending:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDI",
+						"type": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Start of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "startIndex",
+						"in": "query",
+						"description": "Index of the first row of report data to return. The minumum value is 0 (zero), the maximum value is 5000 (5 thousand). If startIndex is either unset or zero, the API will return as many rows as specified by the value of maxResults. If maxResults is not set the API will return as many rows as possible, up to 50,000. If startIndex is set to a non-zero value, the sum of startIndex and maxResults cannot be greater than 5000, or an error will be returned: paging past row 5000 is unsupported.",
+						"type": "integer"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients": {
+			"get": {
+				"summary": "Generate Reports",
+				"description": "Generate Reports",
+				"operationId": "generate-reports",
+				"parameters": [
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad clients to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits": {
+			"get": {
+				"summary": "List Ad Clients",
+				"description": "List Ad Clients",
+				"operationId": "list-ad-clients",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to get the ad units.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits/{adUnitId}": {
+			"get": {
+				"summary": "List Ad Units",
+				"description": "List Ad Units",
+				"operationId": "list-ad-units",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to get the ad unit.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
+			"get": {
+				"summary": "Get Ad Unit",
+				"description": "Get Ad Unit",
+				"operationId": "get-ad-unit",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "query",
+						"description": "Ad unit to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "adUnitId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of custom channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels": {
+			"get": {
+				"summary": "List Ad Unit Custom Channels",
+				"description": "List Ad Unit Custom Channels",
+				"operationId": "list-ad-unit-custom-channels",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list custom channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of custom channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through custom channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels/{customChannelId}": {
+			"get": {
+				"summary": "List Custom Channels",
+				"description": "List Custom Channels",
+				"operationId": "list-custom-channels",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client that contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
+			"get": {
+				"summary": "Get Custom Channel",
+				"description": "Get Custom Channel",
+				"operationId": "get-custom-channel",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client which contains the custom channel.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "query",
+						"description": "Custom channel for which to list ad units.",
+						"type": "string"
+					},
+					{
+						"name": "customChannelId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "includeInactive",
+						"in": "query",
+						"description": "Whether to include inactive ad units. Default: true.",
+						"type": "boolean"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of ad units to include in the response, used for paging. The minimum value is 0 (zero) and the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through ad units. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of results.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/adclients/{adClientId}/urlchannels": {
+			"get": {
+				"summary": "List Custom Channel Ad Units",
+				"description": "List Custom Channel Ad Units",
+				"operationId": "list-custom-channel-ad-units",
+				"parameters": [
+					{
+						"name": "adClientId",
+						"in": "query",
+						"description": "Ad client for which to list URL channels.",
+						"type": "string"
+					},
+					{
+						"name": "adClientId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of URL channels to include in the response, used for paging. The minimum value is 0 (zero), the maximum value is 10000 (10 thousand). Default is 10000 (10 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "A continuation token, used to page through URL channels. To retrieve the next page, set this parameter to the value of nextPageToken from the previous response. Default returns the first page of data.",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/reports": {
+			"get": {
+				"summary": "List URL Channels",
+				"description": "List URL Channels",
+				"operationId": "list-url-channels",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Accounts upon which to report.",
+						"type": "string"
+					},
+					{
+						"name": "callback",
+						"in": "query",
+						"description": "Name of the JavaScript callback function that handles the response. Used in JavaScript JSON-P requests.",
+						"type": "string"
+					},
+					{
+						"name": "currency",
+						"in": "query",
+						"description": "Not available.",
+						"type": "string"
+					},
+					{
+						"name": "dimension",
+						"in": "query",
+						"description": "Optional dimensions on which to base the report.Available dimensions are:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDING_TYPE_NAME- BUYER_NETWORK_ID- BUYER_NETWORK_NAME- BID_TYPE_CODE- BID_TYPE_NAME- DOMAIN_NAME- COUNTRY_CODE- COUNTRY_NAME- TARGETING_",
+						"type": "string"
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "End of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying a subset of fields to include in the response. Use for better performance.",
+						"type": "string"
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "Set of filters to be applied to the report.",
+						"type": "string"
+					},
+					{
+						"name": "locale",
+						"in": "query",
+						"description": "Optional locale to use for translating report output to a local language. Defaults to en_US if not specified.",
+						"type": "string"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "The maximum number of rows of report data to return. The minumum value is 0 (zero), the maximum value is 50000 (50 thousand).",
+						"type": "integer"
+					},
+					{
+						"name": "metric",
+						"in": "query",
+						"description": "Optional numeric columns to include in the report.Available metrics are:- PAGE_VIEWS- PAGE_VIEWS_CTR- PAGE_VIEWS_RPM- AD_REQUESTS- AD_REQUESTS_COVERAGE- AD_REQUESTS_CTR- AD_REQUESTS_RPM- MATCHED_AD_REQUESTS- MATCHED_AD_REQUESTS_CTR- MATCHED_AD_REQUESTS_RPM- INDIVIDUAL_AD_IMPRESSIONS- INDIVIDUAL_AD_IMPRESSIONS_CTR- INDIVIDUAL_AD_IMPRESSIONS_RPM- CLICKS- EARNINGS- TOTAL_EARNINGS- COST_PER_CLICK",
+						"type": "string"
+					},
+					{
+						"name": "prettyPrint",
+						"in": "query",
+						"description": "Returns the response in a human-readable format (with indentations and line breaks) if true. When this is false, it can reduce the response payload size, which might lead to better performance in some environments. Default value: false.",
+						"type": "boolean"
+					},
+					{
+						"name": "quotaUser",
+						"in": "query",
+						"description": "Lets you enforce per-user quotas from a server-side application even in cases when the users IP address is unknown. This can occur, for example, with applications that run cron jobs on App Engine on a users behalf. You can choose any arbitrary string that uniquely identifies a user, but it is limited to 40 characters. Alternative to userIp, overrides userIp if both are provided.",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Optional name of a dimension or metric on which to sort the resulting report. Optionally prefixed with + to sort ascending or - to sort descending. If no prefix is specified, the column is sorted ascending:- DATE- WEEK- MONTH- AD_CLIENT_ID- PRODUCT_CODE- PRODUCT_NAME- AD_UNIT_ID- AD_UNIT_CODE- AD_UNIT_NAME- AD_UNIT_SIZE_CODE- AD_UNIT_SIZE_NAME- CUSTOM_CHANNEL_ID- CUSTOM_CHANNEL_CODE- CUSTOM_CHANNEL_NAME- URL_CHANNEL_ID- URL_CHANNEL_NAME- AD_FORMAT_CODE- AD_FORMAT_NAME- BRANDING_TYPE_CODE- BRANDI",
+						"type": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Start of the date range on which to report in YYYY-MM-DD format, inclusive.",
+						"type": "string"
+					},
+					{
+						"name": "startIndex",
+						"in": "query",
+						"description": "Index of the first row of report data to return. The minumum value is 0 (zero), the maximum value is 5000 (5 thousand). If startIndex is either unset or zero, the API will return as many rows as specified by the value of maxResults. If maxResults is not set the API will return as many rows as possible, up to 50,000. If startIndex is set to a non-zero value, the sum of startIndex and maxResults cannot be greater than 5000, or an error will be returned: paging past row 5000 is unsupported.",
+						"type": "integer"
+					},
+					{
+						"name": "userIp",
+						"in": "query",
+						"description": "IP address of the end user for whom the API call is being made. Lets you enforce per-user quotas when calling the API from a server-side application.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/data/ga": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "dimensions",
+						"in": "query",
+						"description": "A comma-separated list of Analytics dimensions. E.g., ga:browser,ga:city. (string)",
+						"type": "string"
+					},
+					{
+						"name": "end-date",
+						"in": "query",
+						"description": "End date for fetching Analytics data. All requests should specify an end date formatted as YYYY-MM-DD. (string)",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "filters",
+						"in": "query",
+						"description": "A comma-separated list of dimension or metric filters to be applied to Analytics data. (string)",
+						"type": "string"
+					},
+					{
+						"name": "ids",
+						"in": "query",
+						"description": "Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics profile ID. (string)",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "metrics",
+						"in": "query",
+						"description": "A comma-separated list of Analytics metrics. E.g., ga:visits,ga:pageviews. At least one metric must be specified. (string)",
+						"type": "string"
+					},
+					{
+						"name": "segment",
+						"in": "query",
+						"description": "An Analytics advanced segment to be applied to data. (string)",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "A comma-separated list of dimensions or metrics that determine the sort order for Analytics data. (string)",
+						"type": "string"
+					},
+					{
+						"name": "start-date",
+						"in": "query",
+						"description": "Start date for fetching Analytics data. All requests should specify a start date formatted as YYYY-MM-DD. (string)",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/management/accounts": {
+			"get": {
+				"summary": "Get Profile Data",
+				"description": "Get Profile Data",
+				"operationId": "get-profile-data",
+				"parameters": [
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/management/accounts/{accountId}/webproperties": {
+			"get": {
+				"summary": "Get Segments",
+				"description": "Get Segments",
+				"operationId": "get-segments",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account ID for the web properties to retrieve. Can either be a specific account ID or ~all, which refers to all the accounts to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles": {
+			"get": {
+				"summary": "Get Goals",
+				"description": "Get Goals",
+				"operationId": "get-goals",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account ID for the web properties to retrieve. Can either be a specific account ID or ~all, which refers to all the accounts to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					},
+					{
+						"name": "webPropertyId",
+						"in": "query",
+						"description": "Web property ID for the web properties to retrieve. Can either be a specific web property ID or ~all, which refers to all the web properties to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "webPropertyId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals": {
+			"get": {
+				"summary": "Get Accounts",
+				"description": "Get Accounts",
+				"operationId": "get-accounts",
+				"parameters": [
+					{
+						"name": "accountId",
+						"in": "query",
+						"description": "Account ID for the web properties to retrieve. Can either be a specific account ID or ~all, which refers to all the accounts to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "accountId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "profileId",
+						"in": "query",
+						"description": "Profile ID for the web properties to retrieve. Can either be a specific profile ID or ~all, which refers to all the profiles to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "profileId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					},
+					{
+						"name": "webPropertyId",
+						"in": "query",
+						"description": "Web property ID for the web properties to retrieve. Can either be a specific web property ID or ~all, which refers to all the web properties to which the user has access. (string)",
+						"type": "string"
+					},
+					{
+						"name": "webPropertyId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/management/segments": {
+			"get": {
+				"summary": "Get Profiles",
+				"description": "Get Profiles",
+				"operationId": "get-profiles",
+				"parameters": [
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "The maximum number of entries to include in this response. (integer)",
+						"type": "integer"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter. (integer, 1+)",
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars": {
+			"post": {
+				"summary": "Delete Entry on User's Calendar List",
+				"description": "Delete Entry on User's Calendar List",
+				"operationId": "delete-entry-on-users-calendar-list",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}": {
+			"put": {
+				"summary": "Get Calendar",
+				"description": "Get Calendar",
+				"operationId": "get-calendar",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/acl": {
+			"post": {
+				"summary": "List Calendar Access Control Rules",
+				"description": "List Calendar Access Control Rules",
+				"operationId": "list-calendar-access-control-rules",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/acl/{ruleId}": {
+			"put": {
+				"summary": "Get Calendar Access Control Rule",
+				"description": "Get Calendar Access Control Rule",
+				"operationId": "get-calendar-access-control-rule",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "ruleId",
+						"in": "query",
+						"description": "ACL rule identifier.",
+						"type": "string"
+					},
+					{
+						"name": "ruleId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/clear": {
+			"get": {
+				"summary": "Delete Secondary Calendar",
+				"description": "Delete Secondary Calendar",
+				"operationId": "delete-secondary-calendar",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events": {
+			"post": {
+				"summary": "List Events",
+				"description": "List Events",
+				"operationId": "list-events",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "sendNotifications",
+						"in": "query",
+						"description": "Whether to send notifications about the creation of the new event.",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/import": {
+			"post": {
+				"summary": "Get Instances",
+				"description": "Get Instances",
+				"operationId": "get-instances",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/quickAdd": {
+			"post": {
+				"summary": "Import Event",
+				"description": "Import Event",
+				"operationId": "import-event",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "sendNotifications",
+						"in": "query",
+						"description": "Whether to send notifications about the creation of the event.",
+						"type": "boolean"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The text describing the event to be created.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/{eventId}": {
+			"put": {
+				"summary": "Get Event",
+				"description": "Get Event",
+				"operationId": "get-event",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "query",
+						"description": "Event identifier.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "sendNotifications",
+						"in": "query",
+						"description": "Whether to send notifications about the event update (e.g. attendees responses, title changes, etc.).",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/{eventId}/instances": {
+			"get": {
+				"summary": "Delete Event",
+				"description": "Delete Event",
+				"operationId": "delete-event",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "query",
+						"description": "Event identifier.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "maxAttendees",
+						"in": "query",
+						"description": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned.",
+						"type": "int"
+					},
+					{
+						"name": "maxResults",
+						"in": "query",
+						"description": "Maximum number of entries returned on one result page.",
+						"type": "int"
+					},
+					{
+						"name": "originalStart",
+						"in": "query",
+						"description": "The original start time of the instance in the result.",
+						"type": "string"
+					},
+					{
+						"name": "pageToken",
+						"in": "query",
+						"description": "Token specifying which result page to return.",
+						"type": "string"
+					},
+					{
+						"name": "showDeleted",
+						"in": "query",
+						"description": "Whether to include deleted events (with eventStatus equals cancelled) in the result.",
+						"type": "boolean"
+					},
+					{
+						"name": "timeZone",
+						"in": "query",
+						"description": "Time zone used in the response. The default is the time zone of the calendar.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/{eventId}/move": {
+			"post": {
+				"summary": "Create Event Based on Simple Text String",
+				"description": "Create Event Based on Simple Text String",
+				"operationId": "create-event-based-on-simple-text-string",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "destination",
+						"in": "query",
+						"description": "Calendar identifier of the target calendar where the event is to be moved to.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "query",
+						"description": "Event identifier.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "sendNotifications",
+						"in": "query",
+						"description": "Whether to send notifications about the change of the events organizer.",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/calendars/{calendarId}/events/{eventId}/reset": {
+			"post": {
+				"summary": "Move Event",
+				"description": "Move Event",
+				"operationId": "move-event",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "query",
+						"description": "Event identifier.",
+						"type": "string"
+					},
+					{
+						"name": "eventId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "sendNotifications",
+						"in": "query",
+						"description": "Whether to send notifications about the event update.",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/colors": {
+			"get": {
+				"summary": "Get User Setting",
+				"description": "Get User Setting",
+				"operationId": "get-user-setting",
+				"parameters": [
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/freeBusy": {
+			"post": {
+				"summary": "Get Color Definitions",
+				"description": "Get Color Definitions",
+				"operationId": "get-color-definitions",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/me/calendarList": {
+			"post": {
+				"summary": "List Entries on User's Calendar List",
+				"description": "List Entries on User's Calendar List",
+				"operationId": "list-entries-on-users-calendar-list",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/me/calendarList/{calendarId}": {
+			"put": {
+				"summary": "Get Entry on User's Calendar List",
+				"description": "Get Entry on User's Calendar List",
+				"operationId": "get-entry-on-users-calendar-list",
+				"parameters": [
+					{
+						"name": "calendarId",
+						"in": "query",
+						"description": "Calendar identifier.",
+						"type": "string"
+					},
+					{
+						"name": "calendarId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/me/settings": {
+			"get": {
+				"summary": "Reset Specialized Instance",
+				"description": "Reset Specialized Instance",
+				"operationId": "reset-specialized-instance",
+				"parameters": [
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/users/me/settings/{setting}": {
+			"get": {
+				"summary": "List User Settings",
+				"description": "List User Settings",
+				"operationId": "list-user-settings",
+				"parameters": [
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Selector specifying which fields to include in a partial response.",
+						"type": "string"
+					},
+					{
+						"name": "setting",
+						"in": "query",
+						"description": "Name of the user setting.",
+						"type": "string"
+					},
+					{
+						"name": "setting",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/entry/api/user/{userID}/albumid/{albumID}": {
+			"put": {
+				"summary": "Search User Album Photos Using Tags",
+				"description": "Search User Album Photos Using Tags",
+				"operationId": "search-user-album-photos-using-tags",
+				"parameters": [
+					{
+						"name": "albumID",
+						"in": "query",
+						"description": "The album ID.",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "authkey",
+						"in": "query",
+						"description": "Authorization Key.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "If-Match",
+						"in": "query",
+						"description": "To make sure that your update doesnt overwrite another clients changes, include an HTTP If-Match header that contains the original albums ETag value. You can determine the original albums ETag value by examining the  elements gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and dont include the ETag.",
+						"type": "string"
+					},
+					{
+						"name": "tok",
+						"in": "query",
+						"description": "Authorization Key.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+			"put": {
+				"summary": "Update Album Photo Data",
+				"description": "Update Album Photo Data",
+				"operationId": "update-album-photo-data",
+				"parameters": [
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "If-Match",
+						"in": "query",
+						"description": "To make sure that your update doesnt overwrite another clients changes, include an HTTP If-Match header that contains the original albums ETag value. You can determine the original albums ETag value by examining the  elements gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and dont include the ETag.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}/commentid/{commentID}": {
+			"delete": {
+				"summary": "Untag Photo",
+				"description": "Untag Photo",
+				"operationId": "untag-photo",
+				"parameters": [
+					{
+						"name": "albumID",
+						"in": "query",
+						"description": "The album ID.",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "commentID",
+						"in": "query",
+						"description": "The comment ID.",
+						"type": "string"
+					},
+					{
+						"name": "commentID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "query",
+						"description": "The photo ID.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "tagID",
+						"in": "query",
+						"description": "The tag ID.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}/tag/{tagID}": {
+			"delete": {
+				"summary": "Delete Album Photo",
+				"description": "Delete Album Photo",
+				"operationId": "delete-album-photo",
+				"parameters": [
+					{
+						"name": "albumID",
+						"in": "query",
+						"description": "The album ID.",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "query",
+						"description": "The photo ID.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "tagID",
+						"in": "query",
+						"description": "The tag ID.",
+						"type": "string"
+					},
+					{
+						"name": "tagID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/feed/api/all": {
+			"get": {
+				"summary": "Delete Photo Comment",
+				"description": "Delete Photo Comment",
+				"operationId": "delete-photo-comment",
+				"parameters": [
+					{
+						"name": "access",
+						"in": "query",
+						"description": "Visibility parameter.Applicable values:- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.- private: Shows only private data. Requires authentication. Only the owner can specify this value.- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to View My Public Gallery in the Picasa Web Albums GUI.- visi",
+						"type": "string"
+					},
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type. If you dont specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.Applicable values:- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to in",
+						"type": "string"
+					},
+					{
+						"name": "bbox",
+						"in": "query",
+						"description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.For example:http://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel=edit]))When it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit li",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "imgmax",
+						"in": "query",
+						"description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Picasa Web Albums-specific query parameter for kind queries.Applicable values:- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified. User-based feed- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search). Album-based, user-based and community search feeds- comment: Feed includes the comments t",
+						"type": "string"
+					},
+					{
+						"name": "l",
+						"in": "query",
+						"description": "Named search of geo data. Searches for data in the named location. An example location would be London.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed.",
+						"type": "string"
+					},
+					{
+						"name": "prettyprint",
+						"in": "query",
+						"description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false",
+						"type": "string"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase. T",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "tag",
+						"in": "query",
+						"description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag.",
+						"type": "string"
+					},
+					{
+						"name": "thumbsize",
+						"in": "query",
+						"description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/feed/api/user/{userID}": {
+			"post": {
+				"summary": "List Albums",
+				"description": "List Albums",
+				"operationId": "list-albums",
+				"parameters": [
+					{
+						"name": "access",
+						"in": "query",
+						"description": "Visibility parameter.Applicable values:- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.- private: Shows only private data. Requires authentication. Only the owner can specify this value.- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to View My Public Gallery in the Picasa Web Albums GUI.- visi",
+						"type": "string"
+					},
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type. If you dont specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.Applicable values:- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to in",
+						"type": "string"
+					},
+					{
+						"name": "bbox",
+						"in": "query",
+						"description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.For example:http://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel=edit]))When it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit li",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "imgmax",
+						"in": "query",
+						"description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Picasa Web Albums-specific query parameter for kind queries.Applicable values:- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified. User-based feed- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search). Album-based, user-based and community search feeds- comment: Feed includes the comments t",
+						"type": "string"
+					},
+					{
+						"name": "l",
+						"in": "query",
+						"description": "Named search of geo data. Searches for data in the named location. An example location would be London.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed.",
+						"type": "string"
+					},
+					{
+						"name": "prettyprint",
+						"in": "query",
+						"description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "tag",
+						"in": "query",
+						"description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag.",
+						"type": "string"
+					},
+					{
+						"name": "thumbsize",
+						"in": "query",
+						"description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/feed/api/user/{userID}/albumid/{albumID}": {
+			"post": {
+				"summary": "List Album Photos",
+				"description": "List Album Photos",
+				"operationId": "list-album-photos",
+				"parameters": [
+					{
+						"name": "access",
+						"in": "query",
+						"description": "Visibility parameter.Applicable values:- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.- private: Shows only private data. Requires authentication. Only the owner can specify this value.- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to View My Public Gallery in the Picasa Web Albums GUI.- visi",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "query",
+						"description": "The album ID.",
+						"type": "string"
+					},
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type. If you dont specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.Applicable values:- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to in",
+						"type": "string"
+					},
+					{
+						"name": "bbox",
+						"in": "query",
+						"description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.For example:http://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel=edit]))When it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit li",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "imgmax",
+						"in": "query",
+						"description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Picasa Web Albums-specific query parameter for kind queries.Applicable values:- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified. User-based feed- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search). Album-based, user-based and community search feeds- comment: Feed includes the comments t",
+						"type": "string"
+					},
+					{
+						"name": "l",
+						"in": "query",
+						"description": "Named search of geo data. Searches for data in the named location. An example location would be London.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed.",
+						"type": "string"
+					},
+					{
+						"name": "MIME-version",
+						"in": "query",
+						"description": "MIME version.",
+						"type": "string"
+					},
+					{
+						"name": "prettyprint",
+						"in": "query",
+						"description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false",
+						"type": "string"
+					},
+					{
+						"name": "Slug",
+						"in": "query",
+						"description": "When posting a photo without metadata, one could specify a filename for Picasa Web Albums to use for the photo using this parameter. Not specifying a Slug causes the server to use a default title for the image. When posting with metadata, use the  element within the request body for the filename you want to use for the image.",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "tag",
+						"in": "query",
+						"description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag.",
+						"type": "string"
+					},
+					{
+						"name": "thumbsize",
+						"in": "query",
+						"description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/feed/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+			"post": {
+				"summary": "List Tags By Photo",
+				"description": "List Tags By Photo",
+				"operationId": "list-tags-by-photo",
+				"parameters": [
+					{
+						"name": "access",
+						"in": "query",
+						"description": "Visibility parameter.Applicable values:- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.- private: Shows only private data. Requires authentication. Only the owner can specify this value.- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to View My Public Gallery in the Picasa Web Albums GUI.- visi",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "query",
+						"description": "The album ID.",
+						"type": "string"
+					},
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type. If you dont specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.Applicable values:- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to in",
+						"type": "string"
+					},
+					{
+						"name": "bbox",
+						"in": "query",
+						"description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "fields",
+						"in": "query",
+						"description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.For example:http://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel=edit]))When it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit li",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "imgmax",
+						"in": "query",
+						"description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Picasa Web Albums-specific query parameter for kind queries.Applicable values:- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified. User-based feed- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search). Album-based, user-based and community search feeds- comment: Feed includes the comments t",
+						"type": "string"
+					},
+					{
+						"name": "l",
+						"in": "query",
+						"description": "Named search of geo data. Searches for data in the named location. An example location would be London.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "query",
+						"description": "The photo ID.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "prettyprint",
+						"in": "query",
+						"description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "tag",
+						"in": "query",
+						"description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag.",
+						"type": "string"
+					},
+					{
+						"name": "thumbsize",
+						"in": "query",
+						"description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "query",
+						"description": "The Picasa User ID. The string default can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used.",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+			"put": {
+				"summary": "Add Photo Comment",
+				"description": "Add Photo Comment",
+				"operationId": "add-photo-comment",
+				"parameters": [
+					{
+						"name": "albumID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Content type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "The API version. Current version is 2.",
+						"type": "string"
+					},
+					{
+						"name": "If-Match",
+						"in": "query",
+						"description": "To make sure that your update doesnt overwrite another clients changes, include an HTTP If-Match header that contains the original albums ETag value. You can determine the original albums ETag value by examining the  elements gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and dont include the ETag.",
+						"type": "string"
+					},
+					{
+						"name": "photoID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "userID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/acl/site/{domainName}/{siteName}": {
+			"post": {
+				"summary": "Retrieve Site's Sharing Permissions",
+				"description": "Retrieve Site's Sharing Permissions",
+				"operationId": "retrieve-sites-sharing-permissions",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/acl/site/{domainName}/{siteName}/user%3A{user_mail}": {
+			"put": {
+				"summary": "Share a Site",
+				"description": "Share a Site",
+				"operationId": "share-a-site",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user_mail",
+						"in": "query",
+						"description": "User mail. Example: new_writer%40example.com.",
+						"type": "string"
+					},
+					{
+						"name": "user_mail",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/activity/{domainName}/{siteName}": {
+			"get": {
+				"summary": "Add Categories",
+				"description": "Add Categories",
+				"operationId": "add-categories",
+				"parameters": [
+					{
+						"name": "author",
+						"in": "query",
+						"description": "Entry author. The service returns entries where the author name and/or email address match your query string.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. By default the API will return the first 100 documents and files in the users resource list. To request more or less than 100 resources, use the max-results GET parameter with any resources feed URL. Valid values for this parameter are integers from 1 to 1000, inclusive.",
+						"type": "int"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "updated-max",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "updated-min",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/activity/{domainName}/{siteName}/{activityEntryID}": {
+			"get": {
+				"summary": "Get Site Activities",
+				"description": "Get Site Activities",
+				"operationId": "get-site-activities",
+				"parameters": [
+					{
+						"name": "activityEntryID",
+						"in": "query",
+						"description": "Specifies Activity Entry ID.}",
+						"type": "string"
+					},
+					{
+						"name": "activityEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/content/{domainName}/{siteName}": {
+			"post": {
+				"summary": "Retrieve a Sites's Current Content",
+				"description": "Retrieve a Sites's Current Content",
+				"operationId": "retrieve-a-sitess-current-content",
+				"parameters": [
+					{
+						"name": "ancestor",
+						"in": "query",
+						"description": "Requests only entries that have the specified ancestor. Provide the ID of the desired ancestor entry. For example: 0123456789. Returns all entries that have the specified ancestor as a parent, a parents parent, and so on.",
+						"type": "string"
+					},
+					{
+						"name": "author",
+						"in": "query",
+						"description": "Entry author. The service returns entries where the author name and/or email address match your query string.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "include-deleted",
+						"in": "query",
+						"description": "Specifies whether to include deleted entries. Possible values are true or false. Default is false.",
+						"type": "boolean"
+					},
+					{
+						"name": "include-draft",
+						"in": "query",
+						"description": "Specifies whether to include draft entries. Possible values are true or false. Default is false. You need to be the owner or author of the draft to view it.",
+						"type": "boolean"
+					},
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Specifies the kind(s) of content entries to return. These follow the type of page within Google Sites.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. By default the API will return the first 100 documents and files in the users resource list. To request more or less than 100 resources, use the max-results GET parameter with any resources feed URL. Valid values for this parameter are integers from 1 to 1000, inclusive.",
+						"type": "int"
+					},
+					{
+						"name": "parent",
+						"in": "query",
+						"description": "Requests only entries that have the specified parent. Provide the ID of the parent entry. For example: 0123456789.",
+						"type": "string"
+					},
+					{
+						"name": "path",
+						"in": "query",
+						"description": "Requests content under a certain page hierarchy. The path to a subpage within a Site to fetch content for. For example: path=/path/to/page.",
+						"type": "string"
+					},
+					{
+						"name": "published-max",
+						"in": "query",
+						"description": "Bound on the entry publication date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive.",
+						"type": "string"
+					},
+					{
+						"name": "published-min",
+						"in": "query",
+						"description": "Bound on the entry publication date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive.",
+						"type": "string"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "updated-max",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "updated-min",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/content/{domainName}/{siteName}/batch": {
+			"post": {
+				"summary": "Remove Sharing Permissions",
+				"description": "Remove Sharing Permissions",
+				"operationId": "remove-sharing-permissions",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/content/{domainName}/{siteName}/{contentEntryID}": {
+			"get": {
+				"summary": "Web Attachment",
+				"description": "Web Attachment",
+				"operationId": "web-attachment",
+				"parameters": [
+					{
+						"name": "contentEntryID",
+						"in": "query",
+						"description": "Specifies Content Entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "contentEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/content/{domainName}/{siteName}/{entryID}": {
+			"put": {
+				"summary": "Retrieve Content",
+				"description": "Retrieve Content",
+				"operationId": "retrieve-content",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "entryID",
+						"in": "query",
+						"description": "Specifies entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "entryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/media/content/{domainName}/{siteName}/{attchmentEntryID}": {
+			"put": {
+				"summary": "Delete Content",
+				"description": "Delete Content",
+				"operationId": "delete-content",
+				"parameters": [
+					{
+						"name": "attchmentEntryID",
+						"in": "query",
+						"description": "Specifies Attchment Entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "attchmentEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/revision/{domainName}/{siteName}/{contentEntryID}": {
+			"get": {
+				"summary": "Get an Activity",
+				"description": "Get an Activity",
+				"operationId": "get-an-activity",
+				"parameters": [
+					{
+						"name": "author",
+						"in": "query",
+						"description": "Entry author. The service returns entries where the author name and/or email address match your query string.",
+						"type": "string"
+					},
+					{
+						"name": "contentEntryID",
+						"in": "query",
+						"description": "Specifies Content Entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "contentEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. By default the API will return the first 100 documents and files in the users resource list. To request more or less than 100 resources, use the max-results GET parameter with any resources feed URL. Valid values for this parameter are integers from 1 to 1000, inclusive.",
+						"type": "int"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "updated-max",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "updated-min",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/revision/{domainName}/{siteName}/{contentEntryID}/{revisionEntryID}": {
+			"get": {
+				"summary": "Get Revision History for Content Entry",
+				"description": "Get Revision History for Content Entry",
+				"operationId": "get-revision-history-for-content-entry",
+				"parameters": [
+					{
+						"name": "contentEntryID",
+						"in": "query",
+						"description": "Specifies Content Entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "contentEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "revisionEntryID",
+						"in": "query",
+						"description": "Specifies an Revision Entry ID.",
+						"type": "string"
+					},
+					{
+						"name": "revisionEntryID",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/site/{domainName}": {
+			"put": {
+				"summary": "Copy Site",
+				"description": "Copy Site",
+				"operationId": "copy-site",
+				"parameters": [
+					{
+						"name": "author",
+						"in": "query",
+						"description": "Entry author. The service returns entries where the author name and/or email address match your query string.",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "include-all-sites",
+						"in": "query",
+						"description": "List all sites that can be at least viewed by the user in the Google Apps domain. This parameter is only applicable when listing sites for a Google Apps domain. Possible values are true or false. Default is false.",
+						"type": "boolean"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved. By default the API will return the first 100 documents and files in the users resource list. To request more or less than 100 resources, use the max-results GET parameter with any resources feed URL. Valid values for this parameter are integers from 1 to 1000, inclusive.",
+						"type": "int"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "updated-max",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "updated-min",
+						"in": "query",
+						"description": "Bound on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "with-mappings",
+						"in": "query",
+						"description": "Includes the web address mappings in a site entry. Possible values are true or false. Default is false.",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/site/{domainName}/{siteName}": {
+			"put": {
+				"summary": "Get a Site",
+				"description": "Get a Site",
+				"operationId": "get-a-site",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "query",
+						"description": "site or the domain of your Google Apps hosted domain (e.g. example.com).",
+						"type": "string"
+					},
+					{
+						"name": "domainName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "query",
+						"description": "The webspace name of your site; found in the Sites URL (e.g. myCoolSite).",
+						"type": "string"
+					},
+					{
+						"name": "siteName",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/cells/{key}/{worksheetId}/{visibility}/{projection}": {
+			"get": {
+				"summary": "Delete Row List-based Feed",
+				"description": "Delete Row List-based Feed",
+				"operationId": "delete-row-listbased-feed",
+				"parameters": [
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type.atom: If you dont specify an alt parameter, the service returns an Atom feed.rss: Returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that its an extension to RSS.json: Retu",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "max-col",
+						"in": "query",
+						"description": "Positional number of maximum column returned in query. Queries indicate an inclusive range.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved.",
+						"type": "int"
+					},
+					{
+						"name": "max-row",
+						"in": "query",
+						"description": "Positional number of maximum row returned in query. Queries indicate an inclusive range.",
+						"type": "string"
+					},
+					{
+						"name": "min-col",
+						"in": "query",
+						"description": "Positional number of minimum column returned in query. Queries indicate an inclusive range.",
+						"type": "string"
+					},
+					{
+						"name": "min-row",
+						"in": "query",
+						"description": "Positional number of minimum row returned in query. Queries indicate an inclusive range.",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "range",
+						"in": "query",
+						"description": "A single cell or a range of cells.Use standard spreadsheet cell-range notations, using a colon to separate start and end of range. Examples: range=A1 and range=R1C1 both specify only cell A1. range=D1:F3 and range=R1C4:R3C6 both specify the rectangle of cells with corners at D1 and F3.",
+						"type": "string"
+					},
+					{
+						"name": "return-empty",
+						"in": "query",
+						"description": "If true then empty cells will be returned in the feed. The default is false.",
+						"type": "boolean"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/cells/{key}/{worksheetId}/{visibility}/{projection}/batch": {
+			"put": {
+				"summary": "Clear a Cell",
+				"description": "Clear a Cell",
+				"operationId": "clear-a-cell",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/cells/{key}/{worksheetId}/{visibility}/{projection}/{cellId}": {
+			"put": {
+				"summary": "Retrieve a Cell",
+				"description": "Retrieve a Cell",
+				"operationId": "retrieve-a-cell",
+				"parameters": [
+					{
+						"name": "cellId",
+						"in": "query",
+						"description": "Specifies cell ID.",
+						"type": "string"
+					},
+					{
+						"name": "cellId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/list/{key}/{worksheetId}/{visibility}/{projection}": {
+			"post": {
+				"summary": "Retrieve List-based feed",
+				"description": "Retrieve List-based feed",
+				"operationId": "retrieve-listbased-feed",
+				"parameters": [
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type.atom: If you dont specify an alt parameter, the service returns an Atom feed.rss: Returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that its an extension to RSS.json: Retu",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved.",
+						"type": "int"
+					},
+					{
+						"name": "orderby",
+						"in": "query",
+						"description": "Specifies what column to use in ordering the entries in the feed.- By position (the default): orderby=position returns rows in the order in which they appear in the GUI. Row 1, then row 2, then row 3, and so on.- By column: orderby=column:columnName sorts rows in ascending order based on the values in the column with the given columnName, where columnName is the value in the header row for that column.",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Googles web search, a service searches on complete words (and related words with the same stem), not substrings.To search for an exact phrase, enclose the phrase in quotation marks: q=exact phrase.To",
+						"type": "string"
+					},
+					{
+						"name": "reverse",
+						"in": "query",
+						"description": "Specifies whether to sort in descending or ascending order. Reverses default sort order: reverse=true results in a descending sort; reverse=false (the default) results in an ascending sort.",
+						"type": "boolean"
+					},
+					{
+						"name": "sq",
+						"in": "query",
+						"description": "Structured query on the full text in the worksheet. [columnName][binaryOperator][value]Supported binaryOperators are: o () for overriding order of operations o = or == for strict equality o  or != for strict inequality o and or && for boolean and o or or || for boolean orNote that the binaryOperators need to be URL-encoded. Example: https://spreadsheets.google.com/feeds/list/key/worksheetId/private/full?sq=ipm40",
+						"type": "boolean"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/list/{key}/{worksheetId}/{visibility}/{projection}/{rowId}": {
+			"put": {
+				"summary": "Retrieve Row List-based Feed",
+				"description": "Retrieve Row List-based Feed",
+				"operationId": "retrieve-row-listbased-feed",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "rowId",
+						"in": "query",
+						"description": "Specifies row ID.",
+						"type": "string"
+					},
+					{
+						"name": "rowId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/spreadsheets/{visibility}/{projection}": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type.atom: If you dont specify an alt parameter, the service returns an Atom feed.rss: Returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that its an extension to RSS.json: Retu",
+						"type": "string"
+					},
+					{
+						"name": "author",
+						"in": "query",
+						"description": "Entry author. The service returns entries where the author name and/or email address match your query string.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved.",
+						"type": "int"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "title",
+						"in": "query",
+						"description": "Specifies the search terms for the title of a document. This parameter used without title-exact will only submit partial queries, not exact queries.",
+						"type": "string"
+					},
+					{
+						"name": "title-exact",
+						"in": "query",
+						"description": "Specifies whether the title query should be taken as an exact string. Meaningless without title. Possible values are true and false. Note: Matches are case-insensitive.",
+						"type": "boolean"
+					},
+					{
+						"name": "updated-max",
+						"in": "query",
+						"description": "Bounds on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "updated-min",
+						"in": "query",
+						"description": "Bounds on the entry update date. Use the RFC 3339 timestamp format. For example: 2005-08-09T10:57:00-08:00. The lower bound is inclusive, whereas the upper bound is exclusive. In some cases (such as when using v2.1 or newer of the Calendar Data API), specifying an updated-min that is too far in the past will cause an HTTP 410 (Gone) status to be returned.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/spreadsheets/{visibility}/{projection}/{key}": {
+			"get": {
+				"summary": "Get Spreadsheets",
+				"description": "Get Spreadsheets",
+				"operationId": "get-spreadsheets",
+				"parameters": [
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/worksheets/{key}/{visibility}/{projection} ": {
+			"post": {
+				"summary": "Get Worksheets",
+				"description": "Get Worksheets",
+				"operationId": "get-worksheets",
+				"parameters": [
+					{
+						"name": "alt",
+						"in": "query",
+						"description": "Alternative representation type.atom: If you dont specify an alt parameter, the service returns an Atom feed.rss: Returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If theres no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that its an extension to RSS.json: Retu",
+						"type": "string"
+					},
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "max-results",
+						"in": "query",
+						"description": "Maximum number of results to be retrieved.",
+						"type": "int"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-index",
+						"in": "query",
+						"description": "1-based index of the first result to be retrieved. Note that this isnt a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries.",
+						"type": "string"
+					},
+					{
+						"name": "title",
+						"in": "query",
+						"description": "Specifies the search terms for the title of a document. This parameter used without title-exact will only submit partial queries, not exact queries.",
+						"type": "string"
+					},
+					{
+						"name": "title-exact",
+						"in": "query",
+						"description": "Specifies whether the title query should be taken as an exact string. Meaningless without title. Possible values are true and false. Note: Matches are case-insensitive.",
+						"type": "boolean"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/worksheets/{key}/{visibility}/{projection}/{worksheetId}": {
+			"put": {
+				"summary": "Get a Worksheet",
+				"description": "Get a Worksheet",
+				"operationId": "get-a-worksheet",
+				"parameters": [
+					{
+						"name": "Content-Type",
+						"in": "query",
+						"description": "Specifies Content Type.",
+						"type": "string"
+					},
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/worksheets/{key}/{visibility}/{projection}/{worksheetId}/{version}": {
+			"delete": {
+				"summary": "Update a Worksheet",
+				"description": "Update a Worksheet",
+				"operationId": "update-a-worksheet",
+				"parameters": [
+					{
+						"name": "GData-Version",
+						"in": "query",
+						"description": "Specifies a version number.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "query",
+						"description": "Specifies spreadsheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "key",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "query",
+						"description": "Indicates what information is included in the representation.full: Full-fidelity feed; contains all spreadsheet data including formulas. Full read/write access.values:Feed includes all data except for formulas. Formulas are replaced with their evaluations. Includes Data API extension elements.Read-only access.basic: Feed includes all data except for formulas. Formulas are replaced with their evaluations. This feed uses only Atom elements, leaving out all Data API extension elements. Read-only ac",
+						"type": "string"
+					},
+					{
+						"name": "projection",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "version",
+						"in": "query",
+						"description": "Specifies the version of worksheet.",
+						"type": "string"
+					},
+					{
+						"name": "version",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "query",
+						"description": "private: For use whenever you can authenticate the request. Read/write access if the authenticated user has edit privileges; otherwise, read-only.",
+						"type": "string"
+					},
+					{
+						"name": "visibility",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "query",
+						"description": "Specifies worksheet ID.",
+						"type": "string"
+					},
+					{
+						"name": "worksheetId",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
