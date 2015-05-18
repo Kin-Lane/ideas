@@ -1,0 +1,2107 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Reddit API",
+		"description": "API access for the Reddit platform.",
+		"termsOfService": "http://www.reddit.com/help/useragreement",
+		"version": "1"
+	},
+	"host": "www.reddit.com",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/api/approve": {
+			"post": {
+				"summary": "api/remove",
+				"description": "api/remove",
+				"operationId": "apiremove",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The thing to approve.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/bookmarklet": {
+			"get": {
+				"summary": "api/searchfeedback",
+				"description": "api/searchfeedback",
+				"operationId": "apisearchfeedback",
+				"parameters": [
+					{
+						"name": "u",
+						"in": "query",
+						"description": "Array of link URLs?",
+						"type": "string"
+					},
+					{
+						"name": "what",
+						"in": "query",
+						"description": "Action. Accepted values: like, dislike, save.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/collapse_message": {
+			"post": {
+				"summary": "api/compose",
+				"description": "api/compose",
+				"operationId": "apicompose",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "A list of messages to collapse.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/comment": {
+			"post": {
+				"summary": "api/moremessages",
+				"description": "api/moremessages",
+				"operationId": "apimoremessages",
+				"parameters": [
+					{
+						"name": "parent",
+						"in": "query",
+						"description": "The fullname of the thing or comment you are commenting on.",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The markdown content of the comment you are posting.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/compose": {
+			"post": {
+				"summary": "api/distinguish",
+				"description": "api/distinguish",
+				"operationId": "apidistinguish",
+				"parameters": [
+					{
+						"name": "captcha",
+						"in": "query",
+						"description": "CAPTCHA result.",
+						"type": "string"
+					},
+					{
+						"name": "subject",
+						"in": "query",
+						"description": "The subject of the message.",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The message.",
+						"type": "string"
+					},
+					{
+						"name": "to",
+						"in": "query",
+						"description": "The recepient of the message.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/del": {
+			"post": {
+				"summary": "api/unhide",
+				"description": "api/unhide",
+				"operationId": "apiunhide",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the thing to delete.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/delete_sr_header": {
+			"post": {
+				"summary": "api/delete_sr_img",
+				"description": "api/delete_sr_img",
+				"operationId": "apidelete-sr-img",
+				"parameters": [
+					{
+						"name": "img_name",
+						"in": "query",
+						"description": "The image to delete.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/delete_sr_img": {
+			"post": {
+				"summary": "api/subreddit_stylesheet",
+				"description": "api/subreddit_stylesheet",
+				"operationId": "apisubreddit-stylesheet",
+				"parameters": [
+					{
+						"name": "img_name",
+						"in": "query",
+						"description": "The image to delete.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/delete_user": {
+			"post": {
+				"summary": "api/register",
+				"description": "api/register",
+				"operationId": "apiregister",
+				"parameters": [
+					{
+						"name": "areyousure1",
+						"in": "query",
+						"description": "Verification. All three parameters must be yes to delete user successfully. Accepted values: yes, no",
+						"type": "string"
+					},
+					{
+						"name": "areyousure2",
+						"in": "query",
+						"description": "Verification. All three parameters must be yes to delete user successfully. Accepted values: yes, no",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/distinguish": {
+			"post": {
+				"summary": "api/approve",
+				"description": "api/approve",
+				"operationId": "apiapprove",
+				"parameters": [
+					{
+						"name": "how",
+						"in": "query",
+						"description": "Accepted values: yes, no, admin.",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The thing to distinguish.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/editusertext": {
+			"post": {
+				"summary": "api/del",
+				"description": "api/del",
+				"operationId": "apidel",
+				"parameters": [
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The new text.",
+						"type": "string"
+					},
+					{
+						"name": "thing_id",
+						"in": "query",
+						"description": "The fullname of the thing to update.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/edit_error": {
+			"post": {
+				"summary": "api/bookmarklet",
+				"description": "api/bookmarklet",
+				"operationId": "apibookmarklet",
+				"parameters": [
+					{
+						"name": "hexkey",
+						"in": "query",
+						"description": "Maximum 32 characters.",
+						"type": "string"
+					},
+					{
+						"name": "nickname",
+						"in": "query",
+						"description": "Maximum 1000 characters.",
+						"type": "string"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Accepted values: new, severe, interesting, normal, fixed.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/expando": {
+			"post": {
+				"summary": "api/info",
+				"description": "api/info",
+				"operationId": "apiinfo",
+				"parameters": [
+					{
+						"name": "link_id",
+						"in": "query",
+						"description": "The link to expand.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/feedback": {
+			"post": {
+				"summary": "api/flaircsv",
+				"description": "api/flaircsv",
+				"operationId": "apiflaircsv",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "query",
+						"description": "An email.",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "A name.",
+						"type": "string"
+					},
+					{
+						"name": "reason",
+						"in": "query",
+						"description": "A reason for feedback. Accepted values: ad_inq (advertising inquiry), feedback, i18n (internationalization).",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The feedback.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/fetch_title": {
+			"post": {
+				"summary": "api/vote",
+				"description": "api/vote",
+				"operationId": "apivote",
+				"parameters": [
+					{
+						"name": "url",
+						"in": "query",
+						"description": "The URL to fetch the title of.",
+						"type": "anyurl"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/flair": {
+			"get": {
+				"summary": "api/flairlist",
+				"description": "api/flairlist",
+				"operationId": "apiflairlist",
+				"parameters": [
+					{
+						"name": "css_class",
+						"in": "query",
+						"description": "The CSS class to assign to the flair text. Note: If an empty string is assigned to both text and css_class, then flair for the user will be removed.",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "The name of the user.",
+						"type": "string"
+					},
+					{
+						"name": "r",
+						"in": "query",
+						"description": "The name of the subreddit.",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The flair text to assign. Note: If an empty string is assigned to both text and css_class, then flair for the user will be removed.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/flaircsv.json": {
+			"post": {
+				"summary": "api/flair",
+				"description": "api/flair",
+				"operationId": "apiflair",
+				"parameters": [
+					{
+						"name": "flair_csv",
+						"in": "query",
+						"description": "CSV file contents, up to 100 lines.",
+						"type": "string"
+					},
+					{
+						"name": "r",
+						"in": "query",
+						"description": "The name of the subreddit.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/flairlist": {
+			"get": {
+				"summary": "api/search_reddit_names",
+				"description": "api/search_reddit_names",
+				"operationId": "apisearch-reddit-names",
+				"parameters": [
+					{
+						"name": "after",
+						"in": "query",
+						"description": "Return entries starting after this user.",
+						"type": "string"
+					},
+					{
+						"name": "before",
+						"in": "query",
+						"description": "Return entries starting before this user.",
+						"type": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "The maximum number of items to return (up to 1000).",
+						"type": "positiveinteger"
+					},
+					{
+						"name": "r",
+						"in": "query",
+						"description": "The name of the subreddit.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/frame": {
+			"post": {
+				"summary": "api/noframe",
+				"description": "api/noframe",
+				"operationId": "apinoframe",
+				"parameters": [
+					{
+						"name": "hexkey",
+						"in": "query",
+						"description": "Maximum 32 characters.",
+						"type": "string"
+					},
+					{
+						"name": "nickname",
+						"in": "query",
+						"description": "Maximum 1000 characters.",
+						"type": "string"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Accepted values: new, severe, interesting, normal, fixed.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/friend": {
+			"post": {
+				"summary": "api/morechildren",
+				"description": "api/morechildren",
+				"operationId": "apimorechildren",
+				"parameters": [
+					{
+						"name": "container",
+						"in": "query",
+						"description": "Either the current user or the subreddit.",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "The user to add as a friend.",
+						"type": "string"
+					},
+					{
+						"name": "note",
+						"in": "query",
+						"description": "A friend note. Maximum 300 characters.",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "Accepted values: friend, moderator, contributor, banned",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/friend_note": {
+			"post": {
+				"summary": "api/unfriend",
+				"description": "api/unfriend",
+				"operationId": "apiunfriend",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "query",
+						"description": "The friend to whom to associate the note with.",
+						"type": "string"
+					},
+					{
+						"name": "note",
+						"in": "query",
+						"description": "A note. Maximum 300 characters.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/gadget": {
+			"get": {
+				"summary": "api/frame",
+				"description": "api/frame",
+				"operationId": "apiframe",
+				"parameters": [
+					{
+						"name": "links",
+						"in": "query",
+						"description": "A list of links.",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "The type of gadget? Accepted value: click.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/hide": {
+			"post": {
+				"summary": "api/unsave",
+				"description": "api/unsave",
+				"operationId": "apiunsave",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the post to hide.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/hide_message": {
+			"post": {
+				"summary": "api/read_message",
+				"description": "api/read_message",
+				"operationId": "apiread-message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The message to hide.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/info.{format}": {
+			"get": {
+				"summary": "comments/{id36}.{format}",
+				"description": "comments/{id36}.{format}",
+				"operationId": "commentsid36format",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "Format of the data being returned. Accepted values: json (JSON), xml (XML)",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Format: a link ID. Specify either this or url.",
+						"type": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Presumably, limits the number of links returned. Format: a number.",
+						"type": "integer"
+					},
+					{
+						"name": "url",
+						"in": "query",
+						"description": "Format: a URL. Specify either this or id.",
+						"type": "anyuri"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/leavecontributor": {
+			"post": {
+				"summary": "api/leavemoderator",
+				"description": "api/leavemoderator",
+				"operationId": "apileavemoderator",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "ID?",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/leavemoderator": {
+			"post": {
+				"summary": "api/delete_user",
+				"description": "api/delete_user",
+				"operationId": "apidelete-user",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "ID?",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/login/{username}": {
+			"post": {
+				"summary": "api/expando",
+				"description": "api/expando",
+				"operationId": "apiexpando",
+				"parameters": [
+					{
+						"name": "api_type",
+						"in": "query",
+						"description": "Must be json for the style of auth used in this documentation.",
+						"type": "string"
+					},
+					{
+						"name": "passwd",
+						"in": "query",
+						"description": "The plain-text password for the account.",
+						"type": "string"
+					},
+					{
+						"name": "user",
+						"in": "query",
+						"description": "The username to authenticate as. This is redundant, but required.",
+						"type": "string"
+					},
+					{
+						"name": "username",
+						"in": "query",
+						"description": "The username to log in as.",
+						"type": "string"
+					},
+					{
+						"name": "username",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/marknsfw": {
+			"post": {
+				"summary": "api/fetch_title",
+				"description": "api/fetch_title",
+				"operationId": "apifetch-title",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the thing to mark.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/me.json": {
+			"get": {
+				"summary": "user/{username}/about.json",
+				"description": "user/{username}/about.json",
+				"operationId": "userusernameaboutjson",
+				"parameters": [
+					{
+						"name": "username",
+						"in": "query",
+						"description": "The name of the user whose about page to retrieve.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/morechildren": {
+			"post": {
+				"summary": "api/comment",
+				"description": "api/comment",
+				"operationId": "apicomment",
+				"parameters": [
+					{
+						"name": "children",
+						"in": "query",
+						"description": "Children comment IDs.",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Some kind of ID.",
+						"type": "string"
+					},
+					{
+						"name": "link_id",
+						"in": "query",
+						"description": "The id of the link to get the comments for.",
+						"type": "string"
+					},
+					{
+						"name": "pv_hex",
+						"in": "query",
+						"description": "Maximum 40 characters?",
+						"type": "string"
+					},
+					{
+						"name": "where",
+						"in": "query",
+						"description": "Comment sorting option.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/moremessages": {
+			"post": {
+				"summary": "api/unhide_message",
+				"description": "api/unhide_message",
+				"operationId": "apiunhide-message",
+				"parameters": [
+					{
+						"name": "parent_id",
+						"in": "query",
+						"description": "The message parent.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/noframe": {
+			"post": {
+				"summary": "api/edit_error",
+				"description": "api/edit_error",
+				"operationId": "apiedit-error",
+				"parameters": [
+					{
+						"name": "hexkey",
+						"in": "query",
+						"description": "Maximum 32 characters.",
+						"type": "string"
+					},
+					{
+						"name": "nickname",
+						"in": "query",
+						"description": "Maximum 1000 characters.",
+						"type": "string"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Accepted values: new, severe, interesting, normal, fixed.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/password": {
+			"post": {
+				"summary": "api/leavecontributor",
+				"description": "api/leavecontributor",
+				"operationId": "apileavecontributor",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "query",
+						"description": "A username with a valid email address.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/read_message": {
+			"post": {
+				"summary": "api/unread_message",
+				"description": "api/unread_message",
+				"operationId": "apiunread-message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The message to mark as read.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/register": {
+			"post": {
+				"summary": "reddits/mine.{format}",
+				"description": "reddits/mine.{format}",
+				"operationId": "redditsmineformat",
+				"parameters": [
+					{
+						"name": "dest",
+						"in": "query",
+						"description": "Destination?",
+						"type": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "The users email address.",
+						"type": "string"
+					},
+					{
+						"name": "passwd",
+						"in": "query",
+						"description": "The users password.",
+						"type": "string"
+					},
+					{
+						"name": "passwd2",
+						"in": "query",
+						"description": "The users password, again. Has to be the same as passwd.",
+						"type": "string"
+					},
+					{
+						"name": "reason",
+						"in": "query",
+						"description": "Possible accepted values: redirect, subscribe",
+						"type": "boolean"
+					},
+					{
+						"name": "rem",
+						"in": "query",
+						"description": "Format: boolean",
+						"type": "boolean"
+					},
+					{
+						"name": "user",
+						"in": "query",
+						"description": "The username to register.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/remove": {
+			"post": {
+				"summary": "api/editusertext",
+				"description": "api/editusertext",
+				"operationId": "apieditusertext",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The thing to remove.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/report": {
+			"post": {
+				"summary": "api/feedback",
+				"description": "api/feedback",
+				"operationId": "apifeedback",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the thing to report.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/resetpassword": {
+			"post": {
+				"summary": "api/password",
+				"description": "api/password",
+				"operationId": "apipassword",
+				"parameters": [
+					{
+						"name": "passwd",
+						"in": "query",
+						"description": "The new password.",
+						"type": "string"
+					},
+					{
+						"name": "passwd2",
+						"in": "query",
+						"description": "The new password, again. Must be the same as passwd.",
+						"type": "string"
+					},
+					{
+						"name": "reset",
+						"in": "query",
+						"description": "Cache key?",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/save": {
+			"post": {
+				"summary": "api/unmarknsfw",
+				"description": "api/unmarknsfw",
+				"operationId": "apiunmarknsfw",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the post to save.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/searchfeedback": {
+			"post": {
+				"summary": "api/report",
+				"description": "api/report",
+				"operationId": "apireport",
+				"parameters": [
+					{
+						"name": "approval",
+						"in": "query",
+						"description": "Format: boolean.",
+						"type": "boolean"
+					},
+					{
+						"name": "q",
+						"in": "query",
+						"description": "Search query. Maximum 500 characters.",
+						"type": "string"
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Sort option. Maximum 10 characters.",
+						"type": "string"
+					},
+					{
+						"name": "t",
+						"in": "query",
+						"description": "Maximum 10 characters.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/search_reddit_names": {
+			"post": {
+				"summary": "api/subscribe",
+				"description": "api/subscribe",
+				"operationId": "apisubscribe",
+				"parameters": [
+					{
+						"name": "query",
+						"in": "query",
+						"description": "The search query. Maximum 50 characters.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/share": {
+			"post": {
+				"summary": "api/submit",
+				"description": "api/submit",
+				"operationId": "apisubmit",
+				"parameters": [
+					{
+						"name": "message",
+						"in": "query",
+						"description": "The text that precedes the link to the story in the message. Maximum 1000 characters.",
+						"type": "string"
+					},
+					{
+						"name": "parent",
+						"in": "query",
+						"description": "The thing you want to share. See API docs for more details about things.",
+						"type": "string"
+					},
+					{
+						"name": "renderstyle",
+						"in": "query",
+						"description": "Presumably, the email format. Known accepted value: html",
+						"type": "string"
+					},
+					{
+						"name": "replyto",
+						"in": "query",
+						"description": "The email address of the person who is sending the message.",
+						"type": "string"
+					},
+					{
+						"name": "share_from",
+						"in": "query",
+						"description": "The name of the person who is sending the message. Maximum 100 characters.",
+						"type": "string"
+					},
+					{
+						"name": "share_to",
+						"in": "query",
+						"description": "The email address of the recepient of the message.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/site_admin": {
+			"post": {
+				"summary": "api/tb_commentspanel_hide",
+				"description": "api/tb_commentspanel_hide",
+				"operationId": "apitb-commentspanel-hide",
+				"parameters": [
+					{
+						"name": "allow_top",
+						"in": "query",
+						"description": "Whether or not to allow this subreddit to be shown in the default set.",
+						"type": "boolean"
+					},
+					{
+						"name": "css_on_cname",
+						"in": "query",
+						"description": "Whether or not to show subreddit style while accessing the subreddit through the domain?",
+						"type": "boolean"
+					},
+					{
+						"name": "description",
+						"in": "query",
+						"description": "Subreddit description. Maximum 5120 characters.",
+						"type": "string"
+					},
+					{
+						"name": "domain",
+						"in": "query",
+						"description": "Subreddit domain. Own a domain? Enter it here and then go to your DNS provider and add a CNAME record aliasing your domain to rhs.reddit.com. You will be able to access your reddit through your domain.",
+						"type": "string"
+					},
+					{
+						"name": "header-title",
+						"in": "query",
+						"description": "A title for the subreddit for the header. Maximum 500 characters.",
+						"type": "string"
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Subreddit language.",
+						"type": "string"
+					},
+					{
+						"name": "link_type",
+						"in": "query",
+						"description": "Subreddit content options. Accepted values: any (any link type is allowed), link (only links to external sites allowed), self (only self posts allowed)",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "Subreddit name.",
+						"type": "string"
+					},
+					{
+						"name": "over_18",
+						"in": "query",
+						"description": "Whether or not this is a mature content subreddit; viewers must be at least 18 years old.",
+						"type": "boolean"
+					},
+					{
+						"name": "show_media",
+						"in": "query",
+						"description": "Whether or not to show thumbnails images of content.",
+						"type": "boolean"
+					},
+					{
+						"name": "sponsorship-name",
+						"in": "query",
+						"description": "Sponsorship name. Maximum 500 characters.",
+						"type": "string"
+					},
+					{
+						"name": "sponsorship-text",
+						"in": "query",
+						"description": "Sponsorship text. Maximum 500 characters.",
+						"type": "string"
+					},
+					{
+						"name": "sponsorship-url",
+						"in": "query",
+						"description": "Sponsorship URL. Maximum 500 characters.",
+						"type": "string"
+					},
+					{
+						"name": "sr",
+						"in": "query",
+						"description": "Subreddit.",
+						"type": "string"
+					},
+					{
+						"name": "title",
+						"in": "query",
+						"description": "A title for the subreddit. Maximum 100 characters.",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "Subreddit type. Accepted values: public (anyone can view and submit), private (only approved members can view and submit), restricted (anyone can view, but only approved members can submit)",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/submit": {
+			"post": {
+				"summary": "api/resetpassword",
+				"description": "api/resetpassword",
+				"operationId": "apiresetpassword",
+				"parameters": [
+					{
+						"name": "kind",
+						"in": "query",
+						"description": "Accepted values: link, self.",
+						"type": "string"
+					},
+					{
+						"name": "r",
+						"in": "query",
+						"description": "The subreddit, again. (?)",
+						"type": "string"
+					},
+					{
+						"name": "sr",
+						"in": "query",
+						"description": "The subreddit to submit the link to.",
+						"type": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The text to submit, if the kind parameter is self. Required if the story is a self post.",
+						"type": "string"
+					},
+					{
+						"name": "title",
+						"in": "query",
+						"description": "The text to appear as a link to the new story.",
+						"type": "string"
+					},
+					{
+						"name": "url",
+						"in": "query",
+						"description": "The link to submit, if the kind parameter is link. Required if the story is a regular post.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/subreddit_stylesheet": {
+			"post": {
+				"summary": "api/site_admin",
+				"description": "api/site_admin",
+				"operationId": "apisite-admin",
+				"parameters": [
+					{
+						"name": "op",
+						"in": "query",
+						"description": "Operation. Accepted values: save, preview",
+						"type": "string"
+					},
+					{
+						"name": "stylesheet_contents",
+						"in": "query",
+						"description": "The stylesheet.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/subscribe": {
+			"post": {
+				"summary": "api/upload_sr_img (POST)",
+				"description": "api/upload_sr_img (POST)",
+				"operationId": "apiupload-sr-img-post",
+				"parameters": [
+					{
+						"name": "action",
+						"in": "query",
+						"description": "Accepted values: sub (subscribe), unsub (unsubscribe)",
+						"type": "string"
+					},
+					{
+						"name": "sr",
+						"in": "query",
+						"description": "The subreddit.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/tb_commentspanel_hide": {
+			"post": {
+				"summary": "api/tb_commentspanel_show",
+				"description": "api/tb_commentspanel_show",
+				"operationId": "apitb-commentspanel-show",
+				"parameters": [
+					{
+						"name": "curpass",
+						"in": "query",
+						"description": "The current password of the logged-in user. Required to update any setting.",
+						"type": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "A new email.",
+						"type": "string"
+					},
+					{
+						"name": "newpass",
+						"in": "query",
+						"description": "A new password.",
+						"type": "string"
+					},
+					{
+						"name": "verify",
+						"in": "query",
+						"description": "Whether or not to send an email verification letter? Format: boolean",
+						"type": "boolean"
+					},
+					{
+						"name": "verpass",
+						"in": "query",
+						"description": "A new password, again. Must be the same as newpass.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/tb_commentspanel_show": {
+			"post": {
+				"summary": "api/update",
+				"description": "api/update",
+				"operationId": "apiupdate",
+				"parameters": [
+					{
+						"name": "curpass",
+						"in": "query",
+						"description": "The current password of the logged-in user. Required to update any setting.",
+						"type": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "A new email.",
+						"type": "string"
+					},
+					{
+						"name": "newpass",
+						"in": "query",
+						"description": "A new password.",
+						"type": "string"
+					},
+					{
+						"name": "verify",
+						"in": "query",
+						"description": "Whether or not to send an email verification letter? Format: boolean",
+						"type": "boolean"
+					},
+					{
+						"name": "verpass",
+						"in": "query",
+						"description": "A new password, again. Must be the same as newpass.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/uncollapse_message": {
+			"post": {
+				"summary": "api/collapse_message",
+				"description": "api/collapse_message",
+				"operationId": "apicollapse-message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "A list of messages to uncollapse.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unfriend": {
+			"post": {
+				"summary": "api/friend",
+				"description": "api/friend",
+				"operationId": "apifriend",
+				"parameters": [
+					{
+						"name": "container",
+						"in": "query",
+						"description": "Either the current user or the subreddit.",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The users fullname.",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "The users name.",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "Accepted values: friend, moderator, contributor, banned",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unhide": {
+			"post": {
+				"summary": "api/hide",
+				"description": "api/hide",
+				"operationId": "apihide",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the post to unhide.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unhide_message": {
+			"post": {
+				"summary": "api/hide_message",
+				"description": "api/hide_message",
+				"operationId": "apihide-message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The message to unhide.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unmarknsfw": {
+			"post": {
+				"summary": "api/marknsfw",
+				"description": "api/marknsfw",
+				"operationId": "apimarknsfw",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the thing to unmark.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unread_message": {
+			"post": {
+				"summary": "api/uncollapse_message",
+				"description": "api/uncollapse_message",
+				"operationId": "apiuncollapse-message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The message to mark as unread.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/unsave": {
+			"post": {
+				"summary": "api/save",
+				"description": "api/save",
+				"operationId": "apisave",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the post to unsave.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/update": {
+			"post": {
+				"summary": "api/friend_note",
+				"description": "api/friend_note",
+				"operationId": "apifriend-note",
+				"parameters": [
+					{
+						"name": "curpass",
+						"in": "query",
+						"description": "The current password of the logged-in user. Required to update any setting.",
+						"type": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "A new email.",
+						"type": "string"
+					},
+					{
+						"name": "newpass",
+						"in": "query",
+						"description": "A new password.",
+						"type": "string"
+					},
+					{
+						"name": "verify",
+						"in": "query",
+						"description": "Whether or not to send an email verification letter? Format: boolean",
+						"type": "boolean"
+					},
+					{
+						"name": "verpass",
+						"in": "query",
+						"description": "A new password, again. Must be the same as newpass.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/upload_sr_img": {
+			"post": {
+				"summary": "api/upload_sr_img (GET)",
+				"description": "api/upload_sr_img (GET)",
+				"operationId": "apiupload-sr-img-get",
+				"parameters": [
+					{
+						"name": "formid",
+						"in": "query",
+						"description": "Form ID. Maximum 100 characters.",
+						"type": "string"
+					},
+					{
+						"name": "header",
+						"in": "query",
+						"description": "Whether or not this is a header image? Accepted values: 0, 1",
+						"type": "boolean"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "The name for the image.",
+						"type": "string"
+					},
+					{
+						"name": "sponsor",
+						"in": "query",
+						"description": "Whether or not something is sponsored? Used by admins only. Accepted values: 0, 1",
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/vote": {
+			"post": {
+				"summary": "api/share",
+				"description": "api/share",
+				"operationId": "apishare",
+				"parameters": [
+					{
+						"name": "dir",
+						"in": "query",
+						"description": "The vote you are going to cast. Use 1 to vote up, 0 to rescind a vote, or -1 to vote down. Note that previous votes are not additive. If the user previously voted 1, voting -1 will change the vote to -1, not 0. Accepted values: -1 (downvote), 0 (neutral-vote), 1 (upvote)",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "The fullname of the thing you are voting for.",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/by_id/{fullname}.{format}": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "Format of the data being returned. Accepted values: json (JSON), rss (RSS feed), xml (RSS feed)",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fullname",
+						"in": "query",
+						"description": "A base-36 id of the form /t[0-9]+_[a-z0-9]+/ (e.g. t3_6nw57) that reddit associates with every Thing. In the example, the type prefix t3_ specifies that the fullname is for a Link, and the id 6nw57 specifies the Links id36. (Note: the numbers according to id type are not constant, and may vary between reddit installations.)",
+						"type": "string"
+					},
+					{
+						"name": "fullname",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/comments/{id36}.{format}": {
+			"get": {
+				"summary": "by_id/{fullname}.{format}",
+				"description": "by_id/{fullname}.{format}",
+				"operationId": "by-idfullnameformat",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "Format of the data being returned. Accepted values: json (JSON), rss (RSS feed), xml (RSS feed)",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id36",
+						"in": "query",
+						"description": "The second part of the fullname, a base-36 id of the form /t[0-9]+_[a-z0-9]+/ (e.g. t3_6nw57) that reddit associates with every Thing. In the example, the type prefix t3_ specifies that the fullname is for a Link, and the id 6nw57 specifies the Links id36. (Note: the numbers according to id type are not constant, and may vary between reddit installations.)",
+						"type": "string"
+					},
+					{
+						"name": "id36",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/reddits/mine.{format}": {
+			"get": {
+				"summary": "api/me.json",
+				"description": "api/me.json",
+				"operationId": "apimejson",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "Format of the data being returned. Accepted values: json (JSON), xml (XML)",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{username}/about.json": {
+			"get": {
+				"summary": "api/login",
+				"description": "api/login",
+				"operationId": "apilogin",
+				"parameters": [
+					{
+						"name": "username",
+						"in": "query",
+						"description": "The name of the user whose about page to retrieve.",
+						"type": "string"
+					},
+					{
+						"name": "username",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
