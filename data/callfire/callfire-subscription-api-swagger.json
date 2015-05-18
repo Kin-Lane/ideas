@@ -1,0 +1,207 @@
+{
+	"apiVersion" : 1.1,
+	"swaggerVersion" : 1.1,
+	"basePath" : "https://www.callfire.com/api/1.1/rest",
+	"resourcePath" : "/subscription",
+	"apis" : [ {
+		"path" : "/subscription",
+		"description" : "Creates a new subscription for CallFire event notifications",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateSubscription",
+			"responseClass" : "void",
+			"summary" : "Creates a new subscription for CallFire event notifications",
+			"notes" : "<p><code>CreateSubscription</code> registers a URI endpoint to start receiving CallFire notification events on. Returned is the subscriptionId that can be used later to query, update, or delete the subscription. The subscriptionId is also returned as part of all notification events as 'subscriptionId'. </p> <p>A URI endpoint will need to be provided that can handle the HTTP notification events coming from CallFire.com. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request needed for de-duping",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Enabled",
+				"description" : "Enable publishing of postback notifications for subscribed events.",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Endpoint",
+				"description" : "Email or URI endpoint to publish notification event to.",
+				"dataType" : "anyURI",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "NotificationFormat",
+				"description" : null,
+				"dataType" : "NotificationFormat",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "XML", "JSON", "SOAP", "EMAIL", "LEGACY" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "TriggerEvent",
+				"description" : "Event to trigger on",
+				"dataType" : "SubscriptionTriggerEvent",
+				"required" : true,
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "UNDEFINED_EVENT", "INBOUND_CALL_FINISHED", "INBOUND_TEXT_FINISHED", "OUTBOUND_CALL_FINISHED", "OUTBOUND_TEXT_FINISHED", "CAMPAIGN_STARTED", "CAMPAIGN_STOPPED", "CAMPAIGN_FINISHED" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "BroadcastId",
+				"description" : "Broadcast ID to filter on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "BatchId",
+				"description" : "Batch ID to filter on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "FromNumber",
+				"description" : "From number (11 digit) or shortcode to filter on",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "ToNumber",
+				"description" : "E.164 11 digit phone number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Inbound",
+				"description" : "Deprecated, use TriggerEvent",
+				"dataType" : "boolean"
+			} ]
+		} ]
+	}, {
+		"path" : "/subscription",
+		"description" : "Get a list of registered subscriptions",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QuerySubscriptions",
+			"responseClass" : "void",
+			"summary" : "Get a list of registered subscriptions",
+			"notes" : "<p>Return a list of all subscriptions registered to an account. Subscriptions returned contain info like id, enabled, endpoint, filter, etc... </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/subscription/{Id}",
+		"description" : "Gets an existing individual subscription by ID",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetSubscription",
+			"responseClass" : "void",
+			"summary" : "Gets an existing individual subscription by ID",
+			"notes" : "<p>Return a subscription registered to an account using subscriptionId returned from <code>CreateSubscription</code> request. Subscription returned contain info like id, enabled, endpoint, filter, etc... </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/subscription/{id}",
+		"description" : "Updates an existing subscription",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "UpdateSubscription",
+			"responseClass" : "void",
+			"summary" : "Updates an existing subscription",
+			"notes" : "<p>Update existing subscription by ID</p> <p>Use this to enable or disable notification events, change the notification endpoint URI, or change the filtering so only receive notification for a subset of events. </p> <p>UpdateSubscription service call returns no response.</p> <p>Testing this method using swagger doc REST interface (Try Me! button) does not work correctly. Please use curl or other rest client to test api call. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request needed for de-duping",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Enabled",
+				"description" : "Enable publishing of postback notifications for subscribed events.",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Endpoint",
+				"description" : "Email or URI endpoint to publish notification event to.",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "NotificationFormat",
+				"description" : null,
+				"dataType" : "NotificationFormat",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "XML", "JSON", "SOAP", "EMAIL", "LEGACY" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "TriggerEvent",
+				"description" : "Event to trigger on",
+				"dataType" : "SubscriptionTriggerEvent",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "UNDEFINED_EVENT", "INBOUND_CALL_FINISHED", "INBOUND_TEXT_FINISHED", "OUTBOUND_CALL_FINISHED", "OUTBOUND_TEXT_FINISHED", "CAMPAIGN_STARTED", "CAMPAIGN_STOPPED", "CAMPAIGN_FINISHED" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "BroadcastId",
+				"description" : "Broadcast ID to filter on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "BatchId",
+				"description" : "Batch ID to filter on",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "FromNumber",
+				"description" : "From number (11 digit) or shortcode to filter on",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "ToNumber",
+				"description" : "E.164 11 digit phone number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Inbound",
+				"description" : "Deprecated, use TriggerEvent",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Subscription[id]",
+				"description" : "Unique ID of Subscription",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/subscription/{Id}",
+		"description" : "Deletes a subscription by ID",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteSubscription",
+			"responseClass" : "void",
+			"summary" : "Deletes a subscription by ID",
+			"notes" : "<p>Delete subscription to stop receiving CallFire notification events at the registered URI postback endpoint. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	} ]
+}
