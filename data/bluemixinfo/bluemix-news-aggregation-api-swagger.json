@@ -1,0 +1,439 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Bluemix News Aggregation API",
+		"description": "Bluemix.info is a news aggregator for IBM Bluemix developers and professionals covering news about everything related to IBM's platform as a service, including runtimes, services, events and much more.",
+		"termsOfService": "https://developer.ibm.com/terms-of-use/",
+		"version": "v1"
+	},
+	"host": "www.bluemix.info",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/api/addorupdateauthor": {
+			"post": {
+				"summary": "Add or update an author",
+				"description": "Adds a new author. If the author exists, the picture URL and the Twitter name are overwritten. Note: You have to be a curator to invoke this API.",
+				"operationId": "Add or update an author",
+				"parameters": [
+					{
+						"name": "displayName",
+						"in": "form",
+						"description": "Display Name"
+					},
+					{
+						"name": "pictureUrl",
+						"in": "form",
+						"description": "Picture URL"
+					},
+					{
+						"name": "twitter",
+						"in": "form",
+						"description": "Twitter Name (with @)"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/addorupdateauthorjson": {
+			"post": {
+				"summary": "Add or update an author",
+				"description": "Adds a new author. If the author exists, the picture URL and the Twitter name are overwritten. Note: You have to be a curator to invoke this API.",
+				"operationId": "Add or update an author",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "{displayName:Test User,pictureUrl:http://www.bluemix.info/head.png,twitter:@twittername}",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/addorupdatefeed": {
+			"post": {
+				"summary": "Add or update feed",
+				"description": "Add a new or update an existing feed. Note: You have to be a curator to invoke this API.",
+				"operationId": "Add or update feed",
+				"parameters": [
+					{
+						"name": "authorDisplayName",
+						"in": "form",
+						"description": "Author Display Name"
+					},
+					{
+						"name": "displayName",
+						"in": "form",
+						"description": "Feed Name"
+					},
+					{
+						"name": "url",
+						"in": "form",
+						"description": "http://heidloff.net/nh/home.nsf/feed.rss"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/addorupdatenewsentry": {
+			"post": {
+				"summary": "Add or update news entry",
+				"description": "Add a new news entry and approve it. Or update an existing approved news entry. Note: You have to be a curator to invoke this API.",
+				"operationId": "Add or update news entry",
+				"parameters": [
+					{
+						"name": "authorDisplayName",
+						"in": "form",
+						"description": "Author Display Name"
+					},
+					{
+						"name": "firstSentences",
+						"in": "form",
+						"description": "First Sentences."
+					},
+					{
+						"name": "link",
+						"in": "form",
+						"description": "News Entry URL"
+					},
+					{
+						"name": "title",
+						"in": "form",
+						"description": "My Title"
+					},
+					{
+						"name": "topStory",
+						"in": "form",
+						"description": "true or false"
+					},
+					{
+						"name": "topStoryPosition",
+						"in": "form",
+						"description": "1 - 10"
+					},
+					{
+						"name": "tweet",
+						"in": "form",
+						"description": "true or false"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/addorupdatenewsentryjson": {
+			"post": {
+				"summary": "Add or update news entry",
+				"description": "Add a new news entry and approve it. Or update an existing approved news entry. Note: You have to be a curator to invoke this API.",
+				"operationId": "Add or update news entry",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "{authorDisplayName:Test User,title:My Title,link:http://bluemix.info,firstSentences:First sentences.,tweet:false,topStory:false,topStoryPosition:1}",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/approvenewsentry": {
+			"post": {
+				"summary": "Approve news entry",
+				"description": "Approve a new news entry. Note: You have to be a curator to invoke this API.",
+				"operationId": "Approve news entry",
+				"parameters": [
+					{
+						"name": "newsEntryId",
+						"in": "form",
+						"description": "News Entry Id"
+					},
+					{
+						"name": "tweet",
+						"in": "form",
+						"description": "true or false"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/authors": {
+			"get": {
+				"summary": "Get authors",
+				"description": "Get all authors. Note: You have to be a curator to invoke this API.",
+				"operationId": "Get authors",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/curatednews": {
+			"get": {
+				"summary": "Get curated news",
+				"description": "Get curated news entries. Can be invoked cross domain (CORS).",
+				"operationId": "Get curated news",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "json or jsonp"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/deletenewsentry": {
+			"post": {
+				"summary": "Delete a news entry",
+				"description": "Delete a new news entry. Note: You have to be a curator to invoke this API.",
+				"operationId": "Delete a news entry",
+				"parameters": [
+					{
+						"name": "newsEntryId",
+						"in": "form",
+						"description": "News Entry Id"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/getentry": {
+			"get": {
+				"summary": "Get entry",
+				"description": "Get one news entry and author. Note: You have to be a curator to invoke this API.",
+				"operationId": "Get entry",
+				"parameters": [
+					{
+						"name": "newsEntryId",
+						"in": "query",
+						"description": "News Entry Id"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/news": {
+			"get": {
+				"summary": "Get news",
+				"description": "Get curated and incoming news entries and top stories",
+				"operationId": "Get news",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/readfeeds": {
+			"get": {
+				"summary": "Read feeds",
+				"description": "Read new news entries from registered feeds (and updates in memory cache). Note: You have to be a curator to invoke this API.",
+				"operationId": "Read feeds",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/readfeedsscheduler": {
+			"get": {
+				"summary": "Read feeds on scheduled basis",
+				"description": "Read new news entries from registered feeds (and update in memory cache). Invoked by the workload scheduler. Note: You need application credentials and to use basic authentication.",
+				"operationId": "Read feeds on scheduled basis",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/scheduler": {
+			"post": {
+				"summary": "Turn scheduler on or off",
+				"description": "Turn scheduler on or off. Note: You need to be curator.",
+				"operationId": "Turn scheduler on or off",
+				"parameters": [
+					{
+						"name": "state",
+						"in": "form",
+						"description": "on or off"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/tweetnewsentry": {
+			"post": {
+				"summary": "Tweet a news entry",
+				"description": "Tweet a new news entry. Note: You have to be a curator to invoke this API.",
+				"operationId": "Tweet a news entry",
+				"parameters": [
+					{
+						"name": "newsEntryId",
+						"in": "form",
+						"description": "News Entry Id"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/updatenewsentry": {
+			"post": {
+				"summary": "Update news entry",
+				"description": "Update an existing news entry. Works for both curated and incoming entries. Note: You have to be a curator to invoke this API.",
+				"operationId": "Update news entry",
+				"parameters": [
+					{
+						"name": "authorDisplayName",
+						"in": "form",
+						"description": "Author Display Name"
+					},
+					{
+						"name": "firstSentences",
+						"in": "form",
+						"description": "First Sentences."
+					},
+					{
+						"name": "link",
+						"in": "form",
+						"description": "News Entry URL"
+					},
+					{
+						"name": "newsEntryId",
+						"in": "form",
+						"description": "News Entry Id"
+					},
+					{
+						"name": "title",
+						"in": "form",
+						"description": "My Title"
+					},
+					{
+						"name": "topStory",
+						"in": "form",
+						"description": "true or false"
+					},
+					{
+						"name": "topStoryPosition",
+						"in": "form",
+						"description": "1 - 10"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
