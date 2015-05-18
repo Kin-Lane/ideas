@@ -1,0 +1,246 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "https://bitdango.com/api",
+  "resourcePath": "/markets",
+  "produces": [
+    "application/json"
+  ],
+  "apis": [
+    {
+      "path": "/markets",
+      "operations": [
+        {
+          "nickname": "markets",
+          "method": "GET",
+          "summary": "Use this to search markets. This is how you find current prices at specific markets.",
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "<b>Success</b> Everything worked as expected."
+            },
+            {
+              "code": 401,
+              "message": "<b>FailedAuthentication</b> There was a problem validating the accessToken or signature you provided."
+            },
+            {
+              "code": 402,
+              "message": "<b>InsufficientFunds</b> You may get this error if your account is out of API credits. Keep a positive balance to prevent this error."
+            },
+            {
+              "code": 500,
+              "message": "<b>Error</b> Generic error message."
+            },
+            {
+              "code": 503,
+              "message": "<b>RequestThresholdBreached</b> You may get this error if you are making too many requests in a time period."
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": null,
+              "name": "Authorization",
+              "description": "<p>The access token for the user (<a href=\"http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html#authz-header\">format</a>: Bearer access_token).</p><p>Example: Bearer DI83JE3H8FEUIFJKWEKJ8E9383</p>",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "header",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "1",
+              "name": "page",
+              "description": "<ul>\r\n</ul>\r\n",
+              "required": false,
+              "type": "integer",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "10",
+              "name": "pageSize",
+              "description": "<ul>\r\n<li>Max Value: <span class=\"code\">25</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "integer",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": "False",
+              "name": "includeTotalResults",
+              "description": "<ul>\r\n</ul>\r\n",
+              "required": false,
+              "type": "boolean",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "markets",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgoxBTCUSD, btceLTCUSD</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "exchanges",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">coinbase, mtgox</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "baseCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">BTC, LTC</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "quoteCurrencies",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">USD, EUR</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "currencyPairs",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">BTCLTC, LTCEUR</span></li>\r\n</ul>\r\n",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "facets",
+              "description": "<ul><li>Example: exchanges, quoteCurrencies, baseCurrencies</li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "expands",
+              "description": "<ul><li>Example: <span class=\"code\">tickerHistory, orderBook, ticker</span></li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "notes": "<p>Use this to search markets. This is how you find current prices at specific markets.</p>\r\n<p>Authentication Level = 1 (\r\naccessToken header\r\n)</p>\r\n<h4>Facet Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">exchanges</td><td>Use this to a list of exchanges.</td></tr>\r\n<tr><td class=\"code\">quoteCurrencies</td><td>Use this to get the quote currencies of markets.</td></tr>\r\n<tr><td class=\"code\">baseCurrencies</td><td>Use this to get the base currencies of markets.</td></tr>\r\n</tbody></table>\r\n<h4>Expand Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">tickerHistory</td><td>This will include the historical prices for the ticker.</td></tr>\r\n<tr><td class=\"code\">orderBook</td><td>This will include the order book for the market.</td></tr>\r\n<tr><td class=\"code\">ticker</td><td>This will include the ticker for the market.</td></tr>\r\n</tbody></table>\r\n",
+          "type": null
+        }
+      ]
+    },
+    {
+      "path": "/markets",
+      "operations": []
+    },
+    {
+      "path": "/markets/{marketCode}",
+      "operations": [
+        {
+          "nickname": "markets",
+          "method": "GET",
+          "summary": "Use this to get a specific market.",
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "<b>Success</b> Everything worked as expected."
+            },
+            {
+              "code": 401,
+              "message": "<b>FailedAuthentication</b> There was a problem validating the accessToken or signature you provided."
+            },
+            {
+              "code": 402,
+              "message": "<b>InsufficientFunds</b> You may get this error if your account is out of API credits. Keep a positive balance to prevent this error."
+            },
+            {
+              "code": 404,
+              "message": "<b>InvalidResource</b> The resource you requested doesn't exist."
+            },
+            {
+              "code": 500,
+              "message": "<b>Error</b> Generic error message."
+            },
+            {
+              "code": 503,
+              "message": "<b>RequestThresholdBreached</b> You may get this error if you are making too many requests in a time period."
+            }
+          ],
+          "parameters": [
+            {
+              "defaultValue": null,
+              "name": "Authorization",
+              "description": "<p>The access token for the user (<a href=\"http://self-issued.info/docs/draft-ietf-oauth-v2-bearer.html#authz-header\">format</a>: Bearer access_token).</p><p>Example: Bearer DI83JE3H8FEUIFJKWEKJ8E9383</p>",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "header",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "marketCode",
+              "description": "<ul>\r\n<li>Example: <span class=\"code\">mtgoxBTCUSD, btceLTCEUR</span></li>\r\n</ul>\r\n",
+              "required": true,
+              "type": "string",
+              "format": null,
+              "paramType": "path",
+              "minimum": null,
+              "maximum": null
+            },
+            {
+              "defaultValue": null,
+              "name": "expands",
+              "description": "<ul><li>Example: <span class=\"code\">orderBook, ticker, tickerHistory</span></li></ul>",
+              "required": false,
+              "type": "string",
+              "format": null,
+              "paramType": "query",
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "notes": "<p>Use this to get a specific market.</p>\r\n<p>Authentication Level = 1 (\r\naccessToken header\r\n)</p>\r\n<h4>Expand Codes</h4>\r\n<table class=\"fullwidth\"><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody>\r\n<tr><td class=\"code\">orderBook</td><td>This will include the order book for the market.</td></tr>\r\n<tr><td class=\"code\">ticker</td><td>This will include the ticker for the market.</td></tr>\r\n<tr><td class=\"code\">tickerHistory</td><td>This will include the historical prices for the ticker.</td></tr>\r\n</tbody></table>\r\n",
+          "type": null
+        }
+      ]
+    }
+  ],
+  "models": []
+}
