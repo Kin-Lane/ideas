@@ -1,0 +1,79 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Auth0",
+		"description": null,
+		"termsOfService": null,
+		"version": null
+	},
+	"host": "login.auth0.com",
+	"basePath": "/clients",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/api/v2/clients": {
+			"post": {
+				"summary": "Creates a client.",
+				"description": "",
+				"operationId": "post_clients",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/api/v2/clients/{id}": {
+			"patch": {
+				"summary": "Updates a client's attributes.",
+				"description": "<strong>Important:</strong> The <code>client_secret</code>,<code>encryption_key</code> and <code>signing_keys</code> attributes can only be updated with the <code>update:client_keys</code> scope.",
+				"operationId": "patch_clients_by_id",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The client_id of the client to retrieve."
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
