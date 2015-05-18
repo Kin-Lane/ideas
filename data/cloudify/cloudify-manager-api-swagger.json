@@ -1,0 +1,474 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Cloudify Manager API",
+		"description": "Cloud Orchestration & Automation Made Easy",
+		"termsOfService": "http://getcloudify.org/terms_of_use.html",
+		"version": null
+	},
+	"host": "/",
+	"basePath": "http://localhost:8100",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/blueprints": {
+			"get": {
+				"summary": "List uploaded blueprints",
+				"description": "Returns a list a submitted blueprints.",
+				"operationId": "list",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/blueprints/{blueprint_id}": {
+			"put": {
+				"summary": "Upload a blueprint (id specified)",
+				"description": "Submitted blueprint should be a tar gzipped directory containing the blueprint.",
+				"operationId": "upload",
+				"parameters": [
+					{
+						"name": "application_file_name",
+						"in": "query",
+						"description": "File name of yaml containing the main blueprint.",
+						"type": "string"
+					},
+					{
+						"name": "blueprint_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Binary form of the tar gzipped blueprint directory",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/blueprints/{blueprint_id}/archive": {
+			"get": {
+				"summary": "Download blueprint's archive",
+				"description": "Downloads blueprint as an archive.",
+				"operationId": "getArchive",
+				"parameters": [
+					{
+						"name": "blueprint_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/deployments": {
+			"get": {
+				"summary": "List deployments",
+				"description": "Returns a list existing deployments.",
+				"operationId": "list",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/deployments/{deployment_id}": {
+			"put": {
+				"summary": "Create a deployment",
+				"description": "Created a new deployment of the given blueprint.",
+				"operationId": "createDeployment",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Deployment blue print",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "deployment_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/deployments/{deployment_id}/modify": {
+			"patch": {
+				"summary": "",
+				"description": "Modify deployment.",
+				"operationId": "modifyDeployment",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Deployment modification specification",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "deployment_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/deployments/{deployment_id}/outputs": {
+			"get": {
+				"summary": "Get deployment outputs",
+				"description": "Gets a specific deployment outputs.",
+				"operationId": "get",
+				"parameters": [
+					{
+						"name": "deployment_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/evaluate/functions": {
+			"post": {
+				"summary": "Evaluate intrinsic in payload",
+				"description": "Evaluate provided payload for intrinsic functions",
+				"operationId": "evaluateFunctions",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/events": {
+			"post": {
+				"summary": "List events for the provided Elasticsearch query",
+				"description": "Returns a list of events for the provided ElasticSearch query. The response format is as ElasticSearch response format.",
+				"operationId": "events",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "ElasticSearch query.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/executions": {
+			"post": {
+				"summary": "Execute a workflow",
+				"description": "",
+				"operationId": "nickname",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/executions/{execution_id}": {
+			"post": {
+				"summary": "Apply execution action (cancel, force-cancel) by id",
+				"description": "Modifies a running execution state (currently, only cancel and force-cancel are supported)",
+				"operationId": "modify_state",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "json with an action key. Legal values for action are: [cancel, force-cancel]",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "execution_id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/node-instances": {
+			"get": {
+				"summary": "List node instances",
+				"description": "Returns node instances list according to the provided query parameters.",
+				"operationId": "listNodeInstances",
+				"parameters": [
+					{
+						"name": "deployment_id",
+						"in": "query",
+						"description": "Deployment id",
+						"type": "string"
+					},
+					{
+						"name": "node_name",
+						"in": "query",
+						"description": "node name",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/node-instances/{node_instance_id}": {
+			"patch": {
+				"summary": "Update node instance by id",
+				"description": "Update node instance. Expecting the request body to be a dictionary containing 'version' which is used for optimistic locking during the update, and optionally 'runtime_properties' (dictionary) and/or 'state' (string) properties",
+				"operationId": "patchNodeState",
+				"parameters": [
+					{
+						"name": "node_instance_id",
+						"in": "path",
+						"description": "Node instance identifier",
+						"type": "string"
+					},
+					{
+						"name": "runtime_properties",
+						"in": "body",
+						"description": "a dictionary of runtime properties. If omitted, the runtime properties wont be updated",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "state",
+						"in": "body",
+						"description": "the new nodes state. If omitted, the state wont be updated",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "version",
+						"in": "body",
+						"description": "used for optimistic locking during update",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/nodes": {
+			"get": {
+				"summary": "List nodes",
+				"description": "Returns nodes list according to the provided query parameters.",
+				"operationId": "listNodes",
+				"parameters": [
+					{
+						"name": "deployment_id",
+						"in": "query",
+						"description": "Deployment id",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/provider/context": {
+			"post": {
+				"summary": "Create provider context",
+				"description": "Post the provider context",
+				"operationId": "postContext",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Provider context",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/search": {
+			"post": {
+				"summary": "Search using an Elasticsearch query",
+				"description": "Returns results from the storage for the provided ElasticSearch query. The response format is as ElasticSearch response format.",
+				"operationId": "search",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "ElasticSearch query.",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/status": {
+			"get": {
+				"summary": "Get the status of running system services",
+				"description": "Returns state of running system services",
+				"operationId": "status",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/version": {
+			"get": {
+				"summary": "Get version information",
+				"description": "Returns version information for this rest service",
+				"operationId": "version",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
