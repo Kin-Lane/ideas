@@ -1,0 +1,18 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Stocklytics Stock News API",
+		"description": "Coming Soon!!",
+		"termsOfService": null,
+		"version": null
+	},
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	]
+}
