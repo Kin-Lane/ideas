@@ -1,0 +1,966 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "SendGrid Web API",
+		"description": "SendGrid offers a Web API that allows customers to retrieve information about their account such as statistics, bounces, spam reports, unsubscribes, and other information. This API is not RESTful since for most calls both GET and POST HTTP verbs can be used interchangeably, and other verbs are not supported.",
+		"termsOfService": null,
+		"version": "v1"
+	},
+	"host": "api.sendgrid.com",
+	"basePath": "api/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"blocks.count.json": {
+			"get": {
+				"summary": "Block Count",
+				"description": "Gets the block count.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "Optional date to start counting from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "Optional date to start counting from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "The type of bounce to count.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Blocks"
+				]
+			}
+		},
+		"blocks.delete.json": {
+			"get": {
+				"summary": "Delete Blocks",
+				"description": "Delete an address from the Block list.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Blocked email address to remove.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Bocks"
+				]
+			}
+		},
+		"blocks.get.json": {
+			"get": {
+				"summary": "Get Blocks",
+				"description": "Retrieve a list of Blocks with addresses and response codes, optionally with dates.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "Retrieve the timestamp of the Block records. It will return a date in a MySQL timestamp format - YYYY-MM-DD HH:MM:SS",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "days",
+						"in": "query",
+						"description": "Number of days in the past for which to retrieve blocks (includes today)",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve blocks",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Optional field to limit the number of results returned.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve blocks.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Blocks"
+				]
+			}
+		},
+		"bounces.count.json": {
+			"get": {
+				"summary": "Bounces Count",
+				"description": "Returns the count of bounces.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Bounces"
+				]
+			}
+		},
+		"bounces.delete.json": {
+			"get": {
+				"summary": "Delete Bounce",
+				"description": "Delete an address from the Bounce list.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "delete_all",
+						"in": "query",
+						"description": "This will delete the bounce list and will not be retrievable.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Email bounce address to remove.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "Optional date to end deleting from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "Optional date to start deleting from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "Choose the type of bounce to be removed.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Bounces"
+				]
+			}
+		},
+		"bounces.get": {
+			"get": {
+				"summary": "Get Bounces",
+				"description": "Retrieve a list of bounces with addresses and response codes, optionally with dates.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "Retrieve the timestamp of the bounce records. It will return a date in a MySQL timestamp format - YYYY-MM-DD HH:MM:SS.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "days",
+						"in": "query",
+						"description": "Number of days in the past for which to retrieve bounces (includes today).",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Optional email addresses to search for.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve bounces.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Optional field to limit the number of results returned.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "Optional beginning point in the list to retrieve from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve bounces.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "type_of_media",
+						"in": "query",
+						"description": "Choose the type of bounce to search for.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Bounces"
+				]
+			}
+		},
+		"invalidemails.count.json": {
+			"get": {
+				"summary": "Count Invalid Emails",
+				"description": "Retrieve the count of invalid emails.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve invalid emails.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve invalid emails.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Invalid"
+				]
+			}
+		},
+		"invalidemails.delete.json": {
+			"get": {
+				"summary": "Delete Invalid Emails",
+				"description": "Delete an address from the Invalid Email list.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Email Invalid Email address to remove",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Invalid"
+				]
+			}
+		},
+		"invalidemails.get.json": {
+			"get": {
+				"summary": "Get Invalid Emails",
+				"description": "Retrieve a list of invalid emails with addresses and response codes, optionally with dates.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "Retrieve the timestamp of the invalid email records. It will return a date in a MySQL timestamp format - YYYY-MM-DD HH:MM:SS",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "days",
+						"in": "query",
+						"description": "Number of days in the past for which to retrieve invalid emails (includes today)",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Optional email addresses to search for.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve invalid emails.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Optional field to limit the number of results returned.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "Optional beginning point in the list to retrieve from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve invalid emails.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Invalid"
+				]
+			}
+		},
+		"mail.send.json": {
+			"post": {
+				"summary": "Web API",
+				"description": "SendGrid offers a Web API that allows customers to retrieve information about their account such as statistics, bounces, spam reports, unsubscribes, and other information. This API is not RESTful since for most calls both GET and POST HTTP verbs can be used interchangeably, and other verbs are not supported.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "bcc",
+						"in": "query",
+						"description": "This can also be passed in as an array of email addresses for multiple recipients.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "cc",
+						"in": "query",
+						"description": "This can also be passed in as an array of email addresses for multiple recipients",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "content",
+						"in": "query",
+						"description": "Content IDs of the files to be used as inline images. Content IDs should match the cids used in the HTML markup. Ex: content[file1.jpg]=ii_139db99fdb5c3704 would correspond with the HTML.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date_on",
+						"in": "query",
+						"description": "Specify the date header of your email. One example: u201cThu, 21 Dec 2000 16:01:07 +0200u201d.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "files",
+						"in": "query",
+						"description": "Files to be attached. The file contents must be part of the multipart HTTP POST.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "fromdate",
+						"in": "query",
+						"description": "This is where the email will appear to originate from for your recipient",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "fromname",
+						"in": "query",
+						"description": "This is name appended to the from email field. IE - Your name or company name",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "headers",
+						"in": "query",
+						"description": "A collection of key/value pairs in JSON format. Each key represents a header name and the value the header value. ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "html",
+						"in": "query",
+						"description": "The HTML content of your email message.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "replyto",
+						"in": "query",
+						"description": "Append a reply-to field to your email message",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "subject",
+						"in": "query",
+						"description": "The subject of your email",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "The plain text content of your email message.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "to",
+						"in": "query",
+						"description": "This can also be passed in as an array, to send to multiple locations. Example: to[]=a@mail.com[]=b@mail.com. Note that recipients passed in this parameter will be visible as part of the message. If you wish to hide the recipients, use the TO parameter in the x-smtpapi header.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "toname",
+						"in": "query",
+						"description": "Give a name to the recipient. This can also be passed as an array if the to above is an array. Example: toname[]=Alpha[]=Beta.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "x-smtpapi",
+						"in": "query",
+						"description": "Please review the SMTP API to view documentation on what you can do with the JSON headers",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging"
+				]
+			}
+		},
+		"spamreports.count.json": {
+			"get": {
+				"summary": "Spam Reports Count",
+				"description": "Retrieve the count of Spam Reports.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve spam reports.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve spam reports.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Spam"
+				]
+			}
+		},
+		"spamreports.get.json": {
+			"get": {
+				"summary": "Spam Reports",
+				"description": "Retrieve and delete entries in the Spam Reports list.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "Retrieve the timestamp of the spam report records. It will return a date in a MySQL timestamp format - YYYY-MM-DD HH:MM:SS",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "days",
+						"in": "query",
+						"description": "Number of days in the past for which to retrieve spam reports (includes today)",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "email",
+						"in": "query",
+						"description": "Optional email addresses to search for.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end of the date range for which to retrieve spam reports.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Optional field to limit the number of results returned.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "Optional beginning point in the list to retrieve from.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start of the date range for which to retrieve spam reports.",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Spam"
+				]
+			}
+		},
+		"stats.get.json": {
+			"get": {
+				"summary": "Retrieve Statistics",
+				"description": "Get email statistics.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "aggregate",
+						"in": "query",
+						"description": "This is used to indicate you are interested in all-time totals",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "category",
+						"in": "query",
+						"description": "The category for which to retrieve detailed stats",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "days",
+						"in": "query",
+						"description": "Number of days in the past to include statistics (Includes today)",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "The end date to look up statistics",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "list",
+						"in": "query",
+						"description": "Retrieve a list of all the categories used in your account.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "The start date to look up statistics",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Statistics"
+				]
+			}
+		},
+		"stats.getAdvanced.json": {
+			"get": {
+				"summary": "Advanced Statistics",
+				"description": "Advanced Statistics methods provide metrics on the browsers and devices that are opening emails, as well as providing statistics based on geographic location or ISP.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "aggregated_by",
+						"in": "query",
+						"description": "Aggregate the data by the given period",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "Your SendGrid Password",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "api_user",
+						"in": "query",
+						"description": "Your SendGrid Username",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "category",
+						"in": "query",
+						"description": "Return stats for the given category",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "country",
+						"in": "query",
+						"description": "Get stats for each region/state for the given country. ",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "data_type",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "end_date",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "metric",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "start_date",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Email",
+					" Messaging",
+					" Statistics"
+				]
+			}
+		}
+	}
+}
