@@ -1,0 +1,82 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "TelAPI",
+		"description": "TelAPI is a REST API. What that means for you is that interacting with TelAPI to perform all of your telephony needs is almost as simple as visiting a website. Deeper knowledge regarding REST is useful when developing with TelAPI but definitely not required. We aim to provide all of the information needed for working with our REST API throughout its documentation provided here, so even if you are new to REST, TelAPI will still be a pleasure to use.",
+		"termsOfService": "http://www.telapi.com/legal/tos",
+		"version": "v2"
+	},
+	"host": "api.telapi.com",
+	"basePath": "v2/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"Accounts/{AccountSid}/SMS/Messages": {
+			"get": {
+				"summary": "Send Message",
+				"description": "Outbound SMS messages can easily be sent via our REST API.",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "AccountSid",
+						"in": "path",
+						"description": "Account ID",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "Body",
+						"in": "query",
+						"description": "Text of the SMS message to be sent. If greater than 160 characters, the SMS will be rejected by TelAPI.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "From",
+						"in": "query",
+						"description": "The number you want to send the SMS from. This should be one of your SMS enabled TelAPI numbers.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "StatusCallback",
+						"in": "query",
+						"description": "URL that the status of the SMS and a set of default parameters will be forwarded to.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "StatusCallbackMethod",
+						"in": "query",
+						"description": "Specifies the HTTP method used to request the StatucCallback URL.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "To",
+						"in": "query",
+						"description": "SMS capable phone number",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
