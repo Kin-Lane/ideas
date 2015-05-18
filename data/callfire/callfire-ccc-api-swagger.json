@@ -1,0 +1,916 @@
+{
+	"apiVersion" : 1.1,
+	"swaggerVersion" : 1.1,
+	"basePath" : "https://www.callfire.com/api/1.1/rest",
+	"resourcePath" : "/ccc",
+	"apis" : [ {
+		"path" : "/ccc/{Id}",
+		"description" : "Get CCC Campaign by id",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetCccCampaign",
+			"responseClass" : "void",
+			"summary" : "Get CCC Campaign by id",
+			"notes" : "<p>Get ccc campaign identified by id.</p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/stats",
+		"description" : "Get CCC Campaign statistics by campaign id",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetCccCampaignStats",
+			"responseClass" : "void",
+			"summary" : "Get CCC Campaign statistics by campaign id",
+			"notes" : "<p>Return campaign stats that includes call counts and billing amounts.</p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "IntervalBegin",
+				"description" : "Beginning of DateTime interval to search on",
+				"dataType" : "dateTime"
+			}, {
+				"paramType" : "query",
+				"name" : "IntervalEnd",
+				"description" : "End of DateTime interval to search on",
+				"dataType" : "dateTime"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc",
+		"description" : "Create CCC Campaign",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateCccCampaign",
+			"responseClass" : "void",
+			"summary" : "Create CCC Campaign",
+			"notes" : "<p>Create ccc campaign. Returns id of newly created ccc campaign.</p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request to de-dup on",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "Name of Campaign",
+				"dataType" : "string",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictBegin",
+				"description" : "Earliest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time"
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictEnd",
+				"description" : "Latest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time"
+			}, {
+				"paramType" : "form",
+				"name" : "Script",
+				"description" : "Script content",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Label[0]",
+				"description" : "Question label",
+				"dataType" : "string",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "ResponseType[0]",
+				"description" : "Question response type [STRING, CHOICE, NUMBERIC]",
+				"dataType" : "QuestionResponseType",
+				"required" : true,
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "STRING", "CHOICE", "NUMERIC" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "Choices[0]",
+				"description" : "Choices available if ResponseType.CHOICE",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Name[0]",
+				"description" : "Transfer Number name",
+				"dataType" : "string",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "Number[0]",
+				"description" : "Transfer Number",
+				"dataType" : "PhoneNumber",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "AllowAssistedTransfer[0]",
+				"description" : "Allow assisted transfer",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "FromNumber",
+				"description" : "E.164 11 digit number or short code",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "RetryConfig",
+				"description" : "Retry logic for campaign",
+				"dataType" : "RetryConfig"
+			}, {
+				"paramType" : "form",
+				"name" : "MaxAttempts",
+				"description" : "Max attempts to retry broadcast (default: 1)",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "MinutesBetweenAttempts",
+				"description" : "Minutes between broadcast attempts (default: 60)",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "RetryResults",
+				"description" : "Conditions to retry on",
+				"dataType" : "Result",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "LA", "AM", "BUSY", "DNC", "XFER", "XFER_LEG", "NO_ANS", "UNDIALED", "SENT", "RECEIVED", "DNT", "TOO_BIG", "INTERNAL_ERROR", "CARRIER_ERROR", "CARRIER_TEMP_ERROR", "SD", "POSTPONED", "ABANDONED", "SKIPPED" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "RetryPhoneTypes",
+				"description" : "Phone types to call in retry",
+				"dataType" : "RetryPhoneType",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "FIRST_NUMBER", "HOME_PHONE", "WORK_PHONE", "MOBILE_PHONE" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupId",
+				"description" : "Unique ID of AgentGroup",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupName",
+				"description" : "Name of AgentGroup",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "SmartDropSoundId",
+				"description" : "Unique ID of SmartDropSound",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "SmartDropSoundRef",
+				"description" : "URI of SmartDropSound",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "AllowAnyTransfer",
+				"description" : "Allow any transfer",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Recorded",
+				"description" : "Recorded",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "ScrubLevel",
+				"description" : "Scrub level",
+				"dataType" : "int"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc",
+		"description" : "Query CCC Campaigns",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryCccCampaigns",
+			"responseClass" : "void",
+			"summary" : "Query CCC Campaigns",
+			"notes" : "<p>Query for existing ccc campaigns using optional filters such as name, status, labels, etc... Returns a list of ccc campaigns and all associated info. See <code>GetCccCampaign</code> to return just a single ccc campaign by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "Running",
+				"description" : "Filter on running CCC Campaigns",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "query",
+				"name" : "Name",
+				"description" : "Name of Campaign",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "LabelName",
+				"description" : "Label that result must have to be included",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{Id}",
+		"description" : "Updates an existing CCC Campaigns configuration",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "UpdateCccCampaign",
+			"responseClass" : "void",
+			"summary" : "Updates an existing CCC Campaigns configuration",
+			"notes" : "<p>Update existing campaign's configuration such as time zone restrictions or retry logic. Currently all fields from config are updated so the 'Message' field needs to be populated just like in <code>CreateCccCampaign</code> operation. </p> <p>Use unique ID to specify campaign. Need to provide dummy 'Name' field Campaign even though the field will not be overwritten. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request to de-dup on",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "Name of Campaign",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictBegin",
+				"description" : "Earliest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time"
+			}, {
+				"paramType" : "form",
+				"name" : "LocalRestrictEnd",
+				"description" : "Latest time a client can be contacted in the timezone associated with the number's NPA/NXX",
+				"dataType" : "time"
+			}, {
+				"paramType" : "form",
+				"name" : "Script",
+				"description" : "Script content",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Label[0]",
+				"description" : "Question label",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "ResponseType[0]",
+				"description" : "Question response type [STRING, CHOICE, NUMBERIC]",
+				"dataType" : "QuestionResponseType",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "STRING", "CHOICE", "NUMERIC" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "Choices[0]",
+				"description" : "Choices available if ResponseType.CHOICE",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Name[0]",
+				"description" : "Transfer Number name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Number[0]",
+				"description" : "Transfer Number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "AllowAssistedTransfer[0]",
+				"description" : "Allow assisted transfer",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "FromNumber",
+				"description" : "E.164 11 digit number or short code",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "RetryConfig",
+				"description" : "Retry logic for campaign",
+				"dataType" : "RetryConfig"
+			}, {
+				"paramType" : "form",
+				"name" : "MaxAttempts",
+				"description" : "Max attempts to retry broadcast (default: 1)",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "MinutesBetweenAttempts",
+				"description" : "Minutes between broadcast attempts (default: 60)",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "RetryResults",
+				"description" : "Conditions to retry on",
+				"dataType" : "Result",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "LA", "AM", "BUSY", "DNC", "XFER", "XFER_LEG", "NO_ANS", "UNDIALED", "SENT", "RECEIVED", "DNT", "TOO_BIG", "INTERNAL_ERROR", "CARRIER_ERROR", "CARRIER_TEMP_ERROR", "SD", "POSTPONED", "ABANDONED", "SKIPPED" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "RetryPhoneTypes",
+				"description" : "Phone types to call in retry",
+				"dataType" : "RetryPhoneType",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "FIRST_NUMBER", "HOME_PHONE", "WORK_PHONE", "MOBILE_PHONE" ]
+				},
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupId",
+				"description" : "Unique ID of AgentGroup",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupName",
+				"description" : "Name of AgentGroup",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "SmartDropSoundId",
+				"description" : "Unique ID of SmartDropSound",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "SmartDropSoundRef",
+				"description" : "URI of SmartDropSound",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "AllowAnyTransfer",
+				"description" : "Allow any transfer",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Recorded",
+				"description" : "Recorded",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "ScrubLevel",
+				"description" : "Scrub level",
+				"dataType" : "int"
+			}, {
+				"paramType" : "form",
+				"name" : "CccCampaign[id]",
+				"description" : "Unique ID of Campaign",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{Id}/transfer-numbers",
+		"description" : "Delete all transfer numbers from existing CCC Campaign",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteCccCampaignTransferNumbers",
+			"responseClass" : "void",
+			"summary" : "Delete all transfer numbers from existing CCC Campaign",
+			"notes" : "<p>Delete all transfer numbers from an existing CCC Campaign. To add or update transfer numbers on ccc campaign use <code>UpdateCccCampaign</code>. This call is only needed when deletion of all transfer numbers is needed. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{Id}/questions",
+		"description" : "Delete all questions from existing CCC Campaign",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteCccCampaignQuestions",
+			"responseClass" : "void",
+			"summary" : "Delete all questions from existing CCC Campaign",
+			"notes" : "<p>Delete all questions from an existing CCC Campaign. To add or update questions on ccc campaign use <code>UpdateCccCampaign</code>. This call is only needed when deletion of all questions is needed. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{Id}/control",
+		"description" : "Starts, Stops or Archives a CCC Campaign",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "ControlCccCampaign",
+			"responseClass" : "void",
+			"summary" : "Starts, Stops or Archives a CCC Campaign",
+			"notes" : "<p>Apply command START, STOP, or ARCHIVE to ccc campaign. Also can change the max active count of campaign. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : null,
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Command",
+				"description" : null,
+				"dataType" : "BroadcastCommand",
+				"allowableValues" : {
+					"valueType" : "LIST",
+					"values" : [ "START", "STOP", "ARCHIVE" ]
+				}
+			}, {
+				"paramType" : "form",
+				"name" : "MaxActive",
+				"description" : "Max simultaneous calls",
+				"dataType" : "int"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{Id}",
+		"description" : "Deletes a Ccc Campaign by ID",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteCccCampaign",
+			"responseClass" : "void",
+			"summary" : "Deletes a Ccc Campaign by ID",
+			"notes" : "<p>Delete ccc campaign identified by id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent/{Id}",
+		"description" : "Get CCC Agent by Id",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgent",
+			"responseClass" : "void",
+			"summary" : "Get CCC Agent by Id",
+			"notes" : "<p>Return individual agent by id. See <code>QueryAgents</code> to return list of agents. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent",
+		"description" : "Lists existing Agents",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryAgents",
+			"responseClass" : "void",
+			"summary" : "Lists existing Agents",
+			"notes" : "<p>Query for existing Agents using optional filters such as campaignId, name, etc... Returns a list of Agents and all associated info. See <code>GetAgent</code> to return just a single Agent by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "CampaignId",
+				"description" : "Unique ID of CCC Campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentEmail",
+				"description" : "Unique ID of CCC Campaign",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentGroupId",
+				"description" : "Unique ID of AgentGroup",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentGroupName",
+				"description" : "AgentGroup name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "Enabled",
+				"description" : "Agent enabled or not",
+				"dataType" : "boolean"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent",
+		"description" : "Add Agents to Campaign",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "AddAgents",
+			"responseClass" : "void",
+			"summary" : "Add Agents to Campaign",
+			"notes" : "<p>Add agents identified by id or email to existing ccc campaign. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentIds",
+				"description" : "ID List of Agents",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentEmails",
+				"description" : "List of agents by email to add to campaign",
+				"dataType" : "EmailList"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent",
+		"description" : "Get Agents attached with Campaign",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgents",
+			"responseClass" : "void",
+			"summary" : "Get Agents attached with Campaign",
+			"notes" : "<p>Get list of agents attached to ccc campaign. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent/{Id}",
+		"description" : "Remove Agents from CCC Campaign",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "RemoveAgent",
+			"responseClass" : "void",
+			"summary" : "Remove Agents from CCC Campaign",
+			"notes" : "<p>Remove individual agent identified by id from ccc campaign identified by campaign id. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-group/{Id}",
+		"description" : "Get CCC AgentGroup by Id",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgentGroup",
+			"responseClass" : "void",
+			"summary" : "Get CCC AgentGroup by Id",
+			"notes" : "<p>Return individual agent group by id. See <code>QueryAgentGroups</code> to return list of agent groups. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-group",
+		"description" : "Lists existing AgentGroups",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryAgentGroups",
+			"responseClass" : "void",
+			"summary" : "Lists existing AgentGroups",
+			"notes" : "<p>Query for existing agent groups using optional filters such as campaignId, name, etc... Returns a list of AgentGroups and all associated info. See <code>GetAgentGroup</code> to return just a single AgentGroup by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "CampaignId",
+				"description" : "Unique ID of CCC Campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "Name",
+				"description" : "AgentGroup name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentId",
+				"description" : "Unique ID of agent",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentEmail",
+				"description" : "Unique email of agent",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-group",
+		"description" : "Create CCC AgentGroup",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateAgentGroup",
+			"responseClass" : "void",
+			"summary" : "Create CCC AgentGroup",
+			"notes" : "<p>Create agent group using either list of agent ids or list of agent emails but not both. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request to de-dup on",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "Name of Agent",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentIds",
+				"description" : "List of AgentIds that belong to this AgentGroup",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentEmails",
+				"description" : "List of AgentEmails that belong to this AgentGroup",
+				"dataType" : "EmailList"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-group/{Id}",
+		"description" : "Updates an existing CCC AgentGroup",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "UpdateAgentGroup",
+			"responseClass" : "void",
+			"summary" : "Updates an existing CCC AgentGroup",
+			"notes" : "<p>Update existing agent group identified by id. Change name, etc... </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request to de-dup on",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "Name of Agent",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "CampaignIds",
+				"description" : "List of CampaignIds this AgentGroup belongs to",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentIds",
+				"description" : "List of AgentIds that belong to this AgentGroup",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentEmails",
+				"description" : "List of AgentEmails that belong to this AgentGroup",
+				"dataType" : "EmailList"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroup[id]",
+				"description" : "Unique ID of Ccc AgentGroup",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent-group",
+		"description" : "Add AgentGroups to Campaign",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "AddAgentGroups",
+			"responseClass" : "void",
+			"summary" : "Add AgentGroups to Campaign",
+			"notes" : "<p>Add agent groups identified by ids to campaign. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupIds",
+				"description" : "ID List of AgentGroups",
+				"dataType" : "IdList"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent-group",
+		"description" : "Get all AgentGroups attached to Campaign",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgentGroups",
+			"responseClass" : "void",
+			"summary" : "Get all AgentGroups attached to Campaign",
+			"notes" : "<p>Returns a list of agent groups attached to campaign. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-group/{Id}",
+		"description" : "Deletes a CCC AgentGroup by ID",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteAgentGroup",
+			"responseClass" : "void",
+			"summary" : "Deletes a CCC AgentGroup by ID",
+			"notes" : "<p>Delete agent group identified by id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent-group/{Id}",
+		"description" : "Remove AgentGroup from Campaign",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "RemoveAgentGroup",
+			"responseClass" : "void",
+			"summary" : "Remove AgentGroup from Campaign",
+			"notes" : "<p>Remove agent group identified by id from campaign. If id points to non-existent agent group then ServiceFault or 404 error will be thrown. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "campaignId",
+				"description" : "Unique ID of campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-session/{Id}",
+		"description" : "Get CCC AgentSession by Id",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgentSession",
+			"responseClass" : "void",
+			"summary" : "Get CCC AgentSession by Id",
+			"notes" : "<p>Return ccc agent session by id. See <code>QueryAgentSessions</code> to return list of agent sessions and determine individual agent session id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/agent-session",
+		"description" : "Lists existing AgentSessions",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryAgentSessions",
+			"responseClass" : "void",
+			"summary" : "Lists existing AgentSessions",
+			"notes" : "<p>Query for existing agent sessions using optional filters such as CampaignId, AgentEmail, etc... Returns a list of agent sessions and all associated info. See <code>GetAgentSession</code> to return just a single agent session by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "CampaignId",
+				"description" : "Unique ID of CCC Campaign",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentId",
+				"description" : "Unique ID of agent",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "AgentEmail",
+				"description" : "Unique email of agent",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "Active",
+				"description" : "Only return active sessions",
+				"dataType" : "boolean"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent-invite",
+		"description" : "Send CCC AgentInvite",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "SendAgentInvites",
+			"responseClass" : "void",
+			"summary" : "Send CCC AgentInvite",
+			"notes" : "<p>Send ccc agent invite email which includes a link inside email for agent to register with campaign.</p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID of web request to de-dup on",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "path",
+				"name" : "CampaignId",
+				"description" : "CCC Campaign to invite agents to",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "AgentGroupName",
+				"description" : "Optional agent group name to add agents to",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "AgentEmails",
+				"description" : "List of agent emails to send invites to",
+				"dataType" : "EmailList"
+			} ]
+		} ]
+	}, {
+		"path" : "/ccc/{CampaignId}/agent-invite-uri",
+		"description" : "Get CCC AgentInvite URI",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetAgentInviteUri",
+			"responseClass" : "void",
+			"summary" : "Get CCC AgentInvite URI",
+			"notes" : "Return campaign registration link that agents can use to register for a campaign. (ex: https://www.callfire.com/ui/register/agent/c1ca1280-64c8-11e4-8fe5-00136e4efdeb)",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "CampaignId",
+				"description" : "CCC Campaign to invite agents to",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "query",
+				"name" : "AgentEmail",
+				"description" : "Agent email to send invite to",
+				"dataType" : "EmailAddress"
+			} ]
+		} ]
+	} ]
+}
