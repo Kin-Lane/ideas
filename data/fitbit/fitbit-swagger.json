@@ -1,0 +1,2696 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Fitbit",
+		"description": "The Fitbit API allows developers to interact with Fitbit data in their own applications, products and services.",
+		"termsOfService": null,
+		"version": "1"
+	},
+	"host": "api.fitbit.com",
+	"basePath": "/1",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/activities.{format}": {
+			"get": {
+				"summary": "Get Devices",
+				"description": "Get Devices",
+				"operationId": "get-devices",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/activities/{id}.{format}": {
+			"get": {
+				"summary": "Browse Activities",
+				"description": "Browse Activities",
+				"operationId": "browse-activities",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/foods.{format}": {
+			"post": {
+				"summary": "Delete Water Log",
+				"description": "Delete Water Log",
+				"operationId": "delete-water-log",
+				"parameters": [
+					{
+						"name": "calories",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "defaultFoodMeasurementUnitId",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "defaultServingSize",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "name",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/foods/search.{format}": {
+			"get": {
+				"summary": "Get Activity",
+				"description": "Get Activity",
+				"operationId": "get-activity",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "query",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/foods/units.{format}": {
+			"get": {
+				"summary": "Get Food",
+				"description": "Get Food",
+				"operationId": "get-food",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/foods/{food-id}.{format}": {
+			"get": {
+				"summary": "Search Foods",
+				"description": "Search Foods",
+				"operationId": "search-foods",
+				"parameters": [
+					{
+						"name": "food-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "food-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities.{format}": {
+			"post": {
+				"summary": "Get Friends Leaderboard",
+				"description": "Get Friends Leaderboard",
+				"operationId": "get-friends-leaderboard",
+				"parameters": [
+					{
+						"name": "activityId",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "distance",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "durationMillis",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "startTime",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/favorite.{format}": {
+			"get": {
+				"summary": "Get Frequent Activities",
+				"description": "Get Frequent Activities",
+				"operationId": "get-frequent-activities",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/frequent.{format}": {
+			"get": {
+				"summary": "Get Recent Activities",
+				"description": "Get Recent Activities",
+				"operationId": "get-recent-activities",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/goals/daily.{format}": {
+			"post": {
+				"summary": "Get Activity Weekly Goals",
+				"description": "Get Activity Weekly Goals",
+				"operationId": "get-activity-weekly-goals",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "value",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/goals/weekly.{format}": {
+			"post": {
+				"summary": "Update Activity Daily Goals",
+				"description": "Update Activity Daily Goals",
+				"operationId": "update-activity-daily-goals",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "type",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "value",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/log/favorite/{id}.{format}": {
+			"post": {
+				"summary": "Get Favorite Foods",
+				"description": "Get Favorite Foods",
+				"operationId": "get-favorite-foods",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/recent.{format}": {
+			"get": {
+				"summary": "Get Time Series",
+				"description": "Get Time Series",
+				"operationId": "get-time-series",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/activities/{activity-log-id}.{format}": {
+			"delete": {
+				"summary": "Delete Food Log",
+				"description": "Delete Food Log",
+				"operationId": "delete-food-log",
+				"parameters": [
+					{
+						"name": "activity-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "activity-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body.{format}": {
+			"post": {
+				"summary": "Get Time Series",
+				"description": "Get Time Series",
+				"operationId": "get-time-series",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fat",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "weight",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/fat.{format}": {
+			"post": {
+				"summary": "Log Body Weight",
+				"description": "Log Body Weight",
+				"operationId": "log-body-weight",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fat",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "time",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/fat/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Body Weight",
+				"description": "Get Body Weight",
+				"operationId": "get-body-weight",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/fat/goal.{format}": {
+			"post": {
+				"summary": "Get Body Fat Goal",
+				"description": "Get Body Fat Goal",
+				"operationId": "get-body-fat-goal",
+				"parameters": [
+					{
+						"name": "fat",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/fat/{body-fat-log-id}.{format}": {
+			"delete": {
+				"summary": "Delete Body Weight Log",
+				"description": "Delete Body Weight Log",
+				"operationId": "delete-body-weight-log",
+				"parameters": [
+					{
+						"name": "body-fat-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "body-fat-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/fat/{body-weight-log-id}.{format}": {
+			"delete": {
+				"summary": "Log Body Fat",
+				"description": "Log Body Fat",
+				"operationId": "log-body-fat",
+				"parameters": [
+					{
+						"name": "body-weight-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "body-weight-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/weight.{format}": {
+			"post": {
+				"summary": "Log Body Measurements",
+				"description": "Log Body Measurements",
+				"operationId": "log-body-measurements",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "time",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "weight",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/weight/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Body Measurements",
+				"description": "Get Body Measurements",
+				"operationId": "get-body-measurements",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/body/log/weight/goal.{format}": {
+			"post": {
+				"summary": "Get Body Weight Goal",
+				"description": "Get Body Weight Goal",
+				"operationId": "get-body-weight-goal",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "startWeight",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "weight",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/bp.{format}": {
+			"post": {
+				"summary": "Log Heart Rate",
+				"description": "Log Heart Rate",
+				"operationId": "log-heart-rate",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "diastolic",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "systolic",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/bp/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Heart Rate",
+				"description": "Get Heart Rate",
+				"operationId": "get-heart-rate",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/bp/{bp-log-id}.{format}": {
+			"delete": {
+				"summary": "Delete Heart Rate Log",
+				"description": "Delete Heart Rate Log",
+				"operationId": "delete-heart-rate-log",
+				"parameters": [
+					{
+						"name": "bp-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "bp-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/devices.{format}": {
+			"get": {
+				"summary": "Update Food Goals",
+				"description": "Update Food Goals",
+				"operationId": "update-food-goals",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log.{format}": {
+			"post": {
+				"summary": "Log Activity",
+				"description": "Log Activity",
+				"operationId": "log-activity",
+				"parameters": [
+					{
+						"name": "amount",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "foodId",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "mealTypeId",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "unitId",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/favorite.{format}": {
+			"get": {
+				"summary": "Get Frequent Foods",
+				"description": "Get Frequent Foods",
+				"operationId": "get-frequent-foods",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/favorite/{id}.{format}": {
+			"post": {
+				"summary": "Update Activity Weekly Goals",
+				"description": "Update Activity Weekly Goals",
+				"operationId": "update-activity-weekly-goals",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/frequent.{format}": {
+			"get": {
+				"summary": "Get Recent Foods",
+				"description": "Get Recent Foods",
+				"operationId": "get-recent-foods",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/goal.{format}": {
+			"post": {
+				"summary": "Get Food Goals",
+				"description": "Get Food Goals",
+				"operationId": "get-food-goals",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "intensity",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/recent.{format}": {
+			"get": {
+				"summary": "Get Favorite Activities",
+				"description": "Get Favorite Activities",
+				"operationId": "get-favorite-activities",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/water.{format}": {
+			"post": {
+				"summary": "Get Water",
+				"description": "Get Water",
+				"operationId": "get-water",
+				"parameters": [
+					{
+						"name": "amount",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/water/date/{date}.{format}": {
+			"get": {
+				"summary": "Delete Favorite Food",
+				"description": "Delete Favorite Food",
+				"operationId": "delete-favorite-food",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/water/{water-log-id}.{format}": {
+			"delete": {
+				"summary": "Log Water",
+				"description": "Log Water",
+				"operationId": "log-water",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "water-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "water-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/foods/log/{food-log-id}.{format}": {
+			"delete": {
+				"summary": "Log Glucose",
+				"description": "Log Glucose",
+				"operationId": "log-glucose",
+				"parameters": [
+					{
+						"name": "food-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "food-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/friends/invitations.{format}": {
+			"post": {
+				"summary": "Get Invites",
+				"description": "Get Invites",
+				"operationId": "get-invites",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "invitedUserEmail",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/friends/invitations/{from-user-id}.{format}": {
+			"post": {
+				"summary": "Create Invite",
+				"description": "Create Invite",
+				"operationId": "create-invite",
+				"parameters": [
+					{
+						"name": "accept",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "from-user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "from-user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/friends/leaderboard.{format}": {
+			"get": {
+				"summary": "Get Friends",
+				"description": "Get Friends",
+				"operationId": "get-friends",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/glucose.{format}": {
+			"post": {
+				"summary": "Log Blood Pressure",
+				"description": "Log Blood Pressure",
+				"operationId": "log-blood-pressure",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "glucose",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "hba1c",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "time",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "tracker",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/glucose/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Blood Pressure",
+				"description": "Get Blood Pressure",
+				"operationId": "get-blood-pressure",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/heart.{format}": {
+			"post": {
+				"summary": "Log Sleep",
+				"description": "Log Sleep",
+				"operationId": "log-sleep",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "heartRate",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "tracker",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/heart/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Sleep",
+				"description": "Get Sleep",
+				"operationId": "get-sleep",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/heart/{heart-log-id}.{format}": {
+			"delete": {
+				"summary": "Delete Sleep Log",
+				"description": "Delete Sleep Log",
+				"operationId": "delete-sleep-log",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "heart-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "heart-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/meals.{format}": {
+			"get": {
+				"summary": "Create Food",
+				"description": "Create Food",
+				"operationId": "create-food",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/profile.{format}": {
+			"post": {
+				"summary": "Get User Info",
+				"description": "Get User Info",
+				"operationId": "get-user-info",
+				"parameters": [
+					{
+						"name": "birthday",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "fullname",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "gender",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "height",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "nickname",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/sleep.{format}": {
+			"post": {
+				"summary": "Log Food",
+				"description": "Log Food",
+				"operationId": "log-food",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "duration",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "startTime",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-/sleep/{sleep-log-id}.{format}": {
+			"delete": {
+				"summary": "Get Badges",
+				"description": "Get Badges",
+				"operationId": "get-badges",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "sleep-log-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "sleep-log-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-{collection-path}apiSubscriptions.{format}": {
+			"get": {
+				"summary": "Remove Subscription",
+				"description": "Remove Subscription",
+				"operationId": "remove-subscription",
+				"parameters": [
+					{
+						"name": "collection-path",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "collection-path",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/-{collection-path}apiSubscriptions/{subscription-id}.{format}": {
+			"post": {
+				"summary": "Accept/Reject Invite",
+				"description": "Accept/Reject Invite",
+				"operationId": "acceptreject-invite",
+				"parameters": [
+					{
+						"name": "collection-path",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "collection-path",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "subscription-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "subscription-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/activities/calories/date/{start-date-or-end-date}/{end-date-or-period}.{format}": {
+			"get": {
+				"summary": "Delete Blood Pressure Log",
+				"description": "Delete Blood Pressure Log",
+				"operationId": "delete-blood-pressure-log",
+				"parameters": [
+					{
+						"name": "end-date-or-period",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "end-date-or-period",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/activities/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Body Fat",
+				"description": "Get Body Fat",
+				"operationId": "get-body-fat",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/badges.{format}": {
+			"get": {
+				"summary": "Get Activity Stats",
+				"description": "Get Activity Stats",
+				"operationId": "get-activity-stats",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/body/date/{date}.{format}": {
+			"get": {
+				"summary": "Update User Info",
+				"description": "Update User Info",
+				"operationId": "update-user-info",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/body/weight/date/{start-date-or-end-date}/{end-date-or-period}.{format}": {
+			"get": {
+				"summary": "Get Badges",
+				"description": "Get Badges",
+				"operationId": "get-badges",
+				"parameters": [
+					{
+						"name": "end-date-or-period",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "end-date-or-period",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/foods/log/caloriesIn/date/{start-date-or-end-date}/{end-date-or-period}.{format}": {
+			"get": {
+				"summary": "Update Fat Goal",
+				"description": "Update Fat Goal",
+				"operationId": "update-fat-goal",
+				"parameters": [
+					{
+						"name": "end-date-or-period",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "end-date-or-period",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/foods/log/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Activities",
+				"description": "Get Activities",
+				"operationId": "get-activities",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/friends.{format}": {
+			"get": {
+				"summary": "Get Glucose",
+				"description": "Get Glucose",
+				"operationId": "get-glucose",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/profile.{format}": {
+			"get": {
+				"summary": "",
+				"description": "",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/sleep/date/{date}.{format}": {
+			"get": {
+				"summary": "Get Foods",
+				"description": "Get Foods",
+				"operationId": "get-foods",
+				"parameters": [
+					{
+						"name": "date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/user/{user-id}/sleep/minutesAsleep/date/{start-date-or-end-date}/{end-date-or-period}.{format}": {
+			"get": {
+				"summary": "Get Time Series",
+				"description": "Get Time Series",
+				"operationId": "get-time-series",
+				"parameters": [
+					{
+						"name": "end-date-or-period",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "end-date-or-period",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "format",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "start-date-or-end-date",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "query",
+						"description": "",
+						"type": "string"
+					},
+					{
+						"name": "user-id",
+						"in": "path",
+						"description": "",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	}
+}
