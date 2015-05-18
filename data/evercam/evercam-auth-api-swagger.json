@@ -1,0 +1,40 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "resourcePath": "",
+  "apis": [
+    {
+      "path": "/auth/test",
+      "operations": [
+        {
+          "produces": [
+            "application/json"
+          ],
+          "notes": "",
+          "summary": "A simple endpoint that can be used to test whether an API id and key pair are valid.",
+          "nickname": "GET-auth-test---format-",
+          "httpMethod": "GET",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "api_id",
+              "description": "The API id to be tested.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "api_key",
+              "description": "The API key to be tested.",
+              "type": "String",
+              "dataType": "String",
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "basePath": "https://api.evercam.io/v1"
+}
