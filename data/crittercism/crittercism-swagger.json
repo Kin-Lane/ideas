@@ -1,0 +1,581 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Crittercism",
+		"description": "Crittercismu2019s REST API is intended to be incrementally discoverable. Starting from the allYourBase endpoint, a client should be able to determine the version of the API it wants to use, then progress toward endpoint discovery, and finally, get a token and begin retrieving data.",
+		"termsOfService": null,
+		"version": "v1.1"
+	},
+	"host": "developers.crittercism.com",
+	"basePath": "/v1.0",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/allyourbase": {
+			"get": {
+				"summary": "Get available API versions",
+				"description": "The version discovery endpoint lets clients determine which versions of the API are in service, and the base URIs where they can be reached.",
+				"operationId": "allYourBase",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/app/{appId}/crash/counts": {
+			"get": {
+				"summary": "Get crash counts for an app",
+				"description": "Get crash counts for the last 30 days for an app",
+				"operationId": "getAppCrashCounts",
+				"parameters": [
+					{
+						"name": "appId",
+						"in": "path",
+						"description": "app Id"
+					},
+					{
+						"name": "appVersion",
+						"in": "query",
+						"description": "specific version of the app"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/app/{appId}/crash/summaries": {
+			"get": {
+				"summary": "Get crash summaries for an app",
+				"description": "Get the name, occurrence dates, reason, user counts, and a few other relevant properties of the crashes for an app.",
+				"operationId": "getAppCrashSummaries",
+				"parameters": [
+					{
+						"name": "appId",
+						"in": "path",
+						"description": "app Id"
+					},
+					{
+						"name": "appVersion",
+						"in": "query",
+						"description": "specific version of the app"
+					},
+					{
+						"name": "firstOccurredEnd",
+						"in": "query",
+						"description": "ending date range of first occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "firstOccurredStart",
+						"in": "query",
+						"description": "beginning date range of first occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredEnd",
+						"in": "query",
+						"description": "ending date range of last occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredStart",
+						"in": "query",
+						"description": "beginning date range of last occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "Crash summary field to sort results by"
+					},
+					{
+						"name": "sortOrder",
+						"in": "query",
+						"description": "Sort results in ascending or descending order"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Crash status"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/app/{appId}/exception/counts": {
+			"get": {
+				"summary": "Get exception counts for an app",
+				"description": "Get exception counts for the last 30 days for an app",
+				"operationId": "getAppExceptionCounts",
+				"parameters": [
+					{
+						"name": "appId",
+						"in": "path",
+						"description": "app Id"
+					},
+					{
+						"name": "appVersion",
+						"in": "query",
+						"description": "specific version of the app"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/app/{appId}/exception/summaries": {
+			"get": {
+				"summary": "Get exception summaries for an app",
+				"description": "Get the name, occurrence dates, reason, user counts, and a few other relevant properties of the exceptions for an app.",
+				"operationId": "getAppExceptionSummaries",
+				"parameters": [
+					{
+						"name": "appId",
+						"in": "path",
+						"description": "app Id"
+					},
+					{
+						"name": "appVersion",
+						"in": "query",
+						"description": "specific version of the app"
+					},
+					{
+						"name": "firstOccurredEnd",
+						"in": "query",
+						"description": "ending date range of first occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "firstOccurredStart",
+						"in": "query",
+						"description": "beginning date range of first occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredEnd",
+						"in": "query",
+						"description": "ending date range of last occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredStart",
+						"in": "query",
+						"description": "beginning date range of last occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "Exception summary field to sort results by"
+					},
+					{
+						"name": "sortOrder",
+						"in": "query",
+						"description": "Sort results in ascending or descending order"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Exception status"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/apps": {
+			"get": {
+				"summary": "Get properties about your apps",
+				"description": "The apps endpoint provides information about a customer's mobile applications. The apps endpoint returns a list of apps with links to additional metric endpoints. Information requested in the attributes parameter is made available as a series of key-value pairs inside the object representing each app.",
+				"operationId": "getAppSummary",
+				"parameters": [
+					{
+						"name": "attributes",
+						"in": "query",
+						"description": "The attributes about your apps that you would like to retrieve"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/apps/crash/counts": {
+			"post": {
+				"summary": "Get crash counts for one of more apps",
+				"description": "Get crash counts for the last 30 days for one or more apps.",
+				"operationId": "getAppsCrashCounts",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Array of app selectors.  Each app selector must include an appId and optionally the appVersion",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/apps/crash/summaries": {
+			"post": {
+				"summary": "Get crash summaries for one of more apps",
+				"description": "Get the name, occurrence dates, reason, user counts, and a few other relevant properties of the crashes for one or more apps.",
+				"operationId": "getAppsCrashSummaries",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Array of app selectors.  Each app selector must include an appId and optionally the appVersion",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "firstOccurredEnd",
+						"in": "query",
+						"description": "ending date range of first occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "firstOccurredStart",
+						"in": "query",
+						"description": "beginning date range of first occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredEnd",
+						"in": "query",
+						"description": "ending date range of last occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredStart",
+						"in": "query",
+						"description": "beginning date range of last occurrence of the crash (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "Crash summary field to sort results by"
+					},
+					{
+						"name": "sortOrder",
+						"in": "query",
+						"description": "Sort results in ascending or descending order"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Crash status"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/apps/exception/counts": {
+			"post": {
+				"summary": "Get exception counts for one of more apps",
+				"description": "Get exception counts for the last 30 days for one or more apps.",
+				"operationId": "getAppsExceptionCounts",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Array of app selectors.  Each app selector must include an appId and optionally the appVersion",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/apps/exception/summaries": {
+			"post": {
+				"summary": "Get exception summaries for one of more apps",
+				"description": "Get the name, occurrence dates, reason, user counts, and a few other relevant properties of the exceptions for one or more apps.",
+				"operationId": "getAppsExceptionSummaries",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Array of app selectors.  Each app selector must include an appId and optionally the appVersion",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "firstOccurredEnd",
+						"in": "query",
+						"description": "ending date range of first occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "firstOccurredStart",
+						"in": "query",
+						"description": "beginning date range of first occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredEnd",
+						"in": "query",
+						"description": "ending date range of last occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "lastOccurredStart",
+						"in": "query",
+						"description": "beginning date range of last occurrence of the exception (ISO 8601 datetime format: YYYY-MM-DDThh:mm:ssTZD where TZD is time zone designator Z or +hh:mm or -hh:mm)"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "Exception summary field to sort results by"
+					},
+					{
+						"name": "sortOrder",
+						"in": "query",
+						"description": "Sort results in ascending or descending order"
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "Exception status"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/crash/{hash}": {
+			"post": {
+				"summary": "Update crash status and fix version",
+				"description": "Update crash status and fix version",
+				"operationId": "updateCrash",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Updated crash status and fix version",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					},
+					{
+						"name": "hash",
+						"in": "path",
+						"description": "crash unique hash value"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/errorMonitoring/graph": {
+			"post": {
+				"summary": "Retrieves time series data organized into buckets of one day",
+				"description": "The graph endpoint retrieves time-series data, organized into buckets of one day. This endpoint is useful for viewing how a metric has changed over time, for a particular app.",
+				"operationId": "graph",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Graph query",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/errorMonitoring/pie": {
+			"post": {
+				"summary": "Retrieves absolute populations for certain slices of data",
+				"description": "The pie endpoint allows comparisons of the absolute population for certain slices of the data.",
+				"operationId": "pie",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Pie query",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/errorMonitoring/sparklines": {
+			"post": {
+				"summary": "Retrieves several time series, each based on the value of a filter",
+				"description": "This endpoint retrieves several time series, each based on the value of a filter. Only one filter can be applied per endpoint call. The endpoint uses the same input format as the "pie" endpoint, described above, and the output is similar to the "graph" endpoint.",
+				"operationId": "sparkline",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Sparkline query",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/exception/{hash}": {
+			"get": {
+				"summary": "Get exception details",
+				"description": "Get exception details by exception hash value",
+				"operationId": "getException",
+				"parameters": [
+					{
+						"name": "diagnostics",
+						"in": "query",
+						"description": "include detailed diagnostics information for exception"
+					},
+					{
+						"name": "hash",
+						"in": "path",
+						"description": "exception unique hash value"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/performanceManagement/pie": {
+			"post": {
+				"summary": "Retrieves absolute populations for certain slices of data",
+				"description": "The pie endpoint allows querying the point-in-time value of a particular metric. Some filter/metric combinations require a Pro subscription.",
+				"operationId": "pie",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Pie query",
+						"schema": {
+							"$ref": "#/definitions/holder"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		},
+		"/v1.0/base": {
+			"get": {
+				"summary": "Get available actions for the v1.0 API",
+				"description": "This endpoint lets clients discover the endpoints available for a selected version of the API.",
+				"operationId": "getActions",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					""
+				]
+			}
+		}
+	},
+	"definitions": {
+	}
+}
