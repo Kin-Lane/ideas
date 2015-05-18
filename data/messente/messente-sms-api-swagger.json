@@ -1,0 +1,110 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Messente SMS API",
+		"description": " Sending SMS text messages",
+		"termsOfService": "https://messente.com/pages/terms",
+		"version": "v1"
+	},
+	"host": "api2.messente.com",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"send_sms/": {
+			"get": {
+				"summary": "Send SMS",
+				"description": " Sending SMS text messages",
+				"operationId": "",
+				"parameters": [
+					{
+						"name": "autoconvert",
+						"in": "query",
+						"description": "ontuse replacement settings from accounts API Auto Replace settings page fulltall non GSM 03.38 characters will be replaced with suitable alternatives. offtmessage content is not modified in any way.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "charset",
+						"in": "query",
+						"description": "Encoding of the text and from parameter value. Defaults to UTF-8",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "dlr-url",
+						"in": "query",
+						"description": "URL where automatic Delivery Request is made.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "from",
+						"in": "query",
+						"description": "Optional parameter that sets Sender. When not set, default Sender is used. Sender must be encoded in UTF-8",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"description": "API account security key (API key) from the Messentes web page",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"description": "All characters (Unicode) and long messages are supported",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "time_to_send",
+						"in": "query",
+						"description": "Optional parameter for sending message at some specific time in the future. Must be numeric Unix timestamp i.e. 1415253378. If time_to_send is set in past, message will be sent with no delays.",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "to",
+						"in": "query",
+						"description": "Receivers phone number with country code",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "udh",
+						"in": "query",
+						"description": "SMS User Data Header",
+						"type": "string",
+						"format": "string"
+					},
+					{
+						"name": "username",
+						"in": "query",
+						"description": "API account user name from the Messentes web page",
+						"type": "string",
+						"format": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"tags": [
+					"Messaging",
+					" SMS"
+				]
+			}
+		}
+	}
+}
