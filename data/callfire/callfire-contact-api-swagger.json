@@ -1,0 +1,654 @@
+{
+	"apiVersion" : 1.1,
+	"swaggerVersion" : 1.1,
+	"basePath" : "https://www.callfire.com/api/1.1/rest",
+	"resourcePath" : "/contact",
+	"apis" : [ {
+		"path" : "/contact",
+		"description" : "Lists existing contacts",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryContacts",
+			"responseClass" : "void",
+			"summary" : "Lists existing contacts",
+			"notes" : "<p>Query for existing contacts using optional filters such as ContactListId, Field, etc... Returns a list of contacts and all associated info. See <code>GetContact</code> to return just a single contact by id. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "Field",
+				"description" : "Field to filter by",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "ContactListId",
+				"description" : "ContactList to filter by",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "String",
+				"description" : "Substring contained in Contact to filter by",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact",
+		"description" : "Updates existing contacts",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "UpdateContacts",
+			"responseClass" : "void",
+			"summary" : "Updates existing contacts",
+			"notes" : "<p>Update existing contacts. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "Contact[0][id]",
+				"description" : "Unique ID of Contact",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][firstName]",
+				"description" : "First name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][lastName]",
+				"description" : "Last name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][zipcode]",
+				"description" : "5 digit zipcode",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][homePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][workPhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][mobilePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalId]",
+				"description" : "id of contact defined by external system (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalSystem]",
+				"description" : "System where externalId was generated from (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact",
+		"description" : "Removes contacts",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "RemoveContacts",
+			"responseClass" : "void",
+			"summary" : "Removes contacts",
+			"notes" : "<p>Delete contacts identified by contactIds from system. If id points to non-existent contact the id will be ignored and processing will continue. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "ContactId",
+				"description" : null,
+				"dataType" : "IdList"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/{Id}",
+		"description" : "Gets the contact by ID",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetContact",
+			"responseClass" : "void",
+			"summary" : "Gets the contact by ID",
+			"notes" : "<p>Return individual contact by ID. See QueryContacts to return a list of contacts and determine individual contactIds. </p> <p>Note: GetContact returns all contact fields however when using PHP SoapClient only the predifined fields (lastName, mobileNumber, firstName, homePhone, workPhone, and zipcode) will show in $response. This is problem with SoapClient, not the underlying Soap message. Use our PHP REST API or another PHP SOAP client to work around the problem. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/{ContactId}/history",
+		"description" : "Gets a contact's history by contact ID",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetContactHistory",
+			"responseClass" : "void",
+			"summary" : "Gets a contact's history by contact ID",
+			"notes" : "<p>List all calls and texts associated with a contact. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "path",
+				"name" : "ContactId",
+				"description" : "Contact to get history",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list",
+		"description" : "Create new contact list and add to account",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateContactList",
+			"responseClass" : "void",
+			"summary" : "Create new contact list and add to account",
+			"notes" : "<p>Add contact list to account using 1 of 4 inputs: list of contacts, numbers string, list of contactIds, or csv file containing contacts or numbers. If more then one ContactSource specified then only load from 1 source with precedence as listed above. </p> <p>On import contact lists go through seven system safeguards that check the accuracy of the list. For example, our system checks if a number is formatted correctly, is invalid, is duplicated in another contact list, or is on your Do Not Contact list. API calls have their default validation error resolutions set differently then the defaults set on the CallFire web site under Settings | List Validation. The API validation defaults are: <table> <tr><td>LIST_COLUMNS_UNMAPPED</td><td>Resolution USE_DEFAULT_COLUMNS</td></tr> <tr><td>LIST_HAS_DUPLICATE_NUMBERS</td><td>Resolution SCRUB</td></tr> <tr><td>LIST_HAS_DNC_CONTACTS</td><td>Resolution SCRUB</td></tr> <tr><td>LIST_HAS_CONTACT_CONFLICTS</td><td>Resolution MERGE</td></tr> <tr><td>LIST_HAS_INVALID_NUMBERS</td><td>Resolution SCRUB</td></tr> </table> </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "RequestId",
+				"description" : "Unique ID, used to de-dup requests and make sure request is not processed twice",
+				"dataType" : "anyURI"
+			}, {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "Name of contact list",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Validate",
+				"description" : "Turn off list validation (default: true)",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][firstName]",
+				"description" : "First name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][lastName]",
+				"description" : "Last name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][zipcode]",
+				"description" : "5 digit zipcode",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][homePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][workPhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][mobilePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalId]",
+				"description" : "id of contact defined by external system (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalSystem]",
+				"description" : "System where externalId was generated from (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "ContactId",
+				"description" : "List of existing contact ids",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "body",
+				"name" : "File",
+				"description" : "Csv file attachment containing list of contacts or numbers",
+				"dataType" : "file"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : null,
+				"dataType" : "PhoneNumber",
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers[fieldName]",
+				"description" : "field number should be assigned to homePhone, workPhone or mobilePhone (default: homePhone)",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list",
+		"description" : "Lists existing contact lists",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryContactLists",
+			"responseClass" : "void",
+			"summary" : "Lists existing contact lists",
+			"notes" : "<p>Query for existing contact lists. Currently does no filtering and returns all contact lists. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list/{Id}",
+		"description" : "Deletes a contact list by ID",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteContactList",
+			"responseClass" : "void",
+			"summary" : "Deletes a contact list by ID",
+			"notes" : "<p>Delete contact list identified by id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list/{ContactListId}/add",
+		"description" : "Adds contacts to an existing list",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "AddContactsToList",
+			"responseClass" : "void",
+			"summary" : "Adds contacts to an existing list",
+			"notes" : "<p>See CreateContactList. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "ContactListId",
+				"description" : "Unique ID of ContactList",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "Validate",
+				"description" : "Turn off list validation (default: true)",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][id]",
+				"description" : "Unique ID of Contact",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][firstName]",
+				"description" : "First name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][lastName]",
+				"description" : "Last name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][zipcode]",
+				"description" : "5 digit zipcode",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][homePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][workPhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][mobilePhone]",
+				"description" : "E.164 11 digit number",
+				"dataType" : "PhoneNumber"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalId]",
+				"description" : "id of contact defined by external system (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "Contact[0][externalSystem]",
+				"description" : "System where externalId was generated from (NATION_BUILDER, GOOGLE_GROUPS, etc...)",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "ContactId",
+				"description" : "List of existing contact ids",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "body",
+				"name" : "File",
+				"description" : "Csv file attachment containing list of contacts or numbers",
+				"dataType" : "file"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : null,
+				"dataType" : "PhoneNumber",
+				"allowMultiple" : true
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers[fieldName]",
+				"description" : "field number should be assigned to homePhone, workPhone or mobilePhone (default: homePhone)",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list/{Id}",
+		"description" : "Gets the contact list by ID",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetContactList",
+			"responseClass" : "void",
+			"summary" : "Gets the contact list by ID",
+			"notes" : "<p>Return individual contact list by ID. See QueryContactLists to return a list of contact lists and determine individual contactListIds. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/list/{ContactListId}/remove",
+		"description" : "Removes contacts from a list without deleting the contacts",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "RemoveContactsFromList",
+			"responseClass" : "void",
+			"summary" : "Removes contacts from a list without deleting the contacts",
+			"notes" : "<p>Removes contacts from a list without deleting the contacts. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "ContactListId",
+				"description" : "Unique ID of ContactList",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "ContactId",
+				"description" : "List of existing contact ids",
+				"dataType" : "IdList"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : "List E.164 11 digit numbers space or comma seperated",
+				"dataType" : "PhoneNumberList"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc",
+		"description" : "Query for existing do not contact (DNC) numbers",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryDncNumbers",
+			"responseClass" : "void",
+			"summary" : "Query for existing do not contact (DNC) numbers",
+			"notes" : "<p>Query for existing do not contact (DNC) numbers. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "Prefix",
+				"description" : "Prefix (1-10 digits) of numbers",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "DncListId",
+				"description" : "DNC List ID",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "DncListName",
+				"description" : "DNC List name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "query",
+				"name" : "CallDnc",
+				"description" : "Filter by call do not contact list",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "query",
+				"name" : "TextDnc",
+				"description" : "Filter by text do not contact list",
+				"dataType" : "boolean"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/{Number}",
+		"description" : "Update existing do not contact (DNC) number",
+		"operations" : [ {
+			"httpMethod" : "PUT",
+			"nickname" : "UpdateDncNumber",
+			"responseClass" : "void",
+			"summary" : "Update existing do not contact (DNC) number",
+			"notes" : "<p>Update existing do not contact (DNC) numbers. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Number",
+				"description" : "Do not call number to update",
+				"dataType" : "PhoneNumber",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "CallDnc",
+				"description" : "Filter by call do not contact list",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "TextDnc",
+				"description" : "Filter by text do not contact list",
+				"dataType" : "boolean"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list",
+		"description" : "Query for existing do not contact (DNC) lists",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "QueryDncLists",
+			"responseClass" : "void",
+			"summary" : "Query for existing do not contact (DNC) lists",
+			"notes" : "<p>Query for existing do not contact (DNC) lists. </p>",
+			"parameters" : [ {
+				"paramType" : "query",
+				"name" : "MaxResults",
+				"description" : "Max number of results to return limited to 1000 (default: 1000)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "FirstResult",
+				"description" : "Start of next result set (default: 0)",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "CampaignId",
+				"description" : "Prefix (1-10 digits) of numbers",
+				"dataType" : "long"
+			}, {
+				"paramType" : "query",
+				"name" : "Name",
+				"description" : "DNC source name",
+				"dataType" : "string"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list",
+		"description" : "Create do not contact (DNC) list",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "CreateDncList",
+			"responseClass" : "void",
+			"summary" : "Create do not contact (DNC) list",
+			"notes" : "<p>Create do not contact (DNC) list. </p>",
+			"parameters" : [ {
+				"paramType" : "form",
+				"name" : "Name",
+				"description" : "DNC List Name",
+				"dataType" : "string"
+			}, {
+				"paramType" : "form",
+				"name" : "CampaignId",
+				"description" : "DNC List Name",
+				"dataType" : "long"
+			}, {
+				"paramType" : "form",
+				"name" : "CallDnc",
+				"description" : "Update call do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "TextDnc",
+				"description" : "Update text do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : "List E.164 11 digit numbers space or comma seperated",
+				"dataType" : "PhoneNumberList"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list/{Id}",
+		"description" : "Get do not contact (DNC) list",
+		"operations" : [ {
+			"httpMethod" : "GET",
+			"nickname" : "GetDncList",
+			"responseClass" : "void",
+			"summary" : "Get do not contact (DNC) list",
+			"notes" : "<p>Get do not contact (DNC) list by id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list/{Id}",
+		"description" : "Delete do not contact (DNC) list",
+		"operations" : [ {
+			"httpMethod" : "DELETE",
+			"nickname" : "DeleteDncList",
+			"responseClass" : "void",
+			"summary" : "Delete do not contact (DNC) list",
+			"notes" : "<p>Delete do not contact (DNC) list by id. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "Unique ID of resource",
+				"dataType" : "long",
+				"required" : true
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list/{Id}/add",
+		"description" : "Add numbers to do not contact (DNC) list",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "AddNumbersToDncList",
+			"responseClass" : "void",
+			"summary" : "Add numbers to do not contact (DNC) list",
+			"notes" : "<p>Add numbers to do not contact (DNC) list. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "DNC List ID",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "CallDnc",
+				"description" : "Update call do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "TextDnc",
+				"description" : "Update text do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : "List E.164 11 digit numbers space or comma seperated",
+				"dataType" : "PhoneNumberList"
+			} ]
+		} ]
+	}, {
+		"path" : "/contact/dnc/list/{Id}/remove",
+		"description" : "Removes number from do not contact (DNC) list",
+		"operations" : [ {
+			"httpMethod" : "POST",
+			"nickname" : "RemoveNumbersFromDncList",
+			"responseClass" : "void",
+			"summary" : "Removes number from do not contact (DNC) list",
+			"notes" : "<p>Remove numbers from do not contact (DNC) list. </p>",
+			"parameters" : [ {
+				"paramType" : "path",
+				"name" : "Id",
+				"description" : "DNC List ID",
+				"dataType" : "long",
+				"required" : true
+			}, {
+				"paramType" : "form",
+				"name" : "CallDnc",
+				"description" : "Update call do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "TextDnc",
+				"description" : "Update text do not contact list with numbers",
+				"dataType" : "boolean"
+			}, {
+				"paramType" : "form",
+				"name" : "Numbers",
+				"description" : "List E.164 11 digit numbers space or comma seperated",
+				"dataType" : "PhoneNumberList"
+			} ]
+		} ]
+	} ]
+}
