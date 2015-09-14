@@ -1,0 +1,50 @@
+[
+    {
+        "question": "Is This API Publicly Available?",
+        "answer": "yes",
+        "host": "blog.api.kinlane.com",
+        "baseUrl": "/",
+        "path": "blog/",
+        "method": "get"
+    },
+    {
+        "question": "Is This API Publicly Available?",
+        "answer": "no",
+        "host": "blog.api.kinlane.com",
+        "baseUrl": "/",
+        "path": "blog/",
+        "method": "post"
+    },
+    {
+        "question": "Is This API Publicly Available?",
+        "answer": "no",
+        "host": "blog.api.kinlane.com",
+        "baseUrl": "/",
+        "path": "blog/",
+        "method": "put"
+    },
+    {
+        "question": "Is This API Publicly Available?",
+        "answer": "no",
+        "host": "blog.api.kinlane.com",
+        "baseUrl": "/",
+        "path": "blog/",
+        "method": "delete"
+    },
+    {
+        "question": "Does This API Use 3Scale?",
+        "answer": "yes",
+        "host": "blog.api.kinlane.com",
+        "baseUrl": "",
+        "path": "",
+        "method": ""
+    },
+    {
+        "question": "test",
+        "answer": "test",
+        "host": "",
+        "baseUrl": "",
+        "path": "",
+        "method": ""
+    }
+]

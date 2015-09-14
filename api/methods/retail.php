@@ -1,0 +1,1 @@
+<?phpinclude 'm-ideas-get.php';include 'm-ideas-post.php';include 'm-ideas-idea_id-get.php';?>
