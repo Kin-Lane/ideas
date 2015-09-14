@@ -1,6 +1,6 @@
 <?php
 $route = '/ideas/';
-$app->get($route, function ()  use ($app,$three_scale_provider_key,$repo){
+$app->get($route, function ()  use ($app,$three_scale_provider_key,$githubrepo){
 
 	$ReturnObject = array();
 

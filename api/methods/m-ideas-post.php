@@ -1,6 +1,6 @@
 <?php
 $route = '/ideas/';
-$app->post($route, function () use ($app,$three_scale_provider_key,$repo){
+$app->post($route, function () use ($app,$three_scale_provider_key,$githubrepo){
 
 	$add = 1;
 
@@ -54,12 +54,12 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$repo){
 		fwrite($fh, $WriteAPIs);
 		fclose($fh);
 
-		$repo->stage('data/ideas.json');
+		$githubrepo->stage('data/ideas.json');
 
 		try
 			{
-			$repo->commit('ideas.api.apievangelist.com/ideas', true);
-			$repo->push();
+			$githubrepo->commit('ideas.api.apievangelist.com/ideas', true);
+			$githubrepo->push();
 			}
 		catch (Exception $e)
 			{
