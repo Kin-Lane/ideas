@@ -26,10 +26,10 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$githuborg,$g
 	// Check the response typed
 	if ($response->isSuccess()) {
 
-	    $ReturnObject = array();
+	  $ReturnObject = array();
 		$ReturnObject['ideas'] = array();
 
-		$id = md5($name . date("m-d-y"));
+		$idea_id = md5($name . date("m-d-y"));
 
 		$A = array();
 		$A['idea_id'] = $idea_id;
