@@ -1,6 +1,6 @@
 <?php
 $route = '/ideas/';
-$app->get($route, function ()  use ($app,$three_scale_provider_key,$githubrepo){
+$app->get($route, function ()  use ($app,$three_scale_provider_key,$githuborg,$githubrepo){
 
 	$ReturnObject = array();
 
@@ -9,7 +9,7 @@ $app->get($route, function ()  use ($app,$three_scale_provider_key,$githubrepo){
 
 	if(isset($_REQUEST['query'])){ $query = $_REQUEST['query']; } else { $query = '';}
 
-	$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/idea/gh-pages/data/ideas.json');
+	$ObjectText = file_get_contents('https://raw.githubusercontent.com/' . $githuborg . '/' . $githubrepo . '/gh-pages/data/ideas.json');
 	$ObjectResult = json_decode($ObjectText,true);
 	$ReturnObject = array();
 

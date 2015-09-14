@@ -1,8 +1,8 @@
 <?php
 $route = '/ideas/:incoming_id';
-$app->get($route, function ($incoming_id)  use ($app){
+$app->get($route, function ($incoming_id)  use ($app,$githuborg,$githubrepo){
 
-	$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/idea/gh-pages/data/ideas.json');
+	$ObjectText = file_get_contents('https://raw.githubusercontent.com/' . $githuborg . '/' . $githubrepo . '/gh-pages/data/ideas.json');
 	$ObjectResult = json_decode($ObjectText,true);
 	$ReturnObject = array();
 

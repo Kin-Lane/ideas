@@ -13,7 +13,7 @@ mysql_select_db($dbname);
 $datastore = "mysql"; // mysql or github JSON currently
 
 $githuborg = "Kin-Lane";
-$githubrepo = "api";
+$githubrepo = "idea";
 
 $guser = "kinlane";
 $gpass = "kpawwjN4dnJy4j";

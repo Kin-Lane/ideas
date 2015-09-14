@@ -1,6 +1,6 @@
 <?php
 $route = '/ideas/';
-$app->post($route, function () use ($app,$three_scale_provider_key,$githubrepo){
+$app->post($route, function () use ($app,$three_scale_provider_key,$githuborg,$githubrepo){
 
 	$add = 1;
 
@@ -41,7 +41,7 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$githubrepo){
 
 		$ReturnObject['updated'] = date('m/d/Y');
 
-		$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/idea/gh-pages/data/ideas.json');
+		$ObjectText = file_get_contents('https://raw.githubusercontent.com/' . $githuborg . '/' . $githubrepo . '/gh-pages/data/ideas.json');
 		$ObjectResult = json_decode($ObjectText,true);
 
 		array_push($ObjectResult['ideas'], $A);
