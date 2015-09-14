@@ -1,0 +1,21 @@
+{
+	"ideas": [{
+		"id": "590fb9e4b4b212593b53baf930b7f685",
+		"name": "Nebraska Homestead Records",
+		"description": "The National Archives and National Park Service made Nebraska's homestead records, but there is no API. the records are normalized, and easily scraped online.",
+		"tags": "Federal Government, Homestead, History"
+	},
+	{
+		"id": "89b608fefbeb36ac5078bdf44a16f7ea",
+		"name": "Great Images in NASA",
+		"description": "The Great Images in NASA has some great images, but there is no API. The records are fairly orderly, and easily scraped online.",
+		"tags": "Federal Government, Space, History"
+	},
+	{
+		"id": "a49c01f5dbbc9832f05f36fd520ada8a",
+		"name": "Storm Picture API",
+		"description": "An API of storm pictures from around the world.",
+		"tags": "photos,images,storms,weather"
+	}],
+	"updated": "07/06/2014"
+}
