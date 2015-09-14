@@ -1,5 +1,5 @@
 title:        Ideas
-url:          http://kin-lane.github.io/ideas/
+url:          http://kin-lane.github.io/idea/
 version:      1.1.1
 author:
   name:       'Kin Lane'
@@ -14,14 +14,14 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 paginate: 50
 paginate_path: "/news/page:num"
 
-production_url : http://kin-lane.github.io/ideas/
+production_url : http://kin-lane.github.io/idea/
 
-BASE_PATH : http://kin-lane.github.io/ideas/
+BASE_PATH : http://kin-lane.github.io/idea/
 
 categories_path : /categories.html
 tags_path : /tags.html
 
 org: Kin-Lane
 repo: idea
-resource: Ideas
+resource: Idea
 oauthio: qUDL4eZqKPFb41SwuWIYIwLR6jI
