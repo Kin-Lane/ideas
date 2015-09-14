@@ -1,5 +1,5 @@
 <?php
-$route = '/idea/';
+$route = '/ideas/';
 $app->post($route, function () use ($app){
 
 	$Add = 1;

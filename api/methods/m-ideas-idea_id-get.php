@@ -1,12 +1,12 @@
 <?php
-$route = '/idea/:idea_id/';
+$route = '/ideas/:idea_id/';
 $app->get($route, function ($idea_id)  use ($app){
 
 	$host = $_SERVER['HTTP_HOST'];
 	$idea_id = prepareIdIn($idea_id,$host);
 
 	$ReturnObject = array();
-		
+
 	$Query = "SELECT * FROM idea WHERE idea_id = " . $idea_id;
 
 	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());

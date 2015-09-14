@@ -1,5 +1,5 @@
 <?php
-$route = '/idea/';
+$route = '/ideas/';
 $app->get($route, function ()  use ($app){
 
 	$ReturnObject = array();
