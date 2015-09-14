@@ -1,0 +1,225 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Ideas",
+    "description": "This is my ideas API for storing al the ideas for new APIs that should be.",
+    "termsOfService": "http://kinlane.com/terms-of-service.html",
+    "version": "v1"
+  },
+  "host": "ideas.api.kinlane.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "apilication/json"
+  ],
+  "paths": {
+    "/ideas/": {
+      "get": {
+        "summary": "get ideas",
+        "description": "get ideas",
+        "operationId": "getIdeas",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the API",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "the query to search for ideas",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Idea Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/idea"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ideas"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "add an idea",
+        "description": "add an idea",
+        "operationId": "addIdea",
+        "parameters": [
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the api",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the api",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name of the idea",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "description of the idea",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "tags for the idea",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "idea response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/idea"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ideas"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
+        ]
+      }
+    },
+    "/idea/{idea_id}/": {
+      "get": {
+        "summary": "retrieve idea",
+        "description": "retrieve idea",
+        "operationId": "getIdea",
+        "parameters": [
+          {
+            "name": "idea_id",
+            "in": "path",
+            "description": "the unique id for idea",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "description": "your appid for accessing the blog",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "appkey",
+            "in": "query",
+            "description": "your appkey for accessing the blog",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "idea response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/idea"
+              }
+            }
+          }
+        },
+        "tags": [
+          "Ideas"
+        ],
+        "security": [
+          {
+            "appid": []
+          },
+          {
+            "appkey": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "appid": {
+      "type": "apiKey",
+      "name": "appid",
+      "in": "query"
+    },
+    "appkey": {
+      "type": "apiKey",
+      "name": "appkey",
+      "in": "query"
+    }
+  },
+  "definitions": {
+    "idea": {
+      "properties": {
+        "idea_id": {
+          "description": "the id for the idea",
+          "type": "string"
+        },
+        "name": {
+          "description": "the name of the idea",
+          "type": "string"
+        },
+        "description": {
+          "description": "the description of the idea",
+          "type": "string"
+        },
+        "tags": {
+          "description": "tags for the idea",
+          "type": "string"
+        },
+        "inputs": {
+          "description": "input fields",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

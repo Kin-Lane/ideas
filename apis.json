@@ -1,35 +1,36 @@
 {
-  "name": "API Evangelist - API Ideas",
-  "description": "This is an API for pulling, and submitting ideas for new APIs.",
-  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
-  "url": "http://ideas.apievangelist.com/",
-  "created": "04/07/2014",
-  "modified": "07/09/2014",
-  "SpecificationVersion": "0.14",  
+  "name": "Kin Lane - Ideas",
+  "description": "This is my ideas API, using it to manage all the ideas for APis I have.",
+  "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-ideas-apis.png",
+  "tags": [
+    "Application Programming Interface",
+    "API",
+    "Ideas"
+  ],
+  "created": "2015-09-10",
+  "modified": "2015-09-10",
+  "url": "https://kin-lane.github.io/ideas/apis.json",
+  "SpecificationVersion": "0.14",
   "apis": [
     {
-	  "name": "API Evangelist - API Ideas",
-	  "description": "This is an API for pulling, and submitting ideas for new APIs.",
-	  "image": "https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png",
-      "humanURL": "http://ideas.apievangelist.com/",
-      "baseURL": "http://ideas.api.apievangelist.com/definitions/ideas/Ideas",
-      "tags": "image, photo, filters, resize, crop",
+      "name": "Ideas",
+      "description": "This is my ideas API, using it to manage all the utilities I use for ideas of content.",
+      "image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-ideas-apis.png",
+      "humanURL": "https://kin-lane.github.io/ideas/",
+      "baseURL": "http://ideas.api.kinlane.com",
+      "tags": [
+        "Application Programming Interface",
+        "API",
+        "Ideas"
+      ],
       "properties": [
         {
-          "type": "signup",
-          "url": "https://apievangelist.3scale.net/"
-        },
-        {
           "type": "swagger",
-          "url": "http://ideas.api.apievangelist.com/definitions/ideas/Ideas"
+          "url": "https://kin-lane.github.io/ideas/swagger.json"
         },
         {
-          "type": "blog",
-          "url": "http://ideas.apievangelist.com/blog/"
-        },
-        {
-          "type": "apicommonsmanifest",
-          "url": "http://ideas.apievangelist.com/api-commons-manifest.json"
+          "type": "x-postman",
+          "url": "https://kin-lane.github.io/ideas/postman.json"
         }
       ],
       "contact": [
@@ -43,37 +44,119 @@
   ],
   "include": [
     {
-      "name": "API Evangelist - Products",
-      "url": "http://products.apievangelist.com/apis.json"
+      "name": "Audio API",
+      "url": "https://kin-lane.github.io/audio/apis.json"
     },
     {
-      "name": "API Evangelist - Image Manipulation",
-      "url": "http://image.manipulation.apievangelist.com/apis.json"
+      "name": "Blog API",
+      "url": "https://kin-lane.github.io/blog/apis.json"
     },
     {
-      "name": "API Evangelist - Screen Capture",
-      "url": "http://screen-capture.apievangelist.com/apis.json"
+      "name": "Building Block API",
+      "url": "https://kin-lane.github.io/buildingblock/apis.json"
     },
     {
-      "name": "API Evangelist - API Ideas",
-      "url": "http://ideas.apievangelist.com/apis.json"
+      "name": "Certification API",
+      "url": "https://kin-lane.github.io/certification/apis.json"
     },
     {
-      "name": "Public Private Sector",
-      "url": "http://publicprivatesector.org/apis.json"
+      "name": "Curated API",
+      "url": "https://kin-lane.github.io/curated/apis.json"
     },
     {
-      "type": "API Commons",
-      "url": "http://apicommons.org/apis.json"
+      "name": "Dictionary API",
+      "url": "https://kin-lane.github.io/dictionary/apis.json"
+    },
+    {
+      "name": "Glossary API",
+      "url": "https://kin-lane.github.io/glossary/apis.json"
+    },
+    {
+      "name": "Image API",
+      "url": "https://kin-lane.github.io/image/apis.json"
+    },
+    {
+      "name": "Job API",
+      "url": "https://kin-lane.github.io/job/apis.json"
+    },
+    {
+      "name": "Keyword API",
+      "url": "https://kin-lane.github.io/keyword/apis.json"
+    },
+    {
+      "name": "Link API",
+      "url": "https://kin-lane.github.io/link/apis.json"
+    },
+    {
+      "name": "Linkrot API",
+      "url": "https://kin-lane.github.io/linkrot/apis.json"
+    },
+    {
+      "name": "News API",
+      "url": "https://kin-lane.github.io/news/apis.json"
+    },
+    {
+      "name": "Note API",
+      "url": "https://kin-lane.github.io/note/apis.json"
+    },
+    {
+      "name": "Organization API",
+      "url": "https://kin-lane.github.io/organization/apis.json"
+    },
+    {
+      "name": "Page API",
+      "url": "https://kin-lane.github.io/page/apis.json"
+    },
+    {
+      "name": "Paper API",
+      "url": "https://kin-lane.github.io/paper/apis.json"
+    },
+    {
+      "name": "Patent API",
+      "url": "https://kin-lane.github.io/patent/apis.json"
+    },
+    {
+      "name": "People API",
+      "url": "https://kin-lane.github.io/people/apis.json"
+    },
+    {
+      "name": "Project API",
+      "url": "https://kin-lane.github.io/project/apis.json"
+    },
+    {
+      "name": "Question API",
+      "url": "https://kin-lane.github.io/question/apis.json"
+    },
+    {
+      "name": "Slide API",
+      "url": "https://kin-lane.github.io/slide/apis.json"
+    },
+    {
+      "name": "Tag API",
+      "url": "https://kin-lane.github.io/tag/apis.json"
+    },
+    {
+      "name": "Task API",
+      "url": "https://kin-lane.github.io/task/apis.json"
+    },
+    {
+      "name": "Tip API",
+      "url": "https://kin-lane.github.io/tip/apis.json"
+    },
+    {
+      "name": "Tool API",
+      "url": "https://kin-lane.github.io/tool/apis.json"
+    },
+    {
+      "name": "Video API",
+      "url": "https://kin-lane.github.io/video/apis.json"
     }
   ],
-  "maintainer": [
+  "maintainers": [
     {
-      "name": "Kin",
-      "twitter": "apievangelist",
-      "email": "kin@email.com"
+      "FN": "API Evangliest",
+      "X-twitter": "apievangelist",
+      "email": "info@apievangelist.com"
     }
-  ],
-  "tags": "api evangelist, api, ideas",
-  "modified": "07/09/2014"
+  ]
 }

@@ -1,0 +1,692 @@
+[
+	{
+		"category": "Code - Libraries",
+		"name": ".NET Library",
+		"slug": "X-net-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": ".NET SDK",
+		"slug": "X-net-sdk"
+	},
+	{
+		"category": "Service Provider",
+		"name": "3Scale",
+		"slug": "X-3scale"
+	},
+	{
+		"category": "Rate Limits",
+		"name": "Account Rate Limit API",
+		"slug": "X-account-rate-limit-api"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Account Settings",
+		"slug": "X-account-settings"
+	},
+	{
+		"category": "Monetization",
+		"name": "Advertising",
+		"slug": "X-advertising"
+	},
+	{
+		"category": "Monetization",
+		"name": "Affiliate Program",
+		"slug": "X-affiliate-program"
+	},
+	{
+		"category": "Mobile Management",
+		"name": "Android SDK",
+		"slug": "X-android-sdk"
+	},
+	{
+		"category": "Single Page Applications (SPA)",
+		"name": "Angular.js",
+		"slug": "X-angularjs"
+	},
+	{
+		"category": "Developer Account",
+		"name": "API",
+		"slug": "X-api"
+	},
+	{
+		"category": "Documentation",
+		"name": "API Explorer",
+		"slug": "X-api-explorer"
+	},
+	{
+		"category": "Service Provider",
+		"name": "Apiary",
+		"slug": "X-apiary"
+	},
+	{
+		"category": "Mobile Management",
+		"name": "Appery.io",
+		"slug": "X-apperyio"
+	},
+	{
+		"category": "Code Management",
+		"name": "Application Gallery",
+		"slug": "X-application-gallery"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Application Manager",
+		"slug": "X-application-manager"
+	},
+	{
+		"category": "Authentication",
+		"name": "Authentication Overview",
+		"slug": "X-authentication-overview"
+	},
+	{
+		"category": "Authentication",
+		"name": "Authentication Tester",
+		"slug": "X-authentication-tester"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "Automation",
+		"slug": "X-automation"
+	},
+	{
+		"category": "Embeddable",
+		"name": "Badges",
+		"slug": "X-badges"
+	},
+	{
+		"category": "Authentication",
+		"name": "Basic Auth",
+		"slug": "X-basic-auth"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Best Practices",
+		"slug": "X-best-practices"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Billing History",
+		"slug": "X-billing-history"
+	},
+	{
+		"category": "Communications",
+		"name": "Blog",
+		"slug": "X-blog"
+	},
+	{
+		"category": "Communications",
+		"name": "Blog RSS Feed",
+		"slug": "X-blog-rss-feed"
+	},
+	{
+		"category": "Legal",
+		"name": "Branding",
+		"slug": "X-branding"
+	},
+	{
+		"category": "Embeddable",
+		"name": "Buttons",
+		"slug": "X-buttons"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Calendar",
+		"slug": "X-calendar"
+	},
+	{
+		"category": "Resources",
+		"name": "Case Studies",
+		"slug": "X-case-studies"
+	},
+	{
+		"category": "Service Levels",
+		"name": "Certification Program",
+		"slug": "X-certification-program"
+	},
+	{
+		"category": "Updates",
+		"name": "Change Log",
+		"slug": "X-change-log"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Chrome Extension",
+		"slug": "X-chrome-extension"
+	},
+	{
+		"category": "Code Management",
+		"name": "Code Builder",
+		"slug": "X-code-builder"
+	},
+	{
+		"category": "Legal",
+		"name": "Code License",
+		"slug": "X-code-license"
+	},
+	{
+		"category": "Resources",
+		"name": "Codecademy",
+		"slug": "X-codecademy"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "ColdFusion Library",
+		"slug": "X-coldfusion-library"
+	},
+	{
+		"category": "Code Management",
+		"name": "Community Supported Libraries",
+		"slug": "X-community-supported-libraries"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Contact Form",
+		"slug": "X-contact-form"
+	},
+	{
+		"category": "Legal",
+		"name": "Data License",
+		"slug": "X-data-license"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "Data Portability",
+		"slug": "X-data-portability"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Delete Account",
+		"slug": "X-delete-account"
+	},
+	{
+		"category": "Legal",
+		"name": "Deprecation Policy",
+		"slug": "X-deprecation-policy"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Developer Dashboard",
+		"slug": "X-developer-dashboard"
+	},
+	{
+		"category": "Documentation",
+		"name": "Documentation",
+		"slug": "X-documentation"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Drupal",
+		"slug": "X-drupal"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Email",
+		"slug": "X-email"
+	},
+	{
+		"category": "Communications",
+		"name": "Email",
+		"slug": "X-email"
+	},
+	{
+		"category": "Communications",
+		"name": "Email Newsletter",
+		"slug": "X-email-newsletter"
+	},
+	{
+		"category": "Documentation",
+		"name": "Error Response Codes",
+		"slug": "X-error-response-codes"
+	},
+	{
+		"category": "Resources",
+		"name": "Events",
+		"slug": "X-events"
+	},
+	{
+		"category": "Communications",
+		"name": "Facebook",
+		"slug": "X-facebook"
+	},
+	{
+		"category": "Onboarding",
+		"name": "FAQ",
+		"slug": "X-faq"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Firefox Add-On",
+		"slug": "X-firefox-addon"
+	},
+	{
+		"category": "Self-Service Support",
+		"name": "Forum",
+		"slug": "X-forum"
+	},
+	{
+		"category": "Self-Service Support",
+		"name": "Forum RSS",
+		"slug": "X-forum-rss"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Getting Started",
+		"slug": "X-getting-started"
+	},
+	{
+		"category": "Code Management",
+		"name": "Github",
+		"slug": "X-github"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Github Authentication",
+		"slug": "X-github-authentication"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Github Authentication",
+		"slug": "X-github-authentication"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Google App Engine",
+		"slug": "X-google-app-engine"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Google Authentication",
+		"slug": "X-google-authentication"
+	},
+	{
+		"category": "Communications",
+		"name": "Google+",
+		"slug": "X-google"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Haskell LIbrary",
+		"slug": "X-haskell-library"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Heroku",
+		"slug": "X-heroku"
+	},
+	{
+		"category": "Resources",
+		"name": "How-to Guides",
+		"slug": "X-howto-guides"
+	},
+	{
+		"category": "Mobile Management",
+		"name": "HTML5",
+		"slug": "X-html5"
+	},
+	{
+		"category": "Research & Development",
+		"name": "Ideas",
+		"slug": "X-ideas"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "Integrations",
+		"slug": "X-integrations"
+	},
+	{
+		"category": "Documentation",
+		"name": "Interactive Documentation",
+		"slug": "X-interactive-documentation"
+	},
+	{
+		"category": "Resources",
+		"name": "Internationalization",
+		"slug": "X-internationalization"
+	},
+	{
+		"category": "Mobile Management",
+		"name": "iOS SDK",
+		"slug": "X-ios-sdk"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Java Library",
+		"slug": "X-java-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": "Java SDK",
+		"slug": "X-java-sdk"
+	},
+	{
+		"category": "Embeddable",
+		"name": "JavaScript API",
+		"slug": "X-javascript-api"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "JavaScript Library",
+		"slug": "X-javascript-library"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Joomla",
+		"slug": "X-joomla"
+	},
+	{
+		"category": "Authentication",
+		"name": "Key Access",
+		"slug": "X-key-access"
+	},
+	{
+		"category": "Self-Service Support",
+		"name": "Knowledgebase",
+		"slug": "X-knowledgebase"
+	},
+	{
+		"category": "Research & Development",
+		"name": "Labs",
+		"slug": "X-labs"
+	},
+	{
+		"category": "Communications",
+		"name": "LinkedIn",
+		"slug": "X-linkedin"
+	},
+	{
+		"category": "Documentation",
+		"name": "List of Endpoints",
+		"slug": "X-list-of-endpoints"
+	},
+	{
+		"category": "Service Provider",
+		"name": "Mashery",
+		"slug": "X-mashery"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Message Center",
+		"slug": "X-message-center"
+	},
+	{
+		"category": "Legal",
+		"name": "Monetization Guidelines",
+		"slug": "X-monetization-guidelines"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Node.js Library",
+		"slug": "X-nodejs-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": "Node.js SDK",
+		"slug": "X-nodejs-sdk"
+	},
+	{
+		"category": "Security",
+		"name": "oAuth",
+		"slug": "X-oauth"
+	},
+	{
+		"category": "Authentication",
+		"name": "oAuth",
+		"slug": "X-oauth"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "oAuth",
+		"slug": "X-oauth"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Office Hours",
+		"slug": "X-office-hours"
+	},
+	{
+		"category": "Code Management",
+		"name": "Open Source",
+		"slug": "X-open-source"
+	},
+	{
+		"category": "Research & Development",
+		"name": "Opportunities",
+		"slug": "X-opportunities"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Paid Support Plans",
+		"slug": "X-paid-support-plans"
+	},
+	{
+		"category": "Service Levels",
+		"name": "Partner Program",
+		"slug": "X-partner-program"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Perl LIbrary",
+		"slug": "X-perl-library"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Phone",
+		"slug": "X-phone"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "PHP Library",
+		"slug": "X-php-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": "PHP SDK",
+		"slug": "X-php-sdk"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Portal",
+		"slug": "X-portal"
+	},
+	{
+		"category": "Service Levels",
+		"name": "Pricing",
+		"slug": "X-pricing"
+	},
+	{
+		"category": "Legal",
+		"name": "Privacy Policy",
+		"slug": "X-privacy-policy"
+	},
+	{
+		"category": "Environment",
+		"name": "Production",
+		"slug": "X-production"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Python Library",
+		"slug": "X-python-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": "Python SDK",
+		"slug": "X-python-sdk"
+	},
+	{
+		"category": "Rate Limits",
+		"name": "Rate Limit Information Inline In Docs",
+		"slug": "X-rate-limit-information-inline-in-docs"
+	},
+	{
+		"category": "Rate Limits",
+		"name": "Rate Limits Page",
+		"slug": "X-rate-limits-page"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Reset Password",
+		"slug": "X-reset-password"
+	},
+	{
+		"category": "Updates",
+		"name": "Roadmap",
+		"slug": "X-roadmap"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Ruby Library",
+		"slug": "X-ruby-library"
+	},
+	{
+		"category": "Code - Software Development Kits (SDK)",
+		"name": "Ruby SDK",
+		"slug": "X-ruby-sdk"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "SalesForce",
+		"slug": "X-salesforce"
+	},
+	{
+		"category": "Environment",
+		"name": "Sandbox",
+		"slug": "X-sandbox"
+	},
+	{
+		"category": "Code - Libraries",
+		"name": "Scala Library",
+		"slug": "X-scala-library"
+	},
+	{
+		"category": "Security",
+		"name": "Security Overview",
+		"slug": "X-security-overview"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Self-Service Registration",
+		"slug": "X-selfservice-registration"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Service Accord",
+		"slug": "X-service-accord"
+	},
+	{
+		"category": "Legal",
+		"name": "Service Level Agreement",
+		"slug": "X-service-level-agreement"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Service Tier Management",
+		"slug": "X-service-tier-management"
+	},
+	{
+		"category": "Service Levels",
+		"name": "Service Tiers",
+		"slug": "X-service-tiers"
+	},
+	{
+		"category": "Onboarding",
+		"name": "Sign Up Email",
+		"slug": "X-sign-up-email"
+	},
+	{
+		"category": "Environment",
+		"name": "Simulator",
+		"slug": "X-simulator"
+	},
+	{
+		"category": "Resources",
+		"name": "Slideshare",
+		"slug": "X-slideshare"
+	},
+	{
+		"category": "Security",
+		"name": "SSL",
+		"slug": "X-ssl"
+	},
+	{
+		"category": "Self-Service Support",
+		"name": "Stack Overflow",
+		"slug": "X-stack-overflow"
+	},
+	{
+		"category": "Code Management",
+		"name": "Starter Projects",
+		"slug": "X-starter-projects"
+	},
+	{
+		"category": "Updates",
+		"name": "Status Dashboard",
+		"slug": "X-status-dashboard"
+	},
+	{
+		"category": "Updates",
+		"name": "Status RSS",
+		"slug": "X-status-rss"
+	},
+	{
+		"category": "Legal",
+		"name": "Terms of Service",
+		"slug": "X-terms-of-service"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "Terms of Service",
+		"slug": "X-terms-of-service"
+	},
+	{
+		"category": "Direct Support",
+		"name": "Ticket System",
+		"slug": "X-ticket-system"
+	},
+	{
+		"category": "Communications",
+		"name": "Twitter",
+		"slug": "X-twitter"
+	},
+	{
+		"category": "Developer Account",
+		"name": "Usage Logs & Analytics",
+		"slug": "X-usage-logs--analytics"
+	},
+	{
+		"category": "Resources",
+		"name": "Videos",
+		"slug": "X-videos"
+	},
+	{
+		"category": "Resources",
+		"name": "Webinars",
+		"slug": "X-webinars"
+	},
+	{
+		"category": "Resources",
+		"name": "White Papers",
+		"slug": "X-white-papers"
+	},
+	{
+		"category": "Embeddable",
+		"name": "Widget Builder",
+		"slug": "X-widget-builder"
+	},
+	{
+		"category": "Embeddable",
+		"name": "Widgets",
+		"slug": "X-widgets"
+	},
+	{
+		"category": "Code - Platform Development Kits (PDK)",
+		"name": "Wordpress",
+		"slug": "X-wordpress"
+	},
+	{
+		"category": "Reciprocity",
+		"name": "Zapier",
+		"slug": "X-zapier"
+	}
+]
