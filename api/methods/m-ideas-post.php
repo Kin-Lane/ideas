@@ -32,7 +32,7 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$repo){
 		$id = md5($name . date("m-d-y"));
 
 		$A = array();
-		$A['id'] = $id;
+		$A['idea_id'] = $idea_id;
 		$A['name'] = $name;
 		$A['description'] = $description;
 		$A['tags'] = $tags;
@@ -41,7 +41,7 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$repo){
 
 		$ReturnObject['updated'] = date('m/d/Y');
 
-		$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/ideas/gh-pages/data/ideas.json');
+		$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/idea/gh-pages/data/ideas.json');
 		$ObjectResult = json_decode($ObjectText,true);
 
 		array_push($ObjectResult['ideas'], $A);
@@ -58,7 +58,7 @@ $app->post($route, function () use ($app,$three_scale_provider_key,$repo){
 
 		try
 			{
-			$repo->commit('ideas.api.apievangelist.com/v1/ideas', true);
+			$repo->commit('ideas.api.apievangelist.com/ideas', true);
 			$repo->push();
 			}
 		catch (Exception $e)

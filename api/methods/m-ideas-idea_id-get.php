@@ -1,8 +1,8 @@
 <?php
-$route = '/ideas/:id';
-$app->get($route, function ($IncomingID)  use ($app){
+$route = '/ideas/:incoming_id';
+$app->get($route, function ($incoming_id)  use ($app){
 
-	$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/ideas/gh-pages/data/ideas.json');
+	$ObjectText = file_get_contents('https://raw2.github.com/Kin-Lane/idea/gh-pages/data/ideas.json');
 	$ObjectResult = json_decode($ObjectText,true);
 	$ReturnObject = array();
 
@@ -10,12 +10,12 @@ $app->get($route, function ($IncomingID)  use ($app){
 
 		$IncludeRecord = 0;
 
-		$id = $Object['id'];
+		$idea_id = $Object['idea_id'];
 		$name = $Object['name'];
 		$description = $Object['description'];
 		$tags = $Object['tags'];
 
-		if($IncomingID==$id)
+		if($incoming_id==$idea_id)
 			{
 			$IncludeRecord=1;
 			}
@@ -23,7 +23,7 @@ $app->get($route, function ($IncomingID)  use ($app){
 		if($IncludeRecord==1)
 			{
 			$F = array();
-			$F['id'] = $id;
+			$F['idea_id'] = $idea_id;
 			$F['name'] = $name;
 			$F['description'] = $description;
 			$F['tags'] = $tags;
