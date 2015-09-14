@@ -1,34 +1,55 @@
 <?php
-$route = '/ideas/:incoming_id';
-$app->get($route, function ($incoming_id)  use ($app,$githuborg,$githubrepo){
+$route = '/idea/:idea_id/';
+$app->get($route, function ($idea_id)  use ($app){
 
-	$ObjectText = file_get_contents('https://raw.githubusercontent.com/' . $githuborg . '/' . $githubrepo . '/gh-pages/data/ideas.json');
-	$ObjectResult = json_decode($ObjectText,true);
+	$host = $_SERVER['HTTP_HOST'];
+	$idea_id = prepareIdIn($idea_id,$host);
+
 	$ReturnObject = array();
+		
+	$Query = "SELECT * FROM idea WHERE idea_id = " . $idea_id;
 
-	foreach($ObjectResult['ideas'] as $Object){
+	$DatabaseResult = mysql_query($Query) or die('Query failed: ' . mysql_error());
 
-		$IncludeRecord = 0;
+	while ($Database = mysql_fetch_assoc($DatabaseResult))
+		{
 
-		$idea_id = $Object['idea_id'];
-		$name = $Object['name'];
-		$description = $Object['description'];
-		$tags = $Object['tags'];
+		$idea_id = $Database['idea_id'];
+		$name = $Database['name'];
+		$description = $Database['description'];
 
-		if($incoming_id==$idea_id)
+		$TagQuery = "SELECT t.tag_id, t.tag from tags t";
+		$TagQuery .= " INNER JOIN idea_tag_pivot btp ON t.tag_id = btp.tag_id";
+		$TagQuery .= " WHERE btp.Idea_ID = " . $idea_id;
+		$TagQuery .= " ORDER BY t.tag DESC";
+		$TagResult = mysql_query($TagQuery) or die('Query failed: ' . mysql_error());
+
+		// manipulation zone
+		$host = $_SERVER['HTTP_HOST'];
+		$idea_id = prepareIdOut($idea_id,$host);
+
+		$F = array();
+		$F['idea_id'] = $idea_id;
+		$F['name'] = $name;
+		$F['description'] = $description;
+
+		$F['tags'] = array();
+
+		while ($Tag = mysql_fetch_assoc($TagResult))
 			{
-			$IncludeRecord=1;
+			$thistag = $Tag['tag'];
+
+			$T = array();
+			$T = $thistag;
+			array_push($F['tags'], $T);
+			//echo $thistag . "<br />";
+			if($thistag=='Archive')
+				{
+				$archive = 1;
+				}
 			}
 
-		if($IncludeRecord==1)
-			{
-			$F = array();
-			$F['idea_id'] = $idea_id;
-			$F['name'] = $name;
-			$F['description'] = $description;
-			$F['tags'] = $tags;
-			array_push($ReturnObject, $F);
-			}
+		$ReturnObject = $F;
 		}
 
 		$app->response()->header("Content-Type", "application/json");
