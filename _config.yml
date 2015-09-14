@@ -8,7 +8,7 @@ markdown:     rdiscount
 permalink:    pretty
 pygments:     true
 
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
 paginate: 50
@@ -22,6 +22,6 @@ categories_path : /categories.html
 tags_path : /tags.html
 
 org: Kin-Lane
-repo: ideas
+repo: idea
 resource: Ideas
 oauthio: qUDL4eZqKPFb41SwuWIYIwLR6jI
