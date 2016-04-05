@@ -6,120 +6,95 @@
   <body>
 
     <header class="masthead">
-
-      <script type="text/javascript">
-      	// Do we have a token?
-    	var $oAuth_Token = getUrlVar('oAuth_Token');
-
-		var $org = '{{ site.org }}';
-		var $repo = '{{ site.repo }}';
-		var $oauthio = '{{ site.oauthio }}';
-
-      </script>
-
       <div class="masthead-inner" align="center">
-		<h2>{" {{ site.title }} "}</h2>
-    	<a href="http://bit.ly/1cHBhd5" target="_blank">
-    		<img src="https://s3.amazonaws.com/kinlane-productions/api-evangelist/3scale/Winning-in-the-API-Economy-eBook-3scale.png" width="35%" style="border: 1px solid #FFF; margin-bottom: 25px;" />
-    	</a>
+
+        <!-- Masthead Title -->
+        <h2><a href="{{ site.masthead_link }}" style="font-size: {{ site.masthead_font_size }}%;">{{ site.masthead_title }}</a></h2>
+
+        <!-- Feature -->
+        <a href="{{ site.feature_link }}" target="_blank">
+          <img src="{{ site.feature_image_source }}" width="{{ site.feature_image_width }}%" style="border: 1px solid #FFF;" title="{{ site.feature_title }}" />
+        </a>
+
         <div class="colophon">
           <ul class="colophon-links">
-            <li>
-              <a href="/api/index.html" id="home-nav">Home</a>
+            {% for nav in site.navigation %}
+            <li style="padding-top:{{ nav.padding }}px">
+              <a href="{{ nav.link1 }}" style="font-size: {{ nav.size1 }}%;">
+                {% if nav.decorate == 1 %} <span style="font-size: {{ nav.size1 }}">&#8668;</span>{% endif %}
+                {{ nav.label1 }}
+                {% if nav.decorate == 2 %} <span style="font-size: {{ nav.size1 }}">&#8669;</span>{% endif %}
+              </a>
+              {% if nav.extend == 1 %} <span style="font-size: {{ nav.size2 }}%;">(<a href="{{ site.url }}{{ nav.link2 }}">{{ nav.label2 }}</a>)</span>{% endif %}
             </li>
-            <li>
-              <a href="/api/editor-resource.html" id="resource-editor-nav" style="display: none;">{{ site.resource }}</a>
-            </li>
-            <li>
-              <a href="/api/editor-questions.html" id="questions-editor-nav">Questions</a>
-            </li>
-            <li>
-              <a href="/api/editor-keys.html" id="keys-editor-nav" style="display: none;">Keys</a>
-            </li>
-            <li>
-              <a href="/api/editor-config.html" id="config-editor-nav" style="display: none;">Config</a>
-            </li>
-            <li>
-              <a href="/api/editor-apis-json.html" id="apis-json-editor-nav" style="display: none;">APIs.json</a>
-            </li>
-            <li style="padding-top: 15px;">
-              <a href="http://apievangelist.com"><< Return to API Evangelist</a>
-            </li>
-            <li>
-              <a href="https://kin-lane.github.io/master/" id="master-nav">Return to Master >></a>
-            </li>
+            {% endfor %}
           </ul>
         </div>
 
+        <!-- Sponsorship -->
         <script id="parterListingTemplate" type="text/template">
             {% raw  %}
-            <a href="{{url}}" target="_blank" title="{{title}}">
-           		<img src="{{logo}}" width="{{width}}" style="padding: 4px;" />
+            <a href="{{ site.repo }}/{{url}}" target="_blank" title="{{title}}">
+           		<img src="{{logo}}" width="{{width}}" style="padding: 2px;" />
             </a>
             {% endraw %}
         </script>
-
         <script type="text/javascript">
-        function listSponsors()
-            {
-            $.getJSON('https://s3.amazonaws.com/kinlane-productions/json/sponsors.json', function(data) {
+        function listSponsors(){
+            $.getJSON('{{ site.sponsors_json_url }}', function(data) {
                 $.each(data['sponsors'], function(key, val) {
                 var template = $('#parterListingTemplate').html();
                 var html = Mustache.to_html(template, val);
                 $('#partnerListingContainer').append(html);
                 });
             });
-        	}
+          }
         </script>
-
-        <div id="partnerListingContainer" align="center" style="background-color:#FFF; margin-top: 45px; padding-top: 10px; width: 60%; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 3px solid #FFFFFF; margin-bottom: 7px;">
-
-		</div>
-
-        <script type="text/javascript">
-            listSponsors();
-        </script>
+        <div id="partnerListingContainer" align="center" style="background-color:#FFF; margin-top: {{ site.sponsors_margin_top }}px; padding-top: {{ site.sponsors_padding_top }}px; width: 60%; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 3px solid #FFFFFF; margin-bottom: 2px;"></div>
+        <script type="text/javascript">listSponsors();</script>
+        <!-- Sponsorship -->
 
       </div>
     </header>
 
     <div class="content uicontainer">
 
-    	<p align="center">
-    		<a href="http://apievangelist.com">
-    			<img src="https://kinlane-productions.s3.amazonaws.com/api-evangelist/api-evangelist-logo-400.png" align="center" width="60%" style="padding-bottom: 10px;" />
+      <p align="center"><a href="{{ site.url }}"><img src="{{ site.logo }}" align="center" width="{{ site.logo_width }}%" style="padding-bottom: {{ site.logo_bottom_padding }}px;" /></a></p>
+
+      {{ content }}
+
+      <center><hr style="padding: 5px 5px 5px 5px; margin: 20px 5px 5px 5px; width: 85%;" /></center>
+  		<!-- 3scale -->
+  		<p align="center">
+    		<a href="http://apis.how/ake3nxbapm" target="_blank" title="API Infrastructure From 3Scale">
+    		    <img src="https://s3.amazonaws.com/kinlane-productions/api-service-providers/3Scale/empowered-by-3scale.png" width="300" style="" />
     		</a>
-    	</p>
+  		</p>
+  		<!-- 3scale -->
 
-      	{{ content }}
+      <div class="footer">
+        <ul>
+          {% for nav in site.footernavigation %}
+            <li><a href="{{ nav.link }}">{{ nav.label }}</a></li>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
 
-        {% if page.title != 'Status' %}
-          {% if page.title != 'Code' %}
-				      <br />
-				      <!-- 3scale -->
-				      <p align="center">
-				      <a href="http://3scale.net" target="_blank" title="APIs From 3Scale">
-				      <img src="https://s3.amazonaws.com/kinlane-productions/api-service-providers/3Scale/empowered-by-3scale.png" width="300" style="padding-bottom: 25px;" />
-				      </a>
-				      </p>
-				      <!-- 3scale -->
-          {% endif %}
-	      {% endif %}
+  </div>
 
-	     <div class="footer">
-		    <ul>
-		    	<li><a href="/">API 101</a></li>
-		    	<li><a href="/resource/">Resource</a></li>
-		    	<li><a href="/network">Network</a></li>
-		    	<li><a href="http://apicommons.org">API Commons</a></li>
-		    	<li><a href="http://apisjson.org">APIs.json</a></li>
-		    	<li><a href="http://kinlane.com/">Kin Lane</a></li>
-		    	<li><a href="/branding-guidelines.html">Branding Guidelines</a></li>
-		    	<li><a href="http://kinlane.com/contact/">Contact</a></li>
-		    </ul>
-		</div>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-1119465-51']);
+	  _gaq.push(['_setDomainName', 'apievangelist.com']);
+	  _gaq.push(['_trackPageview']);
 
-    </div>
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
 
 	<!-- Google Code for API Evangelist visitors -->
 	<script type="text/javascript">
@@ -134,21 +109,10 @@
 	</script>
 	<noscript>
 	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/964245031/?value=1.000000&amp;label=U2foCJGT0wkQp-zkywM&amp;guid=ON&amp;script=0"/>
+	   <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/964245031/?value=1.000000&amp;label=U2foCJGT0wkQp-zkywM&amp;guid=ON&amp;script=0"/>
 	</div>
 	</noscript>
 
-	<script src="https://{{ site.org }}.github.io/master/js/editor-apis-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/navigator-apis-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/editor-swagger-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/editor-config-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/editor-keys-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/editor-question-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/master/js/master-code-from-apis-json.js" type="text/javascript"></script>
-
-	<script src="https://{{ site.org }}.github.io/{{ site.repo }}/js/editor-resource-json.js" type="text/javascript"></script>
-	<script src="https://{{ site.org }}.github.io/{{ site.repo }}/js/load.js" type="text/javascript"></script>
-
-</body>
+  </body>
 
 </html>

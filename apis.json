@@ -1,22 +1,20 @@
 [{
-	"name": "Kin Lane Ideas API",
-	"description": "I have a lot of ideas for new APIs and I needed them to stop filling up my Evernote, so I created an API that I can ping with new ideas. Like all my APIs, the API ideas API (deep), is open for anyone to use, submit their own ideas as well as pull ideas for their own use.&nbsp;",
-	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-light-bulb-bright.png",
+	"name": "Curated API",
+	"description": "As I look through the thousands of tweets, blog posts, and other items I read from across the API space, I curate them as part of my regular research. I put them into each research bucket, and make them availble via each reserch project. You can access via this API, and use in real-time as I curate and manage each week.",
+	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-abundance.png",
 	"x-open-ranking": "0",
-	"tags": ["Kin Lane Ideas API",
-	"API-Ideas"],
+	"tags": ["Kin Lane Curated APi"],
 	"created": "2016-04-04",
 	"modified": "2016-04-04",
-	"url": "http://kin-lane.github.io/ideas/"
+	"url": "https://kin-lane.github.io/curated/"
 	"specificationVersion": "0.14",
 	"apis": [{
-		"name": "Kin Lane Ideas API",
-		"description": "This is my master org.",
+		"name": "Kin Lane Curated",
+		"description": "<p>As I look through the thousands of tweets, blog posts, and other items I read from across the API space, I curate them as part of my regular research. I put them into each research bucket, and make them availble via each reserch project. You can access via this API, and use in real-time as I curate and manage each week.</p>",
 		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png",
-		"humanURL": "",
-		"baseURL": "",
-		"tags": ["Kin Lane Ideas API",
-		"API-Ideas"],
+		"humanURL": "https://kin-lane.github.io/curated/",
+		"baseURL": "https://kin-lane.github.io/curated/",
+		"tags": ["Kin Lane Curated APi"],
 		"properties": [{
 			"type": "x-openapi-spec",
 			"url": "api-commons/openapi-spec.json"
@@ -112,7 +110,7 @@
 	}],
 	"include": [{
 		"name": "Parent",
-		"url": "http://kin-lane.github.io/ideas//apis.yaml"
+		"url": "https://kin-lane.github.io/curated//apis.yaml"
 	}],
 	"maintainers": [{
 		"FN": "Kin Lane",
