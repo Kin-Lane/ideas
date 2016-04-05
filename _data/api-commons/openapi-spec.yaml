@@ -1,0 +1,102 @@
+- swagger: "2.0"
+  info:
+    title: Ideas
+    description: This is my ideas API for storing al the ideas for new APIs that should
+      be.
+    termsOfService: http://kinlane.com/terms-of-service.html
+    version: ~
+  host: ideas.api.kinlane.com
+  basePath: /
+  schemes:
+  - http
+  produces:
+  - application/json
+  consumes:
+  - application/json
+  paths:
+    /idea/{idea_id}/:
+      get:
+        summary: retrieve idea
+        description: retrieve idea
+        operationId: getIdea
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the blog
+        - in: query
+          name: appkey
+          description: your appkey for accessing the blog
+        - in: path
+          name: idea_id
+          description: the unique id for idea
+        responses:
+          200:
+            description: OK
+        tags:
+        - Ideas
+        security: []
+    /ideas/:
+      get:
+        summary: get ideas
+        description: get ideas
+        operationId: getIdeas
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the API
+        - in: query
+          name: appkey
+          description: your appkey for accessing the API
+        - in: query
+          name: query
+          description: the query to search for ideas
+        responses:
+          200:
+            description: OK
+        tags:
+        - Ideas
+        security: []
+      post:
+        summary: add an idea
+        description: add an idea
+        operationId: addIdea
+        parameters:
+        - in: query
+          name: appid
+          description: your appid for accessing the api
+        - in: query
+          name: appkey
+          description: your appkey for accessing the api
+        - in: query
+          name: description
+          description: description of the idea
+        - in: query
+          name: name
+          description: name of the idea
+        - in: query
+          name: tags
+          description: tags for the idea
+        responses:
+          200:
+            description: OK
+        tags:
+        - Ideas
+        security: []
+  definitions:
+    idea:
+      properties:
+        idea_id:
+          description: This is a default description.
+          type: get
+        name:
+          description: This is a default description.
+          type: get
+        description:
+          description: This is a default description.
+          type: get
+        tags:
+          description: This is a default description.
+          type: get
+        inputs:
+          description: This is a default description.
+          type: get
