@@ -4,11 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 require_once('config.php');
-require_once('../Slim/Slim.php');
-require_once('../3scale/ThreeScaleClient.php');
-require_once('../client/GitHubClient.php');
-require_once('../parse/index.php');
-require_once('../libraries/common.php');
+
+require_once('../../master/libraries/common.php');
+require_once('../../master/libraries/proper_nouns.php');
+
+require_once('../../master/Slim/Slim.php');
+require_once('../../master/3scale/ThreeScaleClient.php');
+require_once('../../master/client/GitHubClient.php');
+require_once('../../master/parse/index.php');
+
 require_once('/var/www/html/system/class-amazon-s3.php');
 
 $gclient = new GitHubClient();
