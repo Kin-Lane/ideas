@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "Ideas API",
   "description": "I am always having ideas for new APIs, and APIs I'd like to see from API designs. This is my API for recording those ideas so that I have somewhere to go and look through, when I have the time and I am looking for inspiration. I'd like to encourage other folks to add as well, but haven't had the time -- more work to come.",
@@ -128,3 +129,127 @@
     }
   ]
 }
+=======
+[{
+	"name": "Kin Lane Ideas API",
+	"description": "I have a lot of ideas for new APIs and I needed them to stop filling up my Evernote, so I created an API that I can ping with new ideas. Like all my APIs, the API ideas API (deep), is open for anyone to use, submit their own ideas as well as pull ideas for their own use.&nbsp;",
+	"image": "https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-light-bulb-bright.png",
+	"x-open-ranking": "0",
+	"tags": ["Kin Lane Ideas API",
+	"API-Ideas"],
+	"created": "2016-04-08",
+	"modified": "2016-04-08",
+	"url": "http://kin-lane.github.io/ideas/"
+	"specificationVersion": "0.14",
+	"apis": [{
+		"name": "Kin Lane Ideas API",
+		"description": "This is my master org.",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/kin.png",
+		"humanURL": "",
+		"baseURL": "http://api.kinlane.com",
+		"tags": ["Kin Lane Ideas API",
+		"API-Ideas"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/openapi-spec.json"
+		}]
+	}],
+	"x-common": [{
+		"type": "x-blog-rss-feed",
+		"url": "http://www.talkwalker.com/alerts/rss/NG2GCZBIIN4ULOCFJRSUK6EIY2AZLCE2YTABNE6EHW4OAA2B53FA%3D%3D%3D%3D"
+	},
+	{
+		"type": "x-authentication-overview",
+		"url": "authentication/"
+	},
+	{
+		"type": "x-base-url-for-api",
+		"url": "http://api.kinlane.com"
+	},
+	{
+		"type": "x-blog",
+		"url": "blog/"
+	},
+	{
+		"type": "x-blog-rss-feed",
+		"url": "blog.xml"
+	},
+	{
+		"type": "x-change-log",
+		"url": "change-log/"
+	},
+	{
+		"type": "x-portal",
+		"url": "https://kin-lane.github.io"
+	},
+	{
+		"type": "x-documentation",
+		"url": "documentation/"
+	},
+	{
+		"type": "x-faq",
+		"url": "frequently-asked-questions/"
+	},
+	{
+		"type": "x-getting-started",
+		"url": "getting-started/"
+	},
+	{
+		"type": "x-github",
+		"url": "https://github.com/kinlane"
+	},
+	{
+		"type": "x-issues",
+		"url": "issues/"
+	},
+	{
+		"type": "x-login",
+		"url": "https://apievangelist.3scale.net/login"
+	},
+	{
+		"type": "x-dedicated-plans--pricing-page",
+		"url": "plans/"
+	},
+	{
+		"type": "x-privacy-policy-page",
+		"url": "privacy-policy/"
+	},
+	{
+		"type": "x-road-map",
+		"url": "road-map/"
+	},
+	{
+		"type": "x-selfservice-registration",
+		"url": "https://apievangelist.3scale.net/signup"
+	},
+	{
+		"type": "x-status-dashboard",
+		"url": "status/"
+	},
+	{
+		"type": "x-support-overview-page",
+		"url": "support/"
+	},
+	{
+		"type": "x-terms-of-service-page",
+		"url": "terms-of-service/"
+	},
+	{
+		"type": "x-twitter",
+		"url": "https://twitter.com/kinlane"
+	},
+	{
+		"type": "x-api-plan",
+		"url": "api-commons/api-plan.json"
+	}],
+	"include": [{
+		"name": "Parent",
+		"url": "http://kin-lane.github.io/ideas//apis.yaml"
+	}],
+	"maintainers": [{
+		"FN": "Kin Lane",
+		"x-twitter": "apievangelist",
+		"email": "info@apievangelist.com"
+	}]
+}]
+>>>>>>> origin/gh-pages
