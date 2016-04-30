@@ -92,7 +92,7 @@ navigation:
     link2:
     size2: 10
     padding: 10
-    decorate: 2    
+    decorate: 2
   - label1: Return to API Evangelist
     link1: http://apievangelist.com
     size1: 80
